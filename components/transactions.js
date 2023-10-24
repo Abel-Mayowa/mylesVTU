@@ -1,0 +1,93 @@
+import React from 'react';
+import {
+  Flex,
+  Box,
+  Heading,
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  Tag,
+  ChakraProvider,
+  Center,
+  Text,
+  useMediaQuery,
+} from '@chakra-ui/react';
+import { useRecoilValue } from 'recoil';
+import { userData } from '../components/recoil';
+
+const Transactions = () => {
+  const data = useRecoilValue(userData);
+  const transacs = data.profile['transactions'];
+  const [isDesktop] = useMediaQuery('(min-width: 768px)');
+
+  return (
+    <ChakraProvider>
+      <Flex
+        mt={8}
+        as={isDesktop ? 'center' : ''}
+        justifyContent="center"
+        alignItems="center"
+        flexDirection={isDesktop ? 'row' : 'column'}
+      >
+        <Heading as="h4" size="sm">
+          Transaction History
+        </Heading>
+      </Flex>
+      <Box
+        p={4}
+        borderRadius="lg"
+        boxShadow="lg"
+        bg="white"
+        maxH="400px"
+        overflowY="scroll"
+        marginTop={10}
+        marginBottom={100}
+        ml={isDesktop ? '150px' : ''}
+        mr={isDesktop ? '150px' : ''}
+        minW={isDesktop ? '500px' : ''}
+      >
+        <Table variant="striped" colorScheme="gray" size="sm">
+          <Thead>
+            <Tr>
+              <Th>S/N</Th>
+              <Th>Transaction ID</Th>
+              <Th>Description</Th>
+              <Th>Amount(₦)</Th>
+              <Th>Order</Th>
+              <Th>Status</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            {transacs.length >= 1 &&
+              transacs.map((item, index) => (
+                <Tr key={index}>
+                  <Td>{index + 1}</Td>
+                  <Td>{item.tid}</Td>
+                  <Td>{item.details}</Td>
+                  <Td>{item.amount}</Td>
+                  <Td>{item.date}</Td>
+                  <Td>
+                    <Tag size="sm" variant="solid" colorScheme="green">
+                      Success
+                    </Tag>
+                  </Td>
+                </Tr>
+              ))}
+          </Tbody>
+        </Table>
+        {transacs.length < 1 && (
+          <Center m={3}>
+            <Text textAlign="center" color="#657ce0">
+              No transactions have been made
+            </Text>
+          </Center>
+        )}
+      </Box>
+    </ChakraProvider>
+  );
+};
+
+export default Transactions;
