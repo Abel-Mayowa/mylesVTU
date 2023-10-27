@@ -1,4 +1,4 @@
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Box,
   Center,
@@ -7,55 +7,43 @@ import {
   Heading,
   Text,
   ChakraProvider,
-  Image, // Import Image component
-  Link,
+  Image, // Import Link component
 } from '@chakra-ui/react';
 import $ from 'jquery';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router';
-import{useRecoilValue,useSetRecoilState} from "recoil";
-import{csrfToken} from "../components/recoil";
-
-
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { csrfToken } from '../components/recoil';
+import Link from "next/link";
 
 export default function ForgotPassword() {
-  
   const [email, setEmail] = useState('');
   const [btnLoading, setBtnLoading] = useState(false);
-
-const csrf = useRecoilValue(csrfToken);
-  
+  const router = useRouter();
+  const csrf = useRecoilValue(csrfToken);
   const setCsrf = useSetRecoilState(csrfToken);
 
-  const router = useRouter();
-
   useEffect(() => {
-    
+    if (csrf === '') {
+      const url = 'https://mtstorez.000webhostapp.com/app/store/welcome';
 
-if(csrf === ""){
+      $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        crossDomain: true,
+        success: function (r) {
+          setCsrf(r.token);
+        },
+        error: function () {
+          showAlert('Server is down', 'warning');
+          setBtnLoading(false);
+        },
+      });
+    }
+  }, [csrf, setCsrf]);
 
-const url = 'https://mtstorez.000webhostapp.com/app/store/welcome';
-
-    $.ajax({
-      url: url,
-      type: 'get',
-      dataType: 'json',
-      crossDomain: true,
-      success: function (r, status, xhr) {
-       // setBtnLoading(false);
-        //setLogged(r.data.isLogged);
-        setCsrf(r.token);
-
-      },
-      error: function () {
-        showAlert("Server is down","warning");
-        setBtnLoading(false);
-      },
-    });
-}
-  },[csrf,setCsrf])
-  
   const showAlert = (message, type) => {
     toast[type](` ${message}`, {
       position: 'top-center',
@@ -70,8 +58,6 @@ const url = 'https://mtstorez.000webhostapp.com/app/store/welcome';
     setBtnLoading(false);
   };
 
-  //const router = useRouter();
-
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -84,58 +70,41 @@ const url = 'https://mtstorez.000webhostapp.com/app/store/welcome';
       setBtnLoading(false);
       return;
     }
-    
-    //alert(csrf)
-    
+
     const input = {
+      csrf: csrf,
+      email: email,
+    };
 
-        csrf:csrf,
-      email:email
-    }
+    const url = 'https://mtstorez.000webhostapp.com/app/store/reset_password';
 
-     const url =" https://mtstorez.000webhostapp.com/app/store/reset_password";  
-alert(input.csrf);
-       $.ajax({
-
-      url:url,
-      method:'post',
-      dataType:'json',
-      data:input,
-      success: function(r){
-
-    if( r.status === 1 ){
-
-    //props.setIsLogged(true)
-    //setOpenReset(false);
-    showAlert("Your password has been reset. Open your email and follow the instructions.","success");
-    setCsrf(r.data.token);
-    }
-
-    else{
-
-    showAlert("Your request was not successful. Ensure that you have entered the right email","error")
-      console.log(r)
-      setCsrf(r.data.token);
-    }
+    $.ajax({
+      url: url,
+      method: 'post',
+      dataType: 'json',
+      data: input,
+      success: function (r) {
+        if (r.status === 1) {
+          showAlert(
+            'Your password has been reset. Open your email and follow the instructions.',
+            'success'
+          );
+          setCsrf(r.data.token);
+        } else {
+          showAlert('Your request was not successful. Ensure that you have entered the right email', 'error');
+          setCsrf(r.data.token);
+        }
         setBtnLoading(false);
-
-    
-
       },
-      error:function(a){
-    //console.log(a)
-        setBtnLoading(false)
-
-      }
-
-    })//ajax end
-
+      error: function (a) {
+        setBtnLoading(false);
+      },
+    });
   };
 
   return (
     <ChakraProvider>
       <ToastContainer />
-
       <Center h={{ md: '100vh' }}>
         <Box
           bgColor="white"
@@ -146,7 +115,8 @@ alert(input.csrf);
           w="100%"
           textAlign="center"
         >
-          <Image        src="https://img.freepik.com/premium-vector/digital-interpreter-flat-style-design-vector-illustration-stock-illustration_357500-664.jpg" 
+          <Image
+            src="https://img.freepik.com/premium-vector/digital-interpreter-flat-style-design-vector-illustration-stock-illustration_357500-664.jpg"
             alt="Image Alt Text"
           />
           <Heading as="h3" size="lg" mb={2}>

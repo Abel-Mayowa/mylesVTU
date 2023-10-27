@@ -1,41 +1,40 @@
-import {Image} from "@chakra-ui/react"
+import { Image } from "@chakra-ui/react";
 import { Swiper, SwiperSlide } from 'swiper/react';
+//import 'swiper/css';
+//import { SwiperCore, Autoplay } from 'swiper';
+import { AutoPlay,EffectCube } from 'swiper/modules';
 import 'swiper/css';
-import {SwiperCore,Autoplay} from 'swiper';
-
-SwiperCore.use([Autoplay]);
-
+import 'swiper/css/autoplay';
+import 'swiper/css/effect-cube';
 
 
-export default function Adverts(){
-
-
-const images = [
-  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToTKK4-ja1SZ-cmxoYmVvKzXMdhA2Gb6CHRg&usqp=CAU;',
-  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaHSgvHNaAzXN5AQzAYR-PgZpoPnJAjwWDWA&usqp=CAU',
-  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcBfrr3EXfA1KQhBMLImnDWpi2SpUFJENItg&usqp=CAU',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY1mGdzcBKqEJRgYgxr4O2Rgq14aNiBhkMJQ&usqp=CAU",
-];
+export default function Adverts() {
+  const images = [
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToTKK4-ja1SZ-cmxoYmVvKzXMdhA2Gb6CHRg&usqp=CAU',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaHSgvHNaAzXN5AQzAYR-PgZpoPnJAjwWDWA&usqp=CAU',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcBfrr3EXfA1KQhBMLImnDWpi2SpUFJENItg&usqp=CAU',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY1mGdzcBKqEJRgYgxr4O2Rgq14aNiBhkMJQ&usqp=CAU',
+  ];
 
   return (
-
     <div className="spaceTop">
-    <Swiper 
-      spaceBetween={3}
-      slidesPerView={2}
-      navigation
-      pagination={{ clickable: true }}
-      effect="fade"
-      autoplay={{delay:1500}}
-    loop>
-
-      {images.map((image, index) => (
-        <SwiperSlide key={index}>
-
-          <Image src={image} alt={`Image ${index + 1}`} />
-
-        </SwiperSlide>
-      ))}
-    </Swiper>
-      </div>
-  )
-};
+        <Swiper
+          // install Swiper modules
+          modules={[AutoPlay ,EffectCube]}
+          spaceBetween={50}
+          slidesPerView={3}
+          navigation
+          pagination={{ clickable: true }}
+          scrollbar={{ draggable: true }}
+          autoPlay={1200}
+          effect="slide"
+          >
+        {images.map((image, index) => (
+          <SwiperSlide key={index}>
+            <Image src={image} alt={`Image ${index + 1}`} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
+}
