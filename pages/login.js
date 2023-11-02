@@ -21,6 +21,9 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 import { csrfToken, loginStatus, userData } from "../components/recoil";
+import Transition from "../components/transition";
+
+
 
 export default function Login() {
   const [input, setInput] = useState({});
@@ -28,7 +31,8 @@ export default function Login() {
   const [csrf, setCsrf] = useRecoilState(csrfToken);
   const [isLogged, setLogged] = useRecoilState(loginStatus);
   const [data, setData] = useRecoilState(userData);
-
+const[spin,setSpin] = useState(true);
+  
   const router = useRouter();
 
   useEffect(() => {
@@ -51,6 +55,21 @@ export default function Login() {
     });
   }, [setLogged, setCsrf]);
 
+
+  useEffect(()=>{
+
+   const spin = setTimeout(()=>{
+     setSpin(false);
+    // router.push("/dashboard");
+   },2000);
+    
+   return ()=>{
+     clearTimeout(spin)
+   }
+    
+  },[setSpin]);
+
+  
   const showAlert = (message, type) => {
     toast[type](`⚡ ${message}`, {
       position: 'top-center',
@@ -105,11 +124,18 @@ export default function Login() {
     });
   };
 
-  const openRegister = () => {
+  /*const openRegister = () => {
     showAlert("We are now taking you to the registration page", "info");
   };
+*/
 
+  
   return (
+    <>
+    
+      { spin ? (<Transition/>) :
+
+      (
     <ChakraProvider>
       <Center h="100vh">
         <Box
@@ -192,5 +218,8 @@ export default function Login() {
         </Box>
       </Center>
     </ChakraProvider>
-  );
+  )
+      }
+    </>
+    )
 }

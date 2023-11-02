@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState,useEffect } from 'react';
 import Header from '../components/header';
 import Wallet from '../components/wallet';
 import Menu from '../components/menu';
@@ -13,16 +13,40 @@ import $ from 'jquery';
 import { Box, Button, Center, ChakraProvider, Text, Container } from '@chakra-ui/react';
 import { FiFrown } from "react-icons/fi";
 import Link from "next/link";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState,useRecoilState } from "recoil";
 import { loginStatus, userData } from "../components/recoil";
 import { useRouter } from "next/router";
+import  Transition  from '../components/transition';
+
+  
 
 export default function Dashboard() {
+  
   const [isLoading, setLoading] = useState(false);
+  
   const logged = useRecoilValue(loginStatus);
+
   const setLogged = useSetRecoilState(loginStatus);
   const setData = useSetRecoilState(userData);
+  //const[data,setData] = useRecoilState(userData);
+  const [spin,setSpin] = useState(true);
+
   const router = useRouter();
+
+  useEffect(()=>{
+
+   const spin = setTimeout(()=>{
+     setSpin(false);
+    // router.push("/dashboard");
+   },2000);
+
+return ()=>{
+
+  clearTimeout(spin);
+}
+
+  },[setSpin]);
+
 
   useEffect(() => {
     const url = 'https://mtstorez.000webhostapp.com/app/store/welcome';
@@ -37,6 +61,9 @@ export default function Dashboard() {
           const profile = r.data.profile;
           const dataBundle = r.data.dataBundle;
           setData({ profile: profile, dataBundle: dataBundle });
+        }
+        else{
+router.push("/login")
         }
       },
       error: function () {
@@ -57,39 +84,24 @@ export default function Dashboard() {
     });
   };
 
-  const spin = () => {
-    setLoading(true);
-  }
-
+  /*
   useEffect(() => {
     if (isLoading) {
       const set = setTimeout(() => {}, 2500)
       return () => clearTimeout(set);
     }
   }, [isLoading, setLoading])
-
-  if (!logged) {
+*/
+   if (!logged) {
+    //setSpin(true);
     return (
-      <ChakraProvider>
-        <Center h="100vh">
-          <Box m={1} p={3} textAlign="center">
-            <Center m={5}><FiFrown textAlign="center" size={50} color="gray" /></Center>
-            <Text fontSize="xl" fontWeight="bold" color="#657ce0" mb={4}>
-              You cannot view this page because you are not logged in
-            </Text>
-            <Link href="/login">
-              <Button isLoading={isLoading} onClick={spin} colorScheme="blue" size="lg">
-                Log In
-              </Button>
-            </Link>
-          </Box>
-          <ToastContainer />
-        </Center>
-      </ChakraProvider>
+      <Transition/>
     );
   }
 
   return (
+    <>
+      { !spin ? (
     <Container textAlign="center" h="100vh">
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <Header />
@@ -102,6 +114,9 @@ export default function Dashboard() {
         </div>
         <NavbarBottom />
       </div>
-    </Container>
+    </Container>) :
+        (<Transition/>)
+        }
+</>
   );
 }

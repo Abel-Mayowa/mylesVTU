@@ -26,6 +26,7 @@ const Transactions = () => {
   return (
     <ChakraProvider>
       <Flex
+        
         mt={8}
         as={isDesktop ? 'center' : ''}
         justifyContent="center"
@@ -37,19 +38,20 @@ const Transactions = () => {
         </Heading>
       </Flex>
       <Box
+        mb={20}
         p={4}
         borderRadius="lg"
         boxShadow="lg"
         bg="white"
         maxH="400px"
         overflowY="scroll"
-        marginTop={10}
-        marginBottom={100}
+        marginTop={2}
+        marginBottom="20px"
         ml={isDesktop ? '150px' : ''}
         mr={isDesktop ? '150px' : ''}
         minW={isDesktop ? '500px' : ''}
       >
-        <Table variant="striped" colorScheme="gray" size="sm">
+        <Table variant="simple" colorScheme="gray" size="sm">
           <Thead>
             <Tr>
               <Th>S/N</Th>

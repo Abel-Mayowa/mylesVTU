@@ -2,7 +2,7 @@ import { Image } from "@chakra-ui/react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 //import 'swiper/css';
 //import { SwiperCore, Autoplay } from 'swiper';
-import { AutoPlay,EffectCube } from 'swiper/modules';
+import { Autoplay,EffectCube } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import 'swiper/css/effect-cube';
@@ -20,18 +20,18 @@ export default function Adverts() {
     <div className="spaceTop">
         <Swiper
           // install Swiper modules
-          modules={[AutoPlay ,EffectCube]}
-          spaceBetween={50}
-          slidesPerView={3}
+          modules={[Autoplay ,EffectCube]}
+          spaceBetween={30}
+          slidesPerView={2}
           navigation
           pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
-          autoPlay={1200}
+          Autoplay={1200}
           effect="slide"
           >
         {images.map((image, index) => (
           <SwiperSlide key={index}>
-            <Image src={image} alt={`Image ${index + 1}`} />
+            <Image w="20em" h="5em" src={image} alt={`Image ${index + 1}`} />
           </SwiperSlide>
         ))}
       </Swiper>

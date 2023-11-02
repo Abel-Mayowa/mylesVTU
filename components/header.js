@@ -18,10 +18,10 @@ const Header = () => {
   }, []);
 
   return (
-    <Box
+    <Box borderBottomLeftRadius="1px"
       position={isFixed ? 'fixed' : 'static'}
       top={isFixed ? 0 : 'auto'}
-      boxShadow={isFixed ? 'xl' : 'none'}
+      boxShadow={isFixed ? '2xl' : 'none'}
       width="100%"
       display="flex"
       alignItems="center"
@@ -31,14 +31,14 @@ const Header = () => {
       backgroundColor="white"
       zIndex={10}
     >
-      <Text
+      <Text 
         fontFamily="Poppins, sans-serif"
-        fontSize="4xl"
+        fontSize="1em"
         fontWeight="bold"
         textAlign="left"
         ml={4}
       >
-        Good Morning!
+        MylesVTU
       </Text>
       <Box position="relative">
         <AiOutlineBell size={24} color="#657ce0" cursor="pointer" />
@@ -63,7 +63,7 @@ const Header = () => {
             fontWeight="bold"
             textAlign="center"
           >
-            2
+            0
           </Text>
         </Box>
       </Box>
@@ -77,7 +77,7 @@ const Header = () => {
         mr={4}
       >
         <Image
-          src="https://images.unsplash.com/photo-1668732038385-1717f3c72b6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEwfHx8ZW58MHx8fHx8&w=1000&q=80"
+          src="https://www.pngkey.com/png/full/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png"
           alt="Profile Picture"
           objectFit="cover"
           width="100%"

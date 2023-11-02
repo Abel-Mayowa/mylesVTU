@@ -10,14 +10,21 @@ import { FaArrowLeft } from 'react-icons/fa';
 import { useRouter } from 'next/router';
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { userData } from "../components/recoil";
+import Transition from "../components/transition"
 
+
+
+  
 const Data = () => {
   const router = useRouter();
   const [input, setInput] = useState({ network: "mtn" });
   const [btnLoading, setBtnLoading] = useState(false);
   const data = useRecoilValue(userData);
   const setData = useSetRecoilState(userData);
-
+  const[spin,setSpin] = useState(true);
+  const [selected, setSelected] = useState(null);
+  const [network, setNetwork] = useState('mtn');
+  
   useEffect(() => {
     if (!data.profile) {
       const url = 'https://mtstorez.000webhostapp.com/app/store/welcome';
@@ -37,9 +44,20 @@ const Data = () => {
     }
   }, [data, setData]);
 
-  const [selected, setSelected] = useState(null);
-  const [network, setNetwork] = useState('mtn');
+  useEffect(()=>{
 
+   const spin = setTimeout(()=>{
+     setSpin(false);
+    // router.push("/dashboard");
+   },2000);
+
+   return ()=>{
+     clearTimeout(spin)
+   }
+
+  },[setSpin]);
+
+  
   const bundle = data.dataBundle || {};
   const airtel = bundle.airtel || [];
   const mtn = bundle.mtn || [];
@@ -124,6 +142,8 @@ const Data = () => {
 
   return (
     <>
+        {
+          spin ? (<Transition/>) :(<>
       <Header />
       <ChakraProvider>
         <Flex maxHeight="100vh" align="center" justify="center" bg="white">
@@ -215,6 +235,9 @@ const Data = () => {
       </ChakraProvider>
       <ToastContainer />
       <NavbarBottom />
+          </>
+            )
+            }
     </>
   );
 };

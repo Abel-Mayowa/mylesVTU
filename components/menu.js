@@ -3,6 +3,8 @@ import { Box, Grid, GridItem, Text, ChakraProvider, useMediaQuery } from '@chakr
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AiOutlineWifi, AiOutlineMobile, AiOutlineDesktop, AiOutlineThunderbolt, AiOutlineUser, AiOutlineWallet, AiOutlineDollarCircle } from 'react-icons/ai';
+import { FaExchangeAlt } from 'react-icons/fa';
+
 import { useRecoilValue } from "recoil";
 import { userData } from "../components/recoil";
 import { useRouter } from "next/router";
@@ -36,35 +38,36 @@ export default function Menu() {
   };
 
   const openFund = () => {
-    // navigate('/fund_wallet');
+     router.push('/fundWallet');
   };
 
   const openAirtime = () => {
-    // navigate('/buy_airtime');
+    router.push('/airtime');
   };
 
   const openHire = () => {
-    // navigate('/hire');
+     router.push('/hire_me');
   };
 
   const openCable = () => {
     showAlert("We are sorry this service is not available. Check back again later...", "info");
   };
 
-  const openPower = () => {
-    showAlert("We are sorry this service is not available. Check back again later...", "info");
+  const openAirtime2Cash = () => {
+    router.push("/airtime_to_cash");
   };
 
   return (
     <>
       <ChakraProvider>
-        <div className="spaceTop-4">
+        <Box mt={6}>
           <Box maxW="md" mx="auto" p={4}>
             <Grid templateColumns="repeat(3, 1fr)" gap={6}>
               <GridItem colSpan={1} onClick={openBuyData} cursor="pointer">
                 <Box
+                
                   textAlign="center"
-                  borderRadius="50%"
+                  borderRadius="15%"
                   boxShadow="md"
                   p={4}
                   _hover={{ boxShadow: 'xl' }}
@@ -84,8 +87,9 @@ export default function Menu() {
 
               <GridItem colSpan={1} onClick={openFund} cursor="pointer">
                 <Box
+          
                   textAlign="center"
-                  borderRadius="50%"
+                  borderRadius="15%"
                   boxShadow="md"
                   p={4}
                   _hover={{ boxShadow: 'xl' }}
@@ -106,7 +110,7 @@ export default function Menu() {
               <GridItem colSpan={1}>
                 <Box onClick={openAirtime}
                   textAlign="center"
-                  borderRadius="50%"
+                  borderRadius="15%"
                   boxShadow="md"
                   p={4}
                   _hover={{ boxShadow: 'xl' }}
@@ -125,9 +129,30 @@ export default function Menu() {
               </GridItem>
 
               <GridItem colSpan={1}>
+                <Box onClick={openAirtime2Cash}
+                  textAlign="center"
+                  borderRadius="15%"
+                  boxShadow="md"
+                  p={4}
+                  _hover={{ boxShadow: 'xl' }}
+                  width={isDesktop ? "100px" : "100%"}
+                  height={isDesktop ? " 100px" : "100%"}
+                  display="flex"
+                  flexDirection="column"
+                  justifyContent="center"
+                  alignItems="center"
+                >
+                  <FaExchangeAlt color="#657ce0" size={24} />
+                  <Text mt={2} fontSize="0.8em" fontWeight="bold">
+                    Airtime 2 Cash
+                  </Text>
+                </Box>
+              </GridItem>
+
+              <GridItem colSpan={1}>
                 <Box onClick={openCable}
                   textAlign="center"
-                  borderRadius="50%"
+                  borderRadius="15%"
                   boxShadow="md"
                   p={4}
                   _hover={{ boxShadow: 'xl' }}
@@ -146,30 +171,9 @@ export default function Menu() {
               </GridItem>
 
               <GridItem colSpan={1}>
-                <Box onClick={openPower}
-                  textAlign="center"
-                  borderRadius="50%"
-                  boxShadow="md"
-                  p={4}
-                  _hover={{ boxShadow: 'xl' }}
-                  width={isDesktop ? "100px" : "100%"}
-                  height={isDesktop ? " 100px" : "100%"}
-                  display="flex"
-                  flexDirection="column"
-                  justifyContent="center"
-                  alignItems="center"
-                >
-                  <AiOutlineThunderbolt color="#657ce0" size={24} />
-                  <Text mt={2} fontSize="sm" fontWeight="bold">
-                    Power
-                  </Text>
-                </Box>
-              </GridItem>
-
-              <GridItem colSpan={1}>
                 <Box onClick={openHire}
                   textAlign="center"
-                  borderRadius="50%"
+                  borderRadius="15%"
                   boxShadow="md"
                   p={4}
                   _hover={{ boxShadow: 'xl' }}
@@ -188,7 +192,7 @@ export default function Menu() {
               </GridItem>
             </Grid>
           </Box>
-        </div>
+        </Box>
       </ChakraProvider>
       <ToastContainer />
     </>

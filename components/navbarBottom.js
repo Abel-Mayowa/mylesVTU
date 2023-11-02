@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Box, Flex, Icon, Text } from '@chakra-ui/react';
 import { AiOutlineHome, AiOutlineFund, AiOutlineUser, AiOutlineWhatsApp } from 'react-icons/ai';
 import Support from '../components/support';
+import {useRouter} from "next/router"
+
 
 const NavbarBottom = () => {
   const [showSupport, setShowSupport] = useState(false);
@@ -11,6 +13,7 @@ const NavbarBottom = () => {
   const openSupport = () => {
     setShowSupport(true);
   };
+  const router = useRouter();
 
   const highlights = (num) => {
     setColor(num);
@@ -18,18 +21,21 @@ const NavbarBottom = () => {
 
   const goHome = () => {
     // Do something related to going home
-    // highlights(1);
+  highlights(1);
+    router.push("/dashboard")
   };
 
   const fund = () => {
     // Do something related to funding
-    // highlights(2);
+     highlights(2);
+    router.push("/fundWallet")
   };
 
   const openProfile = () => {
     // Do something related to opening the profile
-  };
-
+highlights(3)
+    router.push("/profile");
+  }
   return (
     <>
       {showSupport && <Support show={{ showSupport, setShowSupport }} idleTime={{ idleTime, setIdleTime }} />}
