@@ -14,16 +14,13 @@ import {
   ChakraProvider
 } from '@chakra-ui/react';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
-import $ from "jquery";
-import { ToastContainer, toast } from "react-toastify";
+import $ from 'jquery';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { useRecoilState } from "recoil";
-import { csrfToken, loginStatus, userData } from "../components/recoil";
-import Transition from "../components/transition";
-
-
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useRecoilState } from 'recoil';
+import { csrfToken, loginStatus, userData } from '../components/recoil';
 
 export default function Login() {
   const [input, setInput] = useState({});
@@ -31,8 +28,7 @@ export default function Login() {
   const [csrf, setCsrf] = useRecoilState(csrfToken);
   const [isLogged, setLogged] = useRecoilState(loginStatus);
   const [data, setData] = useRecoilState(userData);
-const[spin,setSpin] = useState(true);
-  
+
   const router = useRouter();
 
   useEffect(() => {
@@ -49,27 +45,12 @@ const[spin,setSpin] = useState(true);
         setCsrf(r.token);
       },
       error: function () {
-        showAlert("Server is down", "warning");
+        showAlert('Server is down', 'warning');
         setBtnLoading(false);
       },
     });
   }, [setLogged, setCsrf]);
 
-
-  useEffect(()=>{
-
-   const spin = setTimeout(()=>{
-     setSpin(false);
-    // router.push("/dashboard");
-   },2000);
-    
-   return ()=>{
-     clearTimeout(spin)
-   }
-    
-  },[setSpin]);
-
-  
   const showAlert = (message, type) => {
     toast[type](`⚡ ${message}`, {
       position: 'top-center',
@@ -94,7 +75,7 @@ const[spin,setSpin] = useState(true);
     setBtnLoading(true);
 
     if (Object.keys(input).length < 2) {
-      showAlert("Fill all required details.", "warning");
+      showAlert('Fill all required details.', 'warning');
       setBtnLoading(false);
       return;
     }
@@ -103,123 +84,112 @@ const[spin,setSpin] = useState(true);
     $.ajax({
       url: url,
       method: 'post',
-      data: { login: "login", ...input },
+      data: { login: 'login', ...input },
       dataType: 'json',
       success: function (r) {
         if (r.status === 1) {
           setLogged(true);
           const { profile, dataBundle } = r.data;
           setData({ profile: profile, dataBundle: dataBundle });
-          router.push({ pathname: "/dashboard" });
+          router.push({ pathname: '/dashboard' });
         } else {
-          showAlert(r.msg, "warning");
+          showAlert(r.msg, 'warning');
         }
         setBtnLoading(false);
         setCsrf(r.token);
       },
-      error: function (a) {
-        showAlert("Something went wrong. Please try again!!!", "warning");
+      error: function () {
+        showAlert('Something went wrong. Please try again!!!', 'warning');
         setBtnLoading(false);
       },
     });
   };
 
-  /*const openRegister = () => {
-    showAlert("We are now taking you to the registration page", "info");
-  };
-*/
-
-  
   return (
     <>
-    
-      { spin ? (<Transition/>) :
-
-      (
-    <ChakraProvider>
-      <Center h="100vh">
-        <Box
-          bgColor="white"
-          p={8}
-          rounded="lg"
-          maxW="400px"
-          w="100%"
-          textAlign="center"
-        >
-          <Image
-            src="https://img.freepik.com/premium-vector/digital-interpreter-flat-style-design-vector-illustration-stock-illustration_357500-664.jpg"
-            alt="login to MylesVTU"
-          />
-
-          <Heading as="h3" size="lg" mb={2}>
-            Login
-          </Heading>
-          <Text fontSize="sm" color="gray.800" mb={4}>
-            Explore our services when you sign in to MylesVTU
-          </Text>
-          <InputGroup my={4}>
-            <Input
-              type="number"
-              name="phoneNumber"
-              placeholder="Phone Number"
-              onChange={getInput}
-              value={input.phoneNumber || ''}
-              required
-            />
-          </InputGroup>
-          <InputGroup>
-            <Input
-              type={input.showPassword ? 'text' : 'password'}
-              name="password"
-              placeholder="Password"
-              onChange={getInput}
-              value={input.password || ''}
-              required
-            />
-            <InputRightElement width="3rem">
-              <Button
-                size="sm"
-                onClick={() =>
-                  setInput((prevInput) => ({
-                    ...prevInput,
-                    showPassword: !prevInput.showPassword,
-                  }))
-                }
-              >
-                {input.showPassword ? <FiEyeOff /> : <FiEye />}
-              </Button>
-            </InputRightElement>
-          </InputGroup>
-          <Checkbox size="sm">Remember Me</Checkbox>
-
-          <Text mt={2} color="blue.500">
-            <Link href="/reset">Reset password here</Link>
-          </Text>
-
-          <Button
-            colorScheme="blue"
-            size="md"
-            isLoading={btnLoading}
-            loadingText="Logging in"
-            onClick={processLogin}
-            mt={4}
+      <ChakraProvider>
+        <Center h="100vh">
+          <Box
+            bgColor="white"
+            p={8}
+            rounded="lg"
+            maxW="400px"
             w="100%"
+            textAlign="center"
           >
-            Login
-          </Button>
-          <Text mt={4}>
-            Don't have an account?{' '}
-            <Link href="/register">
-              <Text as="span" color="blue.500">
-                Sign Up
-              </Text>
-            </Link>
-          </Text>
-        </Box>
-      </Center>
-    </ChakraProvider>
-  )
-      }
+            <Image
+              src="https://img.freepik.com/premium-vector/digital-interpreter-flat-style-design-vector-illustration-stock-illustration_357500-664.jpg"
+              alt="login to MylesVTU"
+            />
+
+            <Heading as="h3" size="lg" mb={2}>
+              Login
+            </Heading>
+            <Text fontSize="sm" color="gray.800" mb={4}>
+              Explore our services when you sign in to MylesVTU
+            </Text>
+            <InputGroup my={4}>
+              <Input
+                type="number"
+                name="phoneNumber"
+                placeholder="Phone Number"
+                onChange={getInput}
+                value={input.phoneNumber || ''}
+                required
+              />
+            </InputGroup>
+            <InputGroup>
+              <Input
+                type={input.showPassword ? 'text' : 'password'}
+                name="password"
+                placeholder="Password"
+                onChange={getInput}
+                value={input.password || ''}
+                required
+              />
+              <InputRightElement width="3rem">
+                <Button
+                  size="sm"
+                  onClick={() =>
+                    setInput((prevInput) => ({
+                      ...prevInput,
+                      showPassword: !prevInput.showPassword,
+                    }))
+                  }
+                >
+                  {input.showPassword ? <FiEyeOff /> : <FiEye />}
+                </Button>
+              </InputRightElement>
+            </InputGroup>
+            <Checkbox size="sm">Remember Me</Checkbox>
+
+            <Text mt={2} color="blue.500">
+              <Link href="/reset">Reset password here</Link>
+            </Text>
+
+            <Button
+              colorScheme="blue"
+              size="md"
+              isLoading={btnLoading}
+              loadingText="Logging in"
+              onClick={processLogin}
+              mt={4}
+              w="100%"
+            >
+              Login
+            </Button>
+            <Text mt={4}>
+              Don't have an account?{' '}
+              <Link href="/register">
+                <Text as="span" color="blue.500">
+                  Sign Up
+                </Text>
+              </Link>
+            </Text>
+          </Box>
+        </Center>
+        <ToastContainer />
+      </ChakraProvider>
     </>
-    )
+  );
 }

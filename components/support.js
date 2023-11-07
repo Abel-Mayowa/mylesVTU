@@ -1,4 +1,4 @@
-import { FloatingWhatsApp } from 'react-floating-whatsapp'
+import { FloatingWhatsApp } from 'react-floating-whatsapp';
 import React from 'react';
 
 const Support = (props) => {
@@ -10,20 +10,24 @@ const Support = (props) => {
   }
 
   return (
-    <FloatingWhatsApp
-      phoneNumber={"2349060421393"}
-      accountName={"MayorTechz"}
-      chatboxHeight={400}
-      statusMessage={"I reply in less than a minute. Lodge (your complaints, buy data manually, etc)"}
-      notificationSound={true}
-      notificationSoundSrc={"./alert.wav"}
-      darkMode={false}
-      chatMessage={"Hi 😇 \nI am Mayor!! \n How can I help you, please"}
-      avatar={"./user_one.jpg"}
-      allowClickAway={true}
-      onClose={closeWidget}
-      className={"floating-whatsapp"}
-    />
+    <>
+      <div style={{ zIndex: 9999999 }}>
+        <FloatingWhatsApp
+          phoneNumber={"2347014443158"}
+          accountName={"MylesVTU"}
+          chatboxHeight={400}
+          statusMessage={"I reply in less than a minute. Lodge (your complaints, buy data manually, etc)"}
+          notificationSound={true}
+          notificationSoundSrc={"../alert.wav"}
+          darkMode={false}
+          chatMessage={"Hi 😇 \nI am Myles!! \n How can I help you, please"}
+          avatar={"../user.png"}
+          allowClickAway={true}
+          onClose={closeWidget}
+          className={"floating-whatsapp"}
+        />
+      </div>
+    </>
   )
 }
 

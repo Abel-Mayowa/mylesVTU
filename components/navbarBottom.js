@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Box, Flex, Icon, Text } from '@chakra-ui/react';
-import { AiOutlineHome, AiOutlineFund, AiOutlineUser, AiOutlineWhatsApp } from 'react-icons/ai';
+import { AiOutlineHome, AiOutlineFund, AiOutlineUser, AiOutlineWhatsApp,AiOutlineLogout } from 'react-icons/ai';
 import Support from '../components/support';
-import {useRouter} from "next/router"
-
+import { useRouter } from 'next/router';
+import $ from "jquery";
 
 const NavbarBottom = () => {
   const [showSupport, setShowSupport] = useState(false);
@@ -13,6 +13,7 @@ const NavbarBottom = () => {
   const openSupport = () => {
     setShowSupport(true);
   };
+
   const router = useRouter();
 
   const highlights = (num) => {
@@ -20,26 +21,48 @@ const NavbarBottom = () => {
   };
 
   const goHome = () => {
-    // Do something related to going home
-  highlights(1);
-    router.push("/dashboard")
+    highlights(1);
+    router.push('/dashboard');
   };
 
   const fund = () => {
-    // Do something related to funding
-     highlights(2);
-    router.push("/fundWallet")
+    highlights(2);
+    router.push('/fundWallet');
   };
 
   const openProfile = () => {
-    // Do something related to opening the profile
-highlights(3)
-    router.push("/profile");
-  }
+    highlights(3);
+    router.push('/profile');
+  };
+
+    const logout = () => {
+
+      $.ajax({
+        url:        'https://mtstorez.000webhostapp.com/app/store/logout',
+        
+        method: 'POST', 
+      dataType:"json",
+        
+        success:function(response){
+          
+          if(response.status === 1){
+           
+          router.push('/login');
+          }
+        },
+        error:function(error){
+          
+         console.error('Logout error:', error);
+        }
+      })
+    };
+
   return (
     <>
       {showSupport && <Support show={{ showSupport, setShowSupport }} idleTime={{ idleTime, setIdleTime }} />}
-      <Flex zIndex={9999} mt={18}
+      <Flex
+        zIndex={9999}
+        mt={18}
         bg="white"
         p={5}
         alignItems="center"
@@ -50,15 +73,15 @@ highlights(3)
         boxShadow="0px -4px 10px rgba(0, 0, 0, 0.1)"
       >
         <Box onClick={() => { goHome(); highlights(1); }} textAlign="center">
-          <Icon as={AiOutlineHome} boxSize={20} color={color === 1 && "#657ce0"} />
-          <Text fontSize="sm" color={color === 1 && "#657ce0"}>
+          <Icon as={AiOutlineHome} boxSize={20} color={color === 1 && '#657ce0'} />
+          <Text fontSize="sm" color={color === 1 && '#657ce0'}>
             Home
           </Text>
         </Box>
-        <Box onClick={() => { fund(); highlights(2); }} textAlign="center">
-          <Icon color={color === 2 && "#657ce0"} as={AiOutlineFund} boxSize={20} />
-          <Text fontSize="sm" color={color === 2 && "#657ce0"}>Fund</Text>
-        </Box>
+        {/*} <Box onClick={() => { fund(); highlights(2); }} textAlign="center">
+          <Icon color={color === 2 && '#657ce0'} as={AiOutlineFund} boxSize={20} />
+          <Text fontSize="sm" color={color === 2 && '#657ce0'}>Fund</Text>
+        </Box>*/}
         <Box onClick={openProfile} textAlign="center">
           <Icon as={AiOutlineUser} boxSize={20} />
           <Text fontSize="sm">Profile</Text>
@@ -66,6 +89,10 @@ highlights(3)
         <Box textAlign="center" onClick={openSupport}>
           <Icon as={AiOutlineWhatsApp} boxSize={20} />
           <Text fontSize="sm">Support</Text>
+        </Box>
+        <Box textAlign="center" onClick={logout}>
+          <Icon as={AiOutlineLogout} boxSize={20} color="red" />
+          <Text fontSize="sm">Logout</Text>
         </Box>
       </Flex>
     </>

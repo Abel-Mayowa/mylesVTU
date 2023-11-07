@@ -50,10 +50,6 @@ export default function Register() {
     }
   }, [csrf, setCsrf]);
 
-  const openLogin = () => {
-    showAlert('We are now taking you to the login page', 'info');
-  };
-
   const showAlert = (message, type) => {
     toast[type](`⚡ ${message}`, {
       position: 'top-center',
@@ -102,10 +98,14 @@ export default function Register() {
         setBtnLoading(false);
         setCsrf(r.token);
       },
-      error: function (a) {
+      error: function () {
         setBtnLoading(false);
       },
     });
+  };
+
+  const openLogin = () => {
+    showAlert('We are now taking you to the login page', 'info');
   };
 
   return (

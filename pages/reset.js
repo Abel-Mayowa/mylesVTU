@@ -7,7 +7,7 @@ import {
   Heading,
   Text,
   ChakraProvider,
-  Image, // Import Link component
+  Image,
 } from '@chakra-ui/react';
 import $ from 'jquery';
 import { ToastContainer, toast } from 'react-toastify';
@@ -15,7 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { csrfToken } from '../components/recoil';
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState('');
@@ -45,7 +45,7 @@ export default function ForgotPassword() {
   }, [csrf, setCsrf]);
 
   const showAlert = (message, type) => {
-    toast[type](` ${message}`, {
+    toast[type](message, {
       position: 'top-center',
       autoClose: 2500,
       hideProgressBar: false,

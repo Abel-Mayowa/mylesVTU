@@ -14,23 +14,19 @@ import {
   ChakraProvider,
   Container 
 } from '@chakra-ui/react';
-import { FaPhone, FaUser, FaPen } from 'react-icons/fa';
+import { FaPhone } from 'react-icons/fa';
 import NavbarBottom from '../components/navbarBottom';
 import Header from '../components/header';
-import { FallingLines } from 'react-loader-spinner';
+import Adverts from '../components/adverts';
 import { ToastContainer, toast } from 'react-toastify';
 import $ from 'jquery';
 import { useRouter } from 'next/router';
-import Adverts from "../components/adverts"
 import 'react-toastify/dist/ReactToastify.css';
 
-
 const Hire = () => {
-
-  const navigate = useRouter();
+  const router = useRouter();
 
   const [input, setInput] = useState({
-
     phoneNumber: '',
     service: '',
     description: '',
@@ -42,8 +38,6 @@ const Hire = () => {
       ...prev,
       [name]: value,
     }));
-
-    //console.log("changed")
   };
 
   const showAlert = (message, type) => {
@@ -60,10 +54,7 @@ const Hire = () => {
     setBtnLoading(false);
   };
 
-  // Process Hire
   const hireUs = () => {
-    // Ensure all required fields are filled
-    console.log(input)
     if (!input.phoneNumber || !input.service || !input.description) {
       showAlert('Please fill all fields appropriately!!!', 'info');
       return;
@@ -72,7 +63,6 @@ const Hire = () => {
     setBtnLoading(true);
     const url = 'https://mtstorez.000webhostapp.com/app/store/hire';
 
-    // AJAX request using jQuery
     $.ajax({
       url: url,
       method: 'post',
@@ -87,8 +77,8 @@ const Hire = () => {
         }
         setBtnLoading(false);
       },
-      error: function (a) {
-        showAlert('Your request cannot be processed. Please Try again.', 'info');
+      error: function () {
+        showAlert('Your request cannot be processed. Please try again.', 'info');
         setBtnLoading(false);
       },
     });
@@ -102,72 +92,64 @@ const Hire = () => {
     <>
       <Header />
       <Container>
-      <ChakraProvider>
+        <ChakraProvider>
+          <Box p={4} maxWidth="500px" mx="auto">
+            <Heading align="center" my={10} as="h2" size="lg" mb={4}>
+              Hire Us
+            </Heading>
 
-      <Box p={4} maxWidth="500px" mx="auto">
-        <Heading align="center" my={10} as="h2" size="lg" mb={4}>
-          Hire Us
-        </Heading>
+            <VStack spacing={4} align="stretch">
+              <FormControl>
+                <InputGroup>
+                  <InputLeftElement pointerEvents="none">
+                    <Icon as={FaPhone} color="gray.400" />
+                  </InputLeftElement>
+                  <Input
+                    type="tel"
+                    name="phoneNumber"
+                    placeholder="Phone Number"
+                    onChange={(e) => getInput(e.target.name, e.target.value)}
+                  />
+                </InputGroup>
+              </FormControl>
 
-        <VStack spacing={4} align="stretch">
-          <FormControl>
-            <InputGroup>
-              <InputLeftElement pointerEvents="none">
-                <Icon as={FaPhone} color="gray.400" />
-              </InputLeftElement>
+              <FormControl>
+                <InputGroup>
+                  <Select
+                    name="service"
+                    placeholder="Select Service"
+                    onChange={(e) => getInput(e.target.name, e.target.value)}
+                  >
+                    <option value="Web developer">Web Developer</option>
+                    <option value="Graphics Design">Graphics Design</option>
+                  </Select>
+                </InputGroup>
+              </FormControl>
 
-              <Input onChange={(e) => getInput(e.target.name, e.target.value)}
-                type="tel"
-                name="phoneNumber"
-                placeholder="Phone Number"
-                onChange={(e) => getInput(e.target.name, e.target.value)}
-              />
-            </InputGroup>
-          </FormControl>
+              <FormControl>
+                <InputGroup>
+                  <Textarea
+                    h="11em"
+                    name="description"
+                    placeholder="Explain what you want in detail..."
+                    onChange={(e) => getInput(e.target.name, e.target.value)}
+                  />
+                </InputGroup>
+              </FormControl>
 
-          <FormControl>
-            <InputGroup>
-              <InputLeftElement pointerEvents="none">
-
-              </InputLeftElement>
-
-              <Select
-                name="service"
-              placeholder="Select Service"
-                onChange={(e) => getInput(e.target.name, e.target.value)}
+              <Button
+                colorScheme="blue"
+                type="submit"
+                isLoading={btnLoading}
+                onClick={hireUs}
               >
-                <option value="Web developer">Web Developer</option>
-                <option value="Graphics Design">Graphics Design</option>
-              </Select>
-            </InputGroup>
-          </FormControl>
-
-          <FormControl>
-            <InputGroup>
-              <InputLeftElement pointerEvents="none">
-
-              </InputLeftElement>
-              <Textarea h="11em" 
-                name="description"
-                placeholder="Explain What you want in details... E.g I want to design a school management system"
-                onChange={(e) => getInput(e.target.name, e.target.value)}
-              />
-            </InputGroup>
-          </FormControl>
-
-          <Button
-            colorScheme="blue"
-            type="submit"
-            isLoading={btnLoading}
-            onClick={hireUs}
-          >
-            Save Changes
-          </Button>
-        </VStack>
-      </Box>
+                Save Changes
+              </Button>
+            </VStack>
+          </Box>
         </ChakraProvider>
-      <Adverts/>
-    </Container>
+      </Container>
+      <Adverts />
       <NavbarBottom />
       <ToastContainer />
     </>

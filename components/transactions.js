@@ -20,13 +20,14 @@ import { userData } from '../components/recoil';
 
 const Transactions = () => {
   const data = useRecoilValue(userData);
-  const transacs = data.profile['transactions'];
+  const transacs = data.profile.transactions || [];
+  const requests = data.profile.request || [];
+
   const [isDesktop] = useMediaQuery('(min-width: 768px)');
 
   return (
     <ChakraProvider>
       <Flex
-        
         mt={8}
         as={isDesktop ? 'center' : ''}
         justifyContent="center"
@@ -58,7 +59,7 @@ const Transactions = () => {
               <Th>Transaction ID</Th>
               <Th>Description</Th>
               <Th>Amount(₦)</Th>
-              <Th>Order</Th>
+              <Th>Order date</Th>
               <Th>Status</Th>
             </Tr>
           </Thead>
@@ -87,6 +88,72 @@ const Transactions = () => {
             </Text>
           </Center>
         )}
+      </Box>
+
+      <Box m={2} mb="4em">
+        <Flex
+          mt={8}
+          as={isDesktop ? 'center' : ''}
+          justifyContent="center"
+          alignItems="center"
+          flexDirection={isDesktop ? 'row' : 'column'}
+        >
+          <Heading as="h4" size="sm">
+            Request History
+          </Heading>
+        </Flex>
+
+        <Box
+          mb={20}
+          p={4}
+          borderRadius="lg"
+          boxShadow="lg"
+          bg="white"
+          maxH="400px"
+          overflowY="scroll"
+          marginTop={2}
+          marginBottom="20px"
+          ml={isDesktop ? '150px' : ''}
+          mr={isDesktop ? '150px' : ''}
+          minW={isDesktop ? '500px' : ''}
+        >
+          <Table variant="simple" colorScheme="gray" size="sm">
+            <Thead>
+              <Tr>
+                <Th>S/N</Th>
+                <Th>Request ID</Th>
+                <Th>Description</Th>
+                <Th>Whatsapp</Th>
+                <Th>Order Date</Th>
+                <Th>Status</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {requests.length >= 1 &&
+                requests.map((item, index) => (
+                  <Tr key={index}>
+                    <Td>{index + 1}</Td>
+                    <Td>{item.rid}</Td>
+                    <Td>{item.description}</Td>
+                    <Td>{item.phoneNo}</Td>
+                    <Td>{item.date}</Td>
+                    <Td>
+                      <Tag size="sm" variant="solid" colorScheme="green">
+                        Success
+                      </Tag>
+                    </Td>
+                  </Tr>
+                ))}
+            </Tbody>
+          </Table>
+          {requests.length < 1 && (
+            <Center m={3}>
+              <Text textAlign="center" color="#657ce0">
+                No request have been made
+              </Text>
+            </Center>
+          )}
+        </Box>
       </Box>
     </ChakraProvider>
   );

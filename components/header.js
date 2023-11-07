@@ -1,6 +1,7 @@
-import { Box, Text, Image, Badge } from '@chakra-ui/react';
+import { Box, Text, Image } from '@chakra-ui/react';
 import { AiOutlineBell } from 'react-icons/ai';
 import React, { useState, useEffect } from 'react';
+import Head from "next/head";
 
 const Header = () => {
   const [isFixed, setIsFixed] = useState(false);
@@ -18,10 +19,17 @@ const Header = () => {
   }, []);
 
   return (
-    <Box borderBottomLeftRadius="1px"
+    <>
+    <Head>
+      <link rel="preconnect" href="https://fonts.googleapis.com"/>
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+      <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap" rel="stylesheet"/>
+    </Head>
+    <Box
+      borderBottomLeftRadius="1px"
       position={isFixed ? 'fixed' : 'static'}
       top={isFixed ? 0 : 'auto'}
-      boxShadow={isFixed ? '2xl' : 'none'}
+      boxShadow={isFixed ? 'xl' : 'none'}
       width="100%"
       display="flex"
       alignItems="center"
@@ -31,9 +39,9 @@ const Header = () => {
       backgroundColor="white"
       zIndex={10}
     >
-      <Text 
-        fontFamily="Poppins, sans-serif"
-        fontSize="1em"
+      <Text
+        fontFamily="Ubuntu"
+        fontSize="1.3em"
         fontWeight="bold"
         textAlign="left"
         ml={4}
@@ -77,7 +85,7 @@ const Header = () => {
         mr={4}
       >
         <Image
-          src="https://www.pngkey.com/png/full/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwhxvKt-tiZ6ziljkIPFnqpGkHx5L2khcmjg&usqp=CAU"
           alt="Profile Picture"
           objectFit="cover"
           width="100%"
@@ -85,6 +93,7 @@ const Header = () => {
         />
       </Box>
     </Box>
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Box,
   Text,
@@ -10,72 +10,77 @@ import {
   Button,
   Center,
   Divider,
-  VStack,
 } from '@chakra-ui/react';
 
-
-import { BiWalletAlt } from 'react-icons/bi'; // Import a different wallet icon
+import { BiWalletAlt } from 'react-icons/bi';
 import Header from "../components/header";
 import NavbarBottom from "../components/navbarBottom";
 import Wallet from "../components/wallet";
 import Adverts from "../components/adverts";
-import {FallingLines} from 'react-loader-spinner'
+import { FallingLines } from 'react-loader-spinner';
 import { ToastContainer, toast } from 'react-toastify';
-import $ from "jquery"
-import  {useRouter}  from 'next/router';
-import {useSetRecoilState,useRecoilValue} from "recoil";
-import {userData} from "../components/recoil";
 import 'react-toastify/dist/ReactToastify.css';
-import Head from "next/head";
-
-
+import $ from "jquery";
+import { useRouter } from 'next/router';
+import { useSetRecoilState, useRecoilValue } from "recoil";
+import { userData } from "../components/recoil";
+import Script from "next/script";
 
 export default function Fund() {
-
 
   const [btnLoading, setBtnLoading] = useState(false);
   const [amount, setAmount] = useState('');
   const setData = useSetRecoilState(userData);
-const data = useRecoilValue(userData);
+  const data = useRecoilValue(userData);
   const profile = data.profile;
-const[input,setInput] = useState({fund:"fund"})
-const router = useRouter();
-  //console.log(profile); return;
- // const navigate= useNavigate();
+  const [input, setInput] = useState({ fund: "fund" });
+  const router = useRouter();
 
-  /*useEffect(()=>{
-    alert(data.profile.balance)
-  if (!data.profile) {
-    router.push({
-      pathname:"/login"
-    ,
-      })
-  }
-},[data,setData]);
-*/
   const handleKeypadClick = (value) => {
     if (value === 'x') {
       setAmount('');
-
-//setInput({fund: "fund"});
-
     } else {
       setAmount((prevAmount) => prevAmount + value);
-
-
-
-
     }
   };
 
-  const handleFund = () => {
-    // Process the funding logic here
-    // ...
-    console.log(amount);
-  };
+  const fund = () => {
+    setBtnLoading(true);
+    setInput((prev) => ({ ...prev, ['amount']: Number(amount) }));
 
-  const [isMobile] = useMediaQuery('(max-width: 480px)');
-  
+    if (Number(amount) < 1) {
+      showAlert("Enter the amount you want to add to the wallet", "info");
+      return;
+    }
+
+    const url = "https://mtstorez.000webhostapp.com/app/store/fund_wallet";
+    $.ajax({
+      url: url,
+      method: 'post',
+      dataType: 'json',
+      data: input,
+      success: function (res) {
+        if (res.status === 1) {
+          const amount = res.amount;
+          const email = res.email;
+          const pk = res.pk;
+          const phoneNumber = res.phoneNumber;
+          const reference = res.reference;
+          const name = res.fullName;
+          pay(amount, email, name, phoneNumber, pk, reference);
+        } else {
+          showAlert("Error Occurred. " + res.msg, "error");
+        }
+        setBtnLoading(false);
+      },
+      error: function (a) {
+        setBtnLoading(false);
+      }
+    });
+  }
+
+  const [isMobile] = useMediaQuery('(max-width: 480px');
+
   const walletFontSize = isMobile ? '2xl' : '3xl';
   const walletSize = isMobile ? 20 : 30;
   const walletWidth = isMobile ? '50vw' : '80vw';
@@ -94,200 +99,84 @@ const router = useRouter();
     setBtnLoading(false);
   }
 
-const getInput = (num) => {
-  //console.log("darmian"+amount)
-    setInput((prev)=>
-      ({ ...prev, ['amount']: num}));
+  const getInput = (num) => {
+    setInput((prev) => ({ ...prev, ['amount']: num }));
   }
 
-
-const pay = (amount,email,name,phoneNumber,pk,reference) => {
-
-  /*PaystackPop.setup({
-      key:pk,
-      email:email,
-      amount: amount * 100,
-      ref:reference,
-     label:phoneNumber,
-      onClose: function(){
-showAlert('Payment is closed','warning');
-    },
-    callback: function(response){
-      let message = 'Payment has been made! Reference: ' + response.reference; 
-      
-   const ref = response.reference;  
-
-      
-      verify(ref,amount,email);
-      showAlert(message,"success");
-    }
-  }).openIframe();*/
-
-  
+  const pay = (amount, email, name, phoneNumber, pk, reference) => {
     FlutterwaveCheckout({
-
-      public_key:pk,
-
-      tx_ref:reference,
-
+      public_key: pk,
+      tx_ref: reference,
       amount: amount,
-
-      currency:'NGN',
-
+      currency: 'NGN',
       payment_options: "card, banktransfer, ussd",
-
- callback:function(response){
-
-   let transid = response.transaction_id;
-
-   verify(transid,amount,email);
-
+      callback: function (response) {
+        let transid = response.transaction_id;
+        verify(transid, amount, email);
       },
       meta: {
         consumer_id: name,
-       // consumer_mac: "92a3-912ba-1192a",
       },
       customer: {
-        email:email,
-        phone_number:phoneNumber,
-        name:name,
+        email: email,
+        phone_number: phoneNumber,
+        name: name,
       },
       customizations: {
         title: "MTECHZ VTU",
         description: "Checkout",
-        logo:"https://mtstorez.000webhostapp.com/app/public/assets/logo.png",
+        logo: "https://mtstorez.000webhostapp.com/app/public/assets/logo.png",
       },
- onclose: function(incomplete) {
+      onclose: function (incomplete) {
         if (incomplete || window.verified === false) {
-         showAlert("Payment Cancelled!!!","error")
+          showAlert("Payment Cancelled!!!", "error");
         } else {
-          //document.querySelector("form").style.display = 'none';
           if (window.verified == true) {
-
- showAlert("Please Wait while we verify your payment...","success","info")
+            showAlert("Please wait while we verify your payment...", "success", "info");
           } else {
-
-    showAlert("Your payment is verified...","success")
-          }//
+            showAlert("Your payment is verified...", "success");
+          }
         }
-      }//onclose()    
-
-    });
- }
-
-const verify = (payment_id,amount,email) => {
-
-
-$.ajax({
-    url: "https://mtstorez.000webhostapp.com/app/store/verify",
-    method: "POST",
-    dataType: "json",
-    data:{
-
-        verify:'verify',
-        payment_id:payment_id,
-        email:email,
-     amount:amount
-    },
-    success: function(res) {
-
-      showAlert(res.msg,"info");
-
-      if(res.status === 1){
-
-        const balance = res.data.balance;
-        const transacs = res.data.transactions;
-
-setData((prev) => ({...prev,
-    profile: {
-            ...prev.profile,
-            ['balance']: balance,
-            ['transactions']:transacs,
-          },}))   
-
- //setData(prev => ({...prev.profile,['transactions']:transacs}));         
-    }
-
-    },
-    error: function(error) {
-
-showAlert("We could not process your request. Try again!!!","error");
-
-
-    }
-});
-  
-  }
-  //console.log(data)
-
-  // Process Funding
-  const fund = () => {
-
-    setBtnLoading(true);
-
-setInput((prev)=>
-      ({ ...prev, ['amount']: amount}));
-
-let  updatedInput = { ...input, ['amount']:Number(amount) };
-
-   // console.log(amount)
-    // ensure empty fields are not sent
-    if (updatedInput.amount < 1) {
-      showAlert("Enter the amount you want to add to wallet", "info");
-      return;
-    }
-
-//let updatedInput = { ...input, ['csrf']: csrf };
-
- // let  updatedInput = { ...input, ['amount']:amount };
-
-    //console.log(input)
-    const url = "https://mtstorez.000webhostapp.com/app/store/fund_wallet";
-    // AJAX request using jQuery
-    $.ajax({
-      url: url,
-      method: 'post',
-      dataType: 'json',
-      data: updatedInput,
-      success: function (res) {
-
-        if (res.status === 1) {
-
-const amount = res.amount;
-    const email = res.email;
-    const pk = res.pk;
-    const phoneNumber = res.phoneNumber;
-    const reference = res.reference;
-    const name = res.fullName;
-    //initiate payment
-    pay(amount, email, name,phoneNumber, pk, reference);
-
-        } else {
-          showAlert("Error Occured. "+res.msg, "error");
-        }
-        setBtnLoading(false);
-       // setCsrf(r.token);
-      },
-      error: function (a) {
-        setBtnLoading(false);
       }
     });
   }
 
-
+  const verify = (payment_id, amount, email) => {
+    $.ajax({
+      url: "https://mtstorez.000webhostapp.com/app/store/verify",
+      method: "POST",
+      dataType: "json",
+      data: {
+        verify: 'verify',
+        payment_id: payment_id,
+        email: email,
+        amount: amount
+      },
+      success: function (res) {
+        showAlert(res.msg, "info");
+        if (res.status === 1) {
+          const balance = res.data.balance;
+          const transacs = res.data.transactions;
+          setData((prev) => ({
+            ...prev,
+            profile: {
+              ...prev.profile,
+              ['balance']: balance,
+              ['transactions']: transacs,
+            }
+          }))
+        }
+      },
+      error: function (error) {
+        showAlert("We could not process your request. Try again!!!", "error");
+      }
+    });
+  }
 
   return (
     <>
-    <Head>
-        <script src="https://checkout.flutterwave.com/v3.js"></script>
-<script src="https://js.paystack.co/v1/inline.js"></script>
+      <Script src="https://checkout.flutterwave.com/v3.js" />
       
-<script src="//cdn.jsdelivr.net/npm/eruda"></script>
-    
-<script>eruda.init();</script>  
-
-      </Head>
-
       <Header />
       <Wallet />
       <ChakraProvider>
@@ -301,12 +190,12 @@ const amount = res.amount;
               p={4}
               textAlign="center"
               width={isMobile ? '80vw' : '400px'}
-              height={isMobile ? '47px' : '60px'} // Adjusted height
+              height={isMobile ? '47px' : '60px'}
             >
               <input
                 type="text"
                 value={amount}
-                onChange={(e)  => setAmount(e.target.value)}
+                onChange={(e) => setAmount(e.target.value)}
                 placeholder="Amount"
                 style={{
                   width: '100%',
@@ -339,7 +228,7 @@ const amount = res.amount;
                 </GridItem>
               ))}
               <GridItem colSpan={2}>
-                <Button 
+                <Button
                   size="lg"
                   w="100%"
                   colorScheme="white"
@@ -352,29 +241,28 @@ const amount = res.amount;
             </Grid>
 
             <Center mt={4}>
-              <Button display ={`${btnLoading || !profile ? "none" : "block"}`}
+              <Button display={`${btnLoading || !profile ? "none" : "block"}`}
                 size="lg"
-                bgColor="#0052D4" 
+                bgColor="#0052D4"
                 color="white"
                 onClick={fund}
                 opacity={1}
-                width={isMobile ? '80vw' : '400px'} // Adjusted width
+                width={isMobile ? '80vw' : '400px'}
               >
-          {btnLoading ? <FallingLines
-  color="white"
-  width="50"
-  visible={true}
-  ariaLabel='falling-lines-loading'
-/> :"Fund"}
+                {btnLoading ? <FallingLines
+                  color="white"
+                  width="50"
+                  visible={true}
+                  ariaLabel='falling-lines-loading'
+                /> : "Fund"}
               </Button>
             </Center>
           </Flex>
         </Flex>
-
       </ChakraProvider>
-      <Adverts/>
+      <Adverts />
       <NavbarBottom />
-      <ToastContainer/>
+      <ToastContainer />
     </>
   );
 }

@@ -65,7 +65,6 @@ export default function Menu() {
             <Grid templateColumns="repeat(3, 1fr)" gap={6}>
               <GridItem colSpan={1} onClick={openBuyData} cursor="pointer">
                 <Box
-                
                   textAlign="center"
                   borderRadius="15%"
                   boxShadow="md"
@@ -79,7 +78,7 @@ export default function Menu() {
                   alignItems="center"
                 >
                   <AiOutlineWifi color="#657ce0" size={24} />
-                  <Text mt={2} fontSize="sm" fontWeight="bold">
+                  <Text cursor="pointer" mt={2} fontSize="sm" fontWeight="bold">
                     Data
                   </Text>
                 </Box>
@@ -87,7 +86,6 @@ export default function Menu() {
 
               <GridItem colSpan={1} onClick={openFund} cursor="pointer">
                 <Box
-          
                   textAlign="center"
                   borderRadius="15%"
                   boxShadow="md"
@@ -101,7 +99,7 @@ export default function Menu() {
                   alignItems="center"
                 >
                   <AiOutlineDollarCircle color="#657ce0" size={24} />
-                  <Text mt={2} fontSize="sm" fontWeight="bold">
+                  <Text cursor="pointer" mt={2} fontSize="sm" fontWeight="bold">
                     Fund
                   </Text>
                 </Box>
@@ -122,7 +120,7 @@ export default function Menu() {
                   alignItems="center"
                 >
                   <AiOutlineMobile color="#657ce0" size={24} />
-                  <Text mt={2} fontSize="sm" fontWeight="bold">
+                  <Text cursor="pointer" mt={2} fontSize="sm" fontWeight="bold">
                     Airtime
                   </Text>
                 </Box>
@@ -143,7 +141,7 @@ export default function Menu() {
                   alignItems="center"
                 >
                   <FaExchangeAlt color="#657ce0" size={24} />
-                  <Text mt={2} fontSize="0.8em" fontWeight="bold">
+                  <Text cursor="pointer" mt={2} fontSize="0.8em" fontWeight="bold">
                     Airtime 2 Cash
                   </Text>
                 </Box>
@@ -164,7 +162,7 @@ export default function Menu() {
                   alignItems="center"
                 >
                   <AiOutlineDesktop color="#657ce0" size={24} />
-                  <Text mt={2} fontSize="sm" fontWeight="bold">
+                  <Text cursor="pointer" mt={2} fontSize="sm" fontWeight="bold">
                     Cable
                   </Text>
                 </Box>
@@ -185,7 +183,7 @@ export default function Menu() {
                   alignItems="center"
                 >
                   <AiOutlineUser color="#657ce0" size={24} />
-                  <Text mt={2} fontSize="sm" fontWeight="bold">
+                  <Text cursor="pointer" mt={2} fontSize="sm" fontWeight="bold">
                     Hire
                   </Text>
                 </Box>
