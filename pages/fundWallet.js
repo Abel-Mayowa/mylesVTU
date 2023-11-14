@@ -53,7 +53,7 @@ export default function Fund() {
       return;
     }
 
-    const url = "https://mtstorez.000webhostapp.com/app/store/fund_wallet";
+      const url = 'https://mylesvtu.com.ng/app/store/fund_wallet';
     $.ajax({
       url: url,
       method: 'post',
@@ -88,12 +88,12 @@ export default function Fund() {
   const showAlert = (message, type) => {
     toast[type](` ${message}`, {
       position: "top-center",
-      autoClose: 2500,
-      hideProgressBar: false,
+      autoClose: 5000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      progress: undefined,
+      //progress: undefined,
       theme: "light",
     });
     setBtnLoading(false);

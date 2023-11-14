@@ -21,7 +21,7 @@ const Support = (props) => {
           notificationSoundSrc={"../alert.wav"}
           darkMode={false}
           chatMessage={"Hi 😇 \nI am Myles!! \n How can I help you, please"}
-          avatar={"../user.png"}
+          avatar="../user.png"
           allowClickAway={true}
           onClose={closeWidget}
           className={"floating-whatsapp"}

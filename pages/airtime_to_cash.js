@@ -22,6 +22,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import $ from 'jquery';
 import Head from "next/head";
+//import data from "../data.json";
 
 const theme = extendTheme({
   fonts: {
@@ -41,7 +42,7 @@ function Airtime2Cash() {
 
   useEffect(() => {
     if (!network) {
-      const url = 'https://mtstorez.000webhostapp.com/app/store/welcome';
+      const url = 'https://mylesvtu.com.ng/app/store/welcome';
 
       $.ajax({
         type: 'GET',
@@ -80,7 +81,7 @@ function Airtime2Cash() {
     }
     setBtnLoading(true);
 
-    const url = 'https://mtstorez.000webhostapp.com/app/store/airtime2cash';
+      const url = 'https://mylesvtu.com.ng/app/store/airtime2cash';
 
     const data = {
       amount: amount,
@@ -112,12 +113,12 @@ function Airtime2Cash() {
   const showAlert = (message, type) => {
     toast[type](` ${message}`, {
       position: "top-center",
-      autoClose: 2500,
-      hideProgressBar: false,
+      autoClose: 5000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      progress: undefined,
+     // progress: undefined,
       theme: "light",
     });
     setBtnLoading(false);
@@ -125,12 +126,7 @@ function Airtime2Cash() {
 
   return (
     <>
-      <Head>
-        <link rel="apple-touch-icon" sizes="180x180" href="https://mtstorez.000webhostapp.com/Assets/apple-touch-icon.png"/>
-        <link rel="icon" type="image/png" sizes="32x32" href="https://mtstorez.000webhostapp.com/Assets/favicon-32x32.png"/>
-        <link rel="icon" type="image/png" sizes="16x16" href="https://mtstorez.000webhostapp.com/Assets/favicon-16x16.png"/>
-        <link rel="manifest" href="https://mtstorez.000webhostapp.com/Assets/site.webmanifest"/>
-      </Head>
+      
       <Header  />
       <ChakraProvider theme={theme}>
         <Container maxW="lg" my="4em" >

@@ -34,13 +34,14 @@ export default function Profile() {
   const showAlert = (message, type) => {
     toast[type](`📑 ${message}`, {
       position: 'top-center',
-      autoClose: 2500,
-      hideProgressBar: false,
+      autoClose: 5000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      progress: undefined,
+     // progress: undefined,
       theme: 'light',
+      toastId:"profile",
     });
 
     setBtnLoading(false);
@@ -64,12 +65,12 @@ export default function Profile() {
 
   useEffect(() => {
     if (!profile) {
-      const url = 'https://mtstorez.000webhostapp.com/app/store/welcome';
+      const url = 'https://mylesvtu.com.ng/app/store/welcome';
       $.ajax({
         url: url,
         type: 'get',
         dataType: 'json',
-        crossDomain: true,
+       // crossDomain: true,
         success: function (r, status, xhr) {
           if (r.data.isLogged) {
             setLogged(r.data.isLogged);
@@ -111,7 +112,7 @@ export default function Profile() {
       showAlert('Please fill a field to update!!!', 'warning');
     }
 
-    const url = 'https://mtstorez.000webhostapp.com/app/store/edit_profile';
+      const url = 'https://mylesvtu.com.ng/app/store/edit_profile';
     $.ajax({
       url: url,
       method: 'post',

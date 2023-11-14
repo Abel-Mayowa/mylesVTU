@@ -24,7 +24,7 @@ const Data = () => {
 
   useEffect(() => {
     if (!data.profile) {
-      const url = 'https://mtstorez.000webhostapp.com/app/store/welcome';
+      const url = 'https://mylesvtu.com.ng/app/store/welcome';
       $.ajax({
         url: url,
         type: 'get',
@@ -54,13 +54,14 @@ const Data = () => {
   const showAlert = (message, type) => {
     toast[type](` ${message}`, {
       position: "top-center",
-      autoClose: 2500,
-      hideProgressBar: false,
+      autoClose: 5000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      progress: undefined,
+     // progress: 100,
       theme: "light",
+      toastId:"data",
     });
     setBtnLoading(false);
   }
@@ -71,7 +72,7 @@ const Data = () => {
       return;
     }
     setBtnLoading(true);
-    const url = "https://mtstorez.000webhostapp.com/app/store/buy_data";
+      const url = "https://mylesvtu.com.ng/app/store/buy_data";
     $.ajax({
       url: url,
       method: 'post',
@@ -79,10 +80,11 @@ const Data = () => {
       data: input,
       success: function (r) {
         setBtnLoading(false);
+        console.log(r)
         if (r.status === 1) {
-          showAlert("Thank You 💓 Your order has been processed!!", "success");
+          showAlert("Thank You... Your order has been processed!!", "success");
         } else {
-          showAlert(r.msg, "info");
+          showAlert("Your request failed."  +r.msg+ " If problem persists,do contact us. Thanks...", "info");
         }
         setBtnLoading(false);
       },

@@ -43,12 +43,12 @@ const Hire = () => {
   const showAlert = (message, type) => {
     toast[type](` ${message}`, {
       position: 'top-center',
-      autoClose: 3000,
+      autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      progress: undefined,
+      //progress: undefined,
       theme: 'light',
     });
     setBtnLoading(false);
@@ -61,7 +61,7 @@ const Hire = () => {
     }
 
     setBtnLoading(true);
-    const url = 'https://mtstorez.000webhostapp.com/app/store/hire';
+      const url = 'https://mylesvtu.com.ng/app/store/hire';
 
     $.ajax({
       url: url,

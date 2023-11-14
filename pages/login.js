@@ -21,6 +21,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useRecoilState } from 'recoil';
 import { csrfToken, loginStatus, userData } from '../components/recoil';
+//import data from "../data.json";
 
 export default function Login() {
   const [input, setInput] = useState({});
@@ -32,13 +33,13 @@ export default function Login() {
   const router = useRouter();
 
   useEffect(() => {
-    const url = 'https://mtstorez.000webhostapp.com/app/store/welcome';
-
+    const url = 'https://mylesvtu.com.ng/app/store/welcome';
+      
     $.ajax({
       url: url,
       type: 'post',
       dataType: 'json',
-      crossDomain: true,
+      //crossDomain: true,
       success: function (r) {
         setBtnLoading(false);
         setLogged(r.data.isLogged);
@@ -54,13 +55,14 @@ export default function Login() {
   const showAlert = (message, type) => {
     toast[type](`⚡ ${message}`, {
       position: 'top-center',
-      autoClose: 2500,
-      hideProgressBar: false,
+      autoClose: 5000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      progress: undefined,
+      //progress: undefined,
       theme: 'light',
+      toastId:"login",
     });
 
     setBtnLoading(false);
@@ -80,7 +82,7 @@ export default function Login() {
       return;
     }
 
-    const url = 'https://mtstorez.000webhostapp.com/app/store/login';
+      const url = 'https://mylesvtu.com.ng/app/store/login';
     $.ajax({
       url: url,
       method: 'post',

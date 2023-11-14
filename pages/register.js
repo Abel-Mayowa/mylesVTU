@@ -32,13 +32,13 @@ export default function Register() {
 
   useEffect(() => {
     if (csrf === '') {
-      const url = 'https://mtstorez.000webhostapp.com/app/store/welcome';
+      const url = 'https://mylesvtu.com.ng/app/store/welcome';
 
       $.ajax({
         url: url,
         type: 'get',
         dataType: 'json',
-        crossDomain: true,
+        //crossDomain: true,
         success: function (r) {
           setCsrf(r.token);
         },
@@ -53,13 +53,14 @@ export default function Register() {
   const showAlert = (message, type) => {
     toast[type](`⚡ ${message}`, {
       position: 'top-center',
-      autoClose: 2500,
-      hideProgressBar: false,
+      autoClose: 5000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      progress: undefined,
+      //progress: undefined,
       theme: 'light',
+      toastId:"register",
     });
 
     setBtnLoading(false);
@@ -79,7 +80,7 @@ export default function Register() {
       return;
     }
 
-    const url = 'https://mtstorez.000webhostapp.com/app/store/register';
+      const url = 'https://mylesvtu.com.ng/app/store/register';
 
     $.ajax({
       url: url,

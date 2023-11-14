@@ -19,12 +19,11 @@ const Airtime = () => {
 
   useEffect(() => {
     if (!csrf) {
-      const url = 'https://mtstorez.000webhostapp.com/app/store/welcome';
+      const url = 'https://mylesvtu.com.ng/app/store/welcome';
       $.ajax({
         url: url,
         type: 'get',
         dataType: 'json',
-        crossDomain: true,
         success: function (r, status, xhr) {
           setCsrf(r.token)
         },
@@ -50,12 +49,12 @@ const Airtime = () => {
   const showAlert = (message, type) => {
     toast[type](` ${message}`, {
       position: "top-center",
-      autoClose: 2500,
-      hideProgressBar: false,
+      autoClose: 5000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      progress: undefined,
+      //progress: undefined,
       theme: "light",
     });
     setBtnLoading(false);
@@ -68,7 +67,7 @@ const Airtime = () => {
       return;
     }
     setBtnLoading(true);
-    const url = "https://mtstorez.000webhostapp.com/app/store/buy_airtime";
+      const url = 'https://mylesvtu.com.ng/app/store/buy_airtime';
     $.ajax({
       url: url,
       method: 'post',
@@ -77,10 +76,10 @@ const Airtime = () => {
       success: function (r) {
         setBtnLoading(false);
         if (r.status === 1) {
-          showAlert("Thank You 💓 Your order has been completed!!!", "success");
+          showAlert("Thank You ..Your order has been completed!!!", "success");
         } else {
-          console.log(r);
-          showAlert(r.msg, "info");
+         // console.log(r);
+          showAlert("Your request has failed... "+r.msg+ " If problem persists,contact us.", "info");
         }
         setBtnLoading(false);
       },

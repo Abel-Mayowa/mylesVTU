@@ -26,13 +26,13 @@ export default function ForgotPassword() {
 
   useEffect(() => {
     if (csrf === '') {
-      const url = 'https://mtstorez.000webhostapp.com/app/store/welcome';
+      const url = 'https://mylesvtu.com.ng/app/store/airtime2cash';
 
       $.ajax({
         url: url,
         type: 'get',
         dataType: 'json',
-        crossDomain: true,
+       // crossDomain: true,
         success: function (r) {
           setCsrf(r.token);
         },
@@ -47,13 +47,14 @@ export default function ForgotPassword() {
   const showAlert = (message, type) => {
     toast[type](message, {
       position: 'top-center',
-      autoClose: 2500,
-      hideProgressBar: false,
+      autoClose: 5000,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      progress: undefined,
+      //progress: undefined,
       theme: 'light',
+      toastId:"reset",
     });
     setBtnLoading(false);
   };
@@ -76,7 +77,7 @@ export default function ForgotPassword() {
       email: email,
     };
 
-    const url = 'https://mtstorez.000webhostapp.com/app/store/reset_password';
+      const url = 'https://mylesvtu.com.ng/app/store/reset_password';
 
     $.ajax({
       url: url,

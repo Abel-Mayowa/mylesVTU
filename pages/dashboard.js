@@ -33,7 +33,7 @@ export default function Dashboard() {
 
     const spin = setTimeout(() => {
       setSpin(false);
-    }, 500);
+    }, 100);
 
     return () => {
       clearTimeout(spin);
@@ -42,13 +42,13 @@ export default function Dashboard() {
   }, [spin, setSpin]);
 
   useEffect(() => {
-    const url = 'https://mtstorez.000webhostapp.com/app/store/welcome';
+    const url = 'https://mylesvtu.com.ng/app/store/welcome';
 
     $.ajax({
       url: url,
       type: 'get',
       dataType: 'json',
-      crossDomain: true,
+      //crossDomain: true,
       success: function (r, status, xhr) {
         if (r.data.isLogged) {
           setLogged(r.data.isLogged);
@@ -69,11 +69,11 @@ export default function Dashboard() {
   const showAlert = (message, type) => {
     toast[type](`⚡ ${message}`, {
       position: 'top-center',
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      progress: undefined,
+      //progress: undefined,
       theme: 'light',
     });
   };
@@ -86,7 +86,7 @@ export default function Dashboard() {
 
   return (
     <>
-      {!spin ? (
+      
         <Container textAlign="center" h="100vh">
           <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <Header />
@@ -99,9 +99,9 @@ export default function Dashboard() {
             </div>
             <NavbarBottom />
           </div>
-        </Container>) :
-        (<Transition />)
-      }
+        </Container>
+      
+      
     </>
   );
 }
