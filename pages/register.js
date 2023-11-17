@@ -19,9 +19,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import $ from 'jquery';
+import Login from "./login";
 
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { csrfToken } from '../components/recoil';
+import { csrfToken,page } from '../components/recoil';
 
 export default function Register() {
   const [input, setInput] = useState({});
@@ -29,8 +30,11 @@ export default function Register() {
   const router = useRouter();
   const csrf = useRecoilValue(csrfToken);
   const setCsrf = useSetRecoilState(csrfToken);
-
+  const thisPage = useRecoilValue(page);
+  const setPage = useSetRecoilState(page);
+  
   useEffect(() => {
+    setPage("register");
     if (csrf === '') {
       const url = 'https://mylesvtu.com.ng/app/store/welcome';
 
@@ -48,8 +52,8 @@ export default function Register() {
         },
       });
     }
-  }, [csrf, setCsrf]);
-
+  }, [csrf, setCsrf,page]);
+//alert (thisPage)
   const showAlert = (message, type) => {
     toast[type](`⚡ ${message}`, {
       position: 'top-center',
@@ -60,7 +64,7 @@ export default function Register() {
       draggable: true,
       //progress: undefined,
       theme: 'light',
-      toastId:"register",
+      //toastId:"register",
     });
 
     setBtnLoading(false);
@@ -106,11 +110,17 @@ export default function Register() {
   };
 
   const openLogin = () => {
-    showAlert('We are now taking you to the login page', 'info');
+   // showAlert('We are now taking you to the login page', 'info');
+setPage("login");
+
   };
 
   return (
-    <ChakraProvider>
+     <>
+    {thisPage ==="login" &&(<Login/>)}
+
+       {thisPage === "register" && (
+      <ChakraProvider>
       <ToastContainer />
       <Center h={{ md: '100vh' }}>
         <Box
@@ -208,15 +218,17 @@ export default function Register() {
           </Button>
           <Text mt={4}>
             Already have an account?{' '}
-            <Link href="/login">
+            {/* <Link href="/login">*/}
               <Text onClick={openLogin} as="span" color="blue.500" cursor="pointer">
                 Log In
               </Text>
-            </Link>
+            {/*</Link>*/}
           </Text>
           {btnLoading && <ToastContainer />}
         </Box>
       </Center>
-    </ChakraProvider>
+    </ChakraProvider>)}
+
+     </>
   );
 }

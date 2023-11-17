@@ -6,13 +6,11 @@
     "dev": "next dev --port 3000 --hostname 0.0.0.0",
     "build": "next build",
     "start": "next start --port 3000 --hostname 0.0.0.0",
-    "lint": "next lint"
+    "prod": "next export"
   },
   "dependencies": {
     "@chakra-ui/icon": "^3.2.0",
     "@chakra-ui/react": "^2.8.1",
-    "ajax": "^0.0.4",
-    "axios": "^1.6.0",
     "jquery": "^3.7.1",
     "next": "^13.5.1",
     "react": "^18.2.0",
@@ -20,7 +18,6 @@
     "react-floating-whatsapp": "^5.0.8",
     "react-icons": "^4.11.0",
     "react-loader-spinner": "^5.4.5",
-    "react-rou-cl": "^1.0.0",
     "react-toastify": "^9.1.3",
     "recoil": "^0.7.7",
     "swiper": "^10.3.1"

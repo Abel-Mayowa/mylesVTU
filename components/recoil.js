@@ -18,3 +18,9 @@ export const userData = atom({
   default: {}, 
 });
 
+export const page = atom({
+  key: 'page', 
+  default:'', 
+});
+
+
