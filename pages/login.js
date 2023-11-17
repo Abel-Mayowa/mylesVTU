@@ -19,9 +19,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useRecoilState } from 'recoil';
-import { csrfToken, loginStatus, userData } from '../components/recoil';
+import { useRecoilState,useSetRecoilState ,useRecoilValue} from 'recoil';
+import { csrfToken, loginStatus, userData,page } from '../components/recoil';
 //import data from "../data.json";
+import Register from "./register";
 
 export default function Login() {
   const [input, setInput] = useState({});
@@ -29,9 +30,15 @@ export default function Login() {
   const [csrf, setCsrf] = useRecoilState(csrfToken);
   const [isLogged, setLogged] = useRecoilState(loginStatus);
   const [data, setData] = useRecoilState(userData);
-
+  const thisPage = useRecoilValue(page);
+  const setPage = useSetRecoilState(page);
   const router = useRouter();
 
+  useEffect(()=>{
+
+    setPage("login")
+  } ,[])
+  
   useEffect(() => {
     const url = 'https://mylesvtu.com.ng/app/store/welcome';
       
@@ -107,8 +114,13 @@ export default function Login() {
     });
   };
 
+  const openReg = () =>{
+    setPage("register");
+  }
+  
   return (
     <>
+      {thisPage === "login" && (
       <ChakraProvider>
         <Center h="100vh">
           <Box
@@ -182,16 +194,18 @@ export default function Login() {
             </Button>
             <Text mt={4}>
               Don't have an account?{' '}
-              <Link href="/register">
-                <Text as="span" color="blue.500">
+              {/*<Link href="/register">*/}
+                <Text cursor="pointer" onClick={openReg} as="span" color="blue.500">
                   Sign Up
                 </Text>
-              </Link>
+                {/*</Link>*/}
             </Text>
           </Box>
         </Center>
         <ToastContainer />
-      </ChakraProvider>
+      </ChakraProvider>)}
+
+      {thisPage === "register" && (<Register/>)}
     </>
   );
 }

@@ -32,9 +32,15 @@ export default function Register() {
   const setCsrf = useSetRecoilState(csrfToken);
   const thisPage = useRecoilValue(page);
   const setPage = useSetRecoilState(page);
+
+  useEffect(()=>{
+
+    setPage("register");
+    
+  },[]);
   
   useEffect(() => {
-    setPage("register");
+    
     if (csrf === '') {
       const url = 'https://mylesvtu.com.ng/app/store/welcome';
 
@@ -52,7 +58,7 @@ export default function Register() {
         },
       });
     }
-  }, [csrf, setCsrf,page]);
+  }, [csrf, setCsrf]);
 //alert (thisPage)
   const showAlert = (message, type) => {
     toast[type](`⚡ ${message}`, {
