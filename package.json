@@ -6,7 +6,7 @@
     "dev": "next dev --port 3000 --hostname 0.0.0.0",
     "build": "next build",
     "start": "next start --port 3000 --hostname 0.0.0.0",
-    "prod": "next export"
+    "export": "next export"
   },
   "dependencies": {
     "@chakra-ui/icon": "^3.2.0",
