@@ -5,8 +5,6 @@
   "scripts": {
     "dev": "next dev --port 3000 --hostname 0.0.0.0",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js",
-    "export": "next export"
   },
   "dependencies": {
     "@chakra-ui/icon": "^3.2.0",
