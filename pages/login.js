@@ -21,8 +21,17 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useRecoilState,useSetRecoilState ,useRecoilValue} from 'recoil';
 import { csrfToken, loginStatus, userData,page } from '../components/recoil';
-//import data from "../data.json";
-import Register from "./register";
+import Head from "next/head";
+//import Register from "./register";
+//import Reset from "./reset";
+//import Dashboard from "./dashboard";
+//import Data from "../pages/buy_data";
+//import Airtime from "../pages/airtime";
+//import Atc from "../pages/airtime_to_cash";
+//import Hire from "../pages/hire_me";
+//import Fund from "../pages/fundWallet";
+//import Profile from "../pages/profile";
+
 
 export default function Login() {
   const [input, setInput] = useState({});
@@ -35,7 +44,6 @@ export default function Login() {
   const router = useRouter();
 
   useEffect(()=>{
-
     setPage("login")
   } ,[])
   
@@ -50,7 +58,9 @@ export default function Login() {
       success: function (r) {
         setBtnLoading(false);
         setLogged(r.data.isLogged);
+        
         setCsrf(r.token);
+        
       },
       error: function () {
         showAlert('Server is down', 'warning');
@@ -100,6 +110,8 @@ export default function Login() {
           setLogged(true);
           const { profile, dataBundle } = r.data;
           setData({ profile: profile, dataBundle: dataBundle });
+
+setPage("dashboard");
           router.push({ pathname: '/dashboard' });
         } else {
           showAlert(r.msg, 'warning');
@@ -115,12 +127,39 @@ export default function Login() {
   };
 
   const openReg = () =>{
-    setPage("register");
+    //setPage("register");
+    router.push("/register");
+  }
+
+  const openReset = () =>{
+    //setPage("reset");
+router.push("/reset")
   }
   
   return (
     <>
-      {thisPage === "login" && (
+      <Head>
+      <title>mylesVTU-- Login to buy cheap Data,Hire Web Developer and graphics designer </title>
+      <meta name="title" content="mylesVTU-- Login to buy cheap Data,Hire Web Developer and graphics designer " />
+      <meta name="description" content="Unlock unbeatable savings on data and airtime! Login now for exclusive discounts and access to skilled web developers and graphics designers at affordable rates. Your gateway to seamless connectivity and professional services awaits." />
+
+      
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://metatags.io/" />
+      <meta property="og:title" content="mylesVTU-- Login to buy cheap Data,Hire Web Developer and graphics designer " />
+      <meta property="og:description" content="Unlock unbeatable savings on data and airtime! Login now for exclusive discounts and access to skilled web developers and graphics designers at affordable rates. Your gateway to seamless connectivity and professional services awaits." />
+      <meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
+
+      
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:url" content="https://metatags.io/" />
+      <meta property="twitter:title" content="mylesVTU-- Login to buy cheap Data,Hire Web Developer and graphics designer " />
+      <meta property="twitter:description" content="Unlock unbeatable savings on data and airtime! Login now for exclusive discounts and access to skilled web developers and graphics designers at affordable rates. Your gateway to seamless connectivity and professional services awaits." />
+      <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
+
+      </Head>
+      
+    
       <ChakraProvider>
         <Center h="100vh">
           <Box
@@ -177,8 +216,8 @@ export default function Login() {
             </InputGroup>
             <Checkbox size="sm">Remember Me</Checkbox>
 
-            <Text mt={2} color="blue.500">
-              <Link href="/reset">Reset password here</Link>
+            <Text onClick={openReset} mt={2} color="blue.500">Reset Password Here
+              {/*<Link href="/reset">Reset password here</Link>*/}
             </Text>
 
             <Button
@@ -203,9 +242,8 @@ export default function Login() {
           </Box>
         </Center>
         <ToastContainer />
-      </ChakraProvider>)}
+      </ChakraProvider>
 
-      {thisPage === "register" && (<Register/>)}
     </>
   );
 }

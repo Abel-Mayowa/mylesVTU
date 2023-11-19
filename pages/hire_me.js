@@ -22,6 +22,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import $ from 'jquery';
 import { useRouter } from 'next/router';
 import 'react-toastify/dist/ReactToastify.css';
+import Head from "next/head";
 
 const Hire = () => {
   const router = useRouter();
@@ -90,6 +91,33 @@ const Hire = () => {
 
   return (
     <>
+      <Head>
+
+          <title>mylesVTU — cheap data,airtime and hire web devey and graphics designer </title>
+        
+          <meta name="title" content="mylesVTU — cheap data,airtime and hire web devey and graphics designer " />
+        
+          <meta name="description" content="Elevate your projects with expertise! Explore our 'Hire Me' page to connect with skilled web developers and graphics designers. Unlock tailored solutions for your digital needs by hiring our professionals. Elevate your online presence with a team dedicated to bringing your vision to life. Your projects, our passion – let's create together." />
+
+
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://metatags.io/" />
+          <meta property="og:title" content="mylesVTU — cheap data,airtime and hire web devey and graphics designer " />
+        
+          <meta property="og:description" content="Elevate your projects with expertise! Explore our 'Hire Me' page to connect with skilled web developers and graphics designers. Unlock tailored solutions for your digital needs by hiring our professionals. Elevate your online presence with a team dedicated to bringing your vision to life. Your projects, our passion – let's create together." />
+        
+          <meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
+
+
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:url" content="https://metatags.io/" />
+          <meta property="twitter:title" content="mylesVTU — cheap data,airtime and hire web devey and graphics designer " />
+          <meta property="twitter:description" content="Elevate your projects with expertise! Explore our 'Hire Me' page to connect with skilled web developers and graphics designers. Unlock tailored solutions for your digital needs by hiring our professionals. Elevate your online presence with a team dedicated to bringing your vision to life. Your projects, our passion" />
+        
+          <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
+
+
+          </Head>
       <Header />
       <Container>
         <ChakraProvider>

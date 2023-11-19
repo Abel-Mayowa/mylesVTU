@@ -113,6 +113,27 @@ const Airtime = () => {
 
   return (
     <>
+      <Head>
+      
+        <title>mylesVTU — buy cheap data,airtime and hire skilled web developer and Graphics designer </title>
+        <meta name="title" content="mylesVTU — buy cheap data,airtime and hire skilled web developer and Graphics designer " />
+        <meta name="description" content="Top up your mobile airtime effortlessly! Explore our airtime page for swift and secure recharges. Enjoy discounts on every top-up, ensuring seamless connectivity at affordable prices. Recharge with ease and stay connected with our exclusive offers." />
+
+        
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://metatags.io/" />
+        <meta property="og:title" content="mylesVTU — buy cheap data,airtime and hire skilled web developer and Graphics designer " />
+        <meta property="og:description" content="Top up your mobile airtime effortlessly! Explore our airtime page for swift and secure recharges. Enjoy discounts on every top-up, ensuring seamless connectivity at affordable prices. Recharge with ease and stay connected with our exclusive offers." />
+        <meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
+
+        
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://metatags.io/" />
+        <meta property="twitter:title" content="mylesVTU — buy cheap data,airtime and hire skilled web developer and Graphics designer " />
+        <meta property="twitter:description" content="Top up your mobile airtime effortlessly! Explore our airtime page for swift and secure recharges. Enjoy discounts on every top-up, ensuring seamless connectivity at affordable prices. Recharge with ease and stay connected with our exclusive offers." />
+        
+        
+        </Head>
       <Header />
       <ChakraProvider>
         <Box align="center" mb={5}>

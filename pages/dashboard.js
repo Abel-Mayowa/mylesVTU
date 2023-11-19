@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import {useEffect,useState} from "react";
 import Header from '../components/header';
 import Wallet from '../components/wallet';
 import Menu from '../components/menu';
@@ -13,9 +13,11 @@ import { Box, Button, Center, ChakraProvider, Text, Container } from '@chakra-ui
 import { FiFrown } from "react-icons/fi";
 import Link from "next/link";
 import { useRecoilValue, useSetRecoilState, useRecoilState } from "recoil";
-import { loginStatus, userData } from "../components/recoil";
+import { loginStatus, userData,page } from "../components/recoil";
 import { useRouter } from "next/router";
 import Transition from '../components/transition';
+import Head from "next/head";
+//import Data from "./buy_data";
 
 export default function Dashboard() {
 
@@ -26,9 +28,14 @@ export default function Dashboard() {
   const setLogged = useSetRecoilState(loginStatus);
   const setData = useSetRecoilState(userData);
   const [spin, setSpin] = useState(true);
-
+  const thisPage = useRecoilValue(page);
+  const setPage = useSetRecoilState(page);
   const router = useRouter();
 
+  useEffect(()=>{
+    setPage("dashboard");
+  },[]);
+  
   useEffect(() => {
 
     const spin = setTimeout(() => {
@@ -54,7 +61,10 @@ export default function Dashboard() {
           setLogged(r.data.isLogged);
           const profile = r.data.profile;
           const dataBundle = r.data.dataBundle;
-          setData({ profile: profile, dataBundle: dataBundle });
+          setData({ profile: profile, dataBundle: dataBundle
+                  });
+//router.push("/login");
+          
         }
         else {
           router.push("/login");
@@ -86,8 +96,13 @@ export default function Dashboard() {
 
   return (
     <>
+      <Head>
+
+      <title>mylesVTU — cheap data,airtime and hire web devey and graphics designer </title>
+        </Head>
+
       
-        <Container textAlign="center" h="100vh">
+      <Container textAlign="center" h="100vh">
           <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <Header />
             <div style={{ flex: 1 }}>
@@ -101,6 +116,8 @@ export default function Dashboard() {
           </div>
         </Container>
       
+
+
       
     </>
   );

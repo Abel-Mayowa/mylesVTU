@@ -3,13 +3,20 @@ import { Box, Flex, Icon, Text } from '@chakra-ui/react';
 import { AiOutlineHome, AiOutlineFund, AiOutlineUser, AiOutlineWhatsApp,AiOutlineLogout } from 'react-icons/ai';
 import Support from '../components/support';
 import { useRouter } from 'next/router';
+import {useRecoilValue,useSetRecoilState} from "recoil";
+import {page} from "./recoil";
 import $ from "jquery";
 
+
+
 const NavbarBottom = () => {
+  
   const [showSupport, setShowSupport] = useState(false);
   const [color, setColor] = useState();
   const [idleTime, setIdleTime] = useState(5000);
-
+  const thisPage = useRecoilValue(page);
+  const setPage = useSetRecoilState(page);
+  
   const openSupport = () => {
     setShowSupport(true);
   };
@@ -23,16 +30,19 @@ const NavbarBottom = () => {
   const goHome = () => {
     highlights(1);
     router.push('/dashboard');
+   // setPage("dashboard");
   };
 
   const fund = () => {
     highlights(2);
     router.push('/fundWallet');
+   // setPage("fund");
   };
 
   const openProfile = () => {
     highlights(3);
     router.push('/profile');
+    //setPage("profile");
   };
 
     const logout = () => {

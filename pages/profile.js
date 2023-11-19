@@ -22,6 +22,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router';
 import $ from 'jquery';
+import Head from "next/head";
 
 import {
   useRecoilValue,
@@ -135,7 +136,10 @@ export default function Profile() {
 
   return (
     <>
-      
+      <Head>
+
+      <title>mylesVTU — cheap data,airtime and hire web devey and graphics designer </title>
+        </Head>
       <Header />
       <ChakraProvider>
         <Heading m={5} size="md" justify="center" align="center">

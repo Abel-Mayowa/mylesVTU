@@ -1,27 +1,35 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { Box, Grid, GridItem, Text, ChakraProvider, useMediaQuery } from '@chakra-ui/react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AiOutlineWifi, AiOutlineMobile, AiOutlineDesktop, AiOutlineThunderbolt, AiOutlineUser, AiOutlineWallet, AiOutlineDollarCircle } from 'react-icons/ai';
 import { FaExchangeAlt } from 'react-icons/fa';
 
-import { useRecoilValue } from "recoil";
-import { userData } from "../components/recoil";
+import { useRecoilValue,useSetRecoilState } from "recoil";
+import { userData,page } from "../components/recoil";
 import { useRouter } from "next/router";
+import Data from "../pages/buy_data";
+
 
 export default function Menu() {
   const data = useRecoilValue(userData);
+  const thisPage = useRecoilValue(page);
+  const setPage = useSetRecoilState(page);
   const [isDesktop] = useMediaQuery('(min-width: 768px)');
   const router = useRouter();
 
   if (!data) {
     return null;
   }
-
+  /*
+useEffect(()=>{
+  setPage("dashboard");
+},[])*/
+  
   const showAlert = (message, type) => {
     toast[type](` ${message}`, {
       position: "top-center",
-      autoClose: 2500,
+      autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -35,18 +43,24 @@ export default function Menu() {
     router.push({
       pathname: '/buy_data',
     });
+//setPage("data");
+   //alert(thisPage)
   };
 
   const openFund = () => {
-     router.push('/fundWallet');
+   router.push('/fundWallet');
+//setPage("fund");
+    
   };
 
   const openAirtime = () => {
     router.push('/airtime');
+    //setPage("airtime");
   };
 
   const openHire = () => {
-     router.push('/hire_me');
+    router.push('/hire_me');
+    //setPage("hire");
   };
 
   const openCable = () => {
@@ -55,10 +69,12 @@ export default function Menu() {
 
   const openAirtime2Cash = () => {
     router.push("/airtime_to_cash");
+    //setPage("a2c");
   };
 
   return (
-    <>
+    <>  
+      
       <ChakraProvider>
         <Box mt={6}>
           <Box maxW="md" mx="auto" p={4}>
@@ -193,6 +209,7 @@ export default function Menu() {
         </Box>
       </ChakraProvider>
       <ToastContainer />
+        
     </>
   );
 }

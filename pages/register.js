@@ -19,7 +19,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import $ from 'jquery';
-import Login from "./login";
+//import Login from "./login";
+import Head from "next/head";
 
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { csrfToken,page } from '../components/recoil';
@@ -117,15 +118,38 @@ export default function Register() {
 
   const openLogin = () => {
    // showAlert('We are now taking you to the login page', 'info');
-setPage("login");
+//setPage("login");
+
+    router.push("/login");
 
   };
 
   return (
      <>
-    {thisPage ==="login" &&(<Login/>)}
+       <Head>
+         
+         <title>mylesVTU — buy cheap data,airtime and hire skilled web developer and Graphics designer </title>
+           
+         <meta name="title" content="mylesVTU — buy cheap data,airtime and hire skilled web developer and Graphics designer " />
+         <meta name="description" content="Join now to experience a world of affordability and convenience! Register for exclusive access to discounted data, airtime, and expert web development and graphic design services. Elevate your online presence with us." />
 
-       {thisPage === "register" && (
+        
+         <meta property="og:type" content="website" />
+         <meta property="og:url" content="https://metatags.io/" />
+         <meta property="og:title" content="mylesVTU — buy cheap data,airtime and hire skilled web developer and Graphics designer " />
+         <meta property="og:description" content="Join now to experience a world of affordability and convenience! Register for exclusive access to discounted data, airtime, and expert web development and graphic design services. Elevate your online presence with us." />
+         <meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
+
+         
+         <meta property="twitter:card" content="summary_large_image" />
+         <meta property="twitter:url" content="https://metatags.io/" />
+         <meta property="twitter:title" content="mylesVTU — buy cheap data,airtime and hire skilled web developer and Graphics designer " />
+         <meta property="twitter:description" content="Join now to experience a world of affordability and convenience! Register for exclusive access to discounted data, airtime, and expert web development and graphic design services. Elevate your online presence with us." />
+         <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
+
+         
+         </Head>
+         
       <ChakraProvider>
       <ToastContainer />
       <Center h={{ md: '100vh' }}>
@@ -233,7 +257,7 @@ setPage("login");
           {btnLoading && <ToastContainer />}
         </Box>
       </Center>
-    </ChakraProvider>)}
+    </ChakraProvider>
 
      </>
   );

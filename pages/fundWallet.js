@@ -25,7 +25,8 @@ import { useRouter } from 'next/router';
 import { useSetRecoilState, useRecoilValue } from "recoil";
 import { userData } from "../components/recoil";
 import Script from "next/script";
-
+import Head from "next/head";
+import { loginStatus } from "../components/recoil";
 export default function Fund() {
 
   const [btnLoading, setBtnLoading] = useState(false);
@@ -175,6 +176,11 @@ export default function Fund() {
 
   return (
     <>
+      <Head>
+
+      <title>mylesVTU — cheap data,airtime and hire web devey and graphics designer </title>
+        </Head>
+      
       <Script src="https://checkout.flutterwave.com/v3.js" />
       
       <Header />

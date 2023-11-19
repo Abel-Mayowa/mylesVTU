@@ -11,6 +11,8 @@ import { useRouter } from 'next/router';
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { userData } from "../components/recoil";
 import { Rings } from "react-loader-spinner";
+import Head from "next/head";
+
 
 const Data = () => {
   const router = useRouter();
@@ -21,6 +23,7 @@ const Data = () => {
   const [spin, setSpin] = useState(true);
   const [selected, setSelected] = useState(null);
   const [network, setNetwork] = useState('mtn');
+
 
   useEffect(() => {
     if (!data.profile) {
@@ -128,6 +131,28 @@ const Data = () => {
 
   return (
     <>
+      <Head>
+
+          <title>mylesVTU — cheap data,airtime and hire web devey and graphics designer </title>
+          <meta name="title" content="mylesVTU — cheap data,airtime and hire web devey and graphics designer " />
+          <meta name="description" content="Monetize your airtime with ease! Convert airtime to cash effortlessly on our dedicated page. Unlock the value of unused airtime, turning it into real currency. Explore a hassle-free process and maximize the potential of your mobile credit today." />
+
+
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://metatags.io/" />
+          <meta property="og:title" content="mylesVTU — cheap data,airtime and hire web devey and graphics designer " />
+          <meta property="og:description" content="Monetize your airtime with ease! Convert airtime to cash effortlessly on our dedicated page. Unlock the value of unused airtime, turning it into real currency. Explore a hassle-free process and maximize the potential of your mobile credit today." />
+          <meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
+
+
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:url" content="https://metatags.io/" />
+          <meta property="twitter:title" content="mylesVTU — cheap data,airtime and hire web devey and graphics designer " />
+          <meta property="twitter:description" content="Monetize your airtime with ease! Convert airtime to cash effortlessly on our dedicated page. Unlock the value of unused airtime, turning it into real currency. Explore a hassle-free process and maximize the potential of your mobile credit today." />
+          <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
+
+
+          </Head>
       <Header />
       <ChakraProvider>
         <Flex maxHeight="100vh" align="center" justify="center" bg="white">
