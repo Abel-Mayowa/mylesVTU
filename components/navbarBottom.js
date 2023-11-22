@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Box, Flex, Icon, Text } from '@chakra-ui/react';
-import { AiOutlineHome, AiOutlineFund, AiOutlineUser, AiOutlineWhatsApp,AiOutlineLogout } from 'react-icons/ai';
+import { AiOutlineHome, AiOutlineFund, AiOutlineUser, AiOutlineWhatsApp,AiOutlineLogout,AiOutlinePoweroff } from 'react-icons/ai';
 import Support from '../components/support';
 import { useRouter } from 'next/router';
 import {useRecoilValue,useSetRecoilState} from "recoil";
-import {page} from "./recoil";
+import {loginStatus} from "./recoil";
 import $ from "jquery";
 
 
@@ -14,9 +14,11 @@ const NavbarBottom = () => {
   const [showSupport, setShowSupport] = useState(false);
   const [color, setColor] = useState();
   const [idleTime, setIdleTime] = useState(5000);
-  const thisPage = useRecoilValue(page);
-  const setPage = useSetRecoilState(page);
   
+  const isLogged = useRecoilValue(loginStatus);
+  
+ // const isLogged = data.isLogged;
+  //alert(isLogged)
   const openSupport = () => {
     setShowSupport(true);
   };
@@ -36,6 +38,12 @@ const NavbarBottom = () => {
   const fund = () => {
     highlights(2);
     router.push('/fundWallet');
+   // setPage("fund");
+  };
+
+  const login = () => {
+    //highlights(2);
+    router.push('/login');
    // setPage("fund");
   };
 
@@ -100,10 +108,13 @@ const NavbarBottom = () => {
           <Icon as={AiOutlineWhatsApp} boxSize={20} />
           <Text fontSize="sm">Support</Text>
         </Box>
-        <Box textAlign="center" onClick={logout}>
+      { isLogged ?  (<Box textAlign="center" onClick={logout}>
           <Icon as={AiOutlineLogout} boxSize={20} color="red" />
           <Text fontSize="sm">Logout</Text>
-        </Box>
+        </Box>) : (<Box textAlign="center" onClick={login}>
+        <Icon as={AiOutlinePoweroff} boxSize={20} />
+        <Text fontSize="sm">Login</Text>
+      </Box>)}
       </Flex>
     </>
   );

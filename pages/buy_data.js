@@ -27,7 +27,7 @@ const Data = () => {
 
   useEffect(() => {
     if (!data.profile) {
-      const url = 'https://mylesvtu.com.ng/app/store/welcome';
+      const url = 'https://mtstorez.000webhostapp.com/app/store/welcome';
       $.ajax({
         url: url,
         type: 'get',
@@ -49,6 +49,8 @@ const Data = () => {
   const airtel = bundle.airtel || [];
   const mtn = bundle.mtn || [];
   const etisalat = bundle.etisalat || [];
+  const glo = bundle.glo || [];
+
 
   const getInput = (name, value) => {
     setInput((prev) => ({ ...prev, [name]: value }));
@@ -64,7 +66,7 @@ const Data = () => {
       draggable: true,
      // progress: 100,
       theme: "light",
-      toastId:"data",
+     // toastId:"data",
     });
     setBtnLoading(false);
   }
@@ -83,7 +85,7 @@ const Data = () => {
       data: input,
       success: function (r) {
         setBtnLoading(false);
-        console.log(r)
+        //console.log(r)
         if (r.status === 1) {
           showAlert("Thank You... Your order has been processed!!", "success");
         } else {
@@ -103,6 +105,7 @@ const Data = () => {
   }
 
   const chooseNetwork = (choice) => {
+    
     setNetwork(choice);
     setSelected(null);
     setInput((prev) => ({ ...prev, ['network']: choice }));
@@ -125,7 +128,9 @@ const Data = () => {
     dataPlansDetails = mtn;
   } else if (network === "airtel") {
     dataPlansDetails = airtel;
-  } else {
+  } else if (network === "glo") {
+      dataPlansDetails = glo;
+    } else {
     dataPlansDetails = etisalat;
   }
 
@@ -176,6 +181,7 @@ const Data = () => {
               <option value="mtn">MTN</option>
               <option value="airtel">Airtel</option>
               <option value="9mobile">9Mobile</option>
+              <option value="glo">Glo</option>
             </Select>
             <Flex justify="center" mb="4" flexWrap="wrap">
               {!data.dataBundle && (
@@ -204,7 +210,7 @@ const Data = () => {
                   color="black"
                   p="4"
                   borderRadius="md"
-                  m="2"
+                  m="3" p="4"
                   textAlign="center"
                   width="22"
                   boxShadow="rgba(0, 0, 0, 0.1) 0px 4px 12px"
@@ -219,10 +225,10 @@ const Data = () => {
                     mx="auto"
                     boxShadow="rgba(0, 0, 0, 0.1) 0px 4px 12px"
                   />
-                  <Heading as="h5" fontSize="15px" size="sm" mb="2" fontWeight="bold" fontFamily="sans-serif">
+                  <Heading as="h5" fontSize="17px" size="sm" mb="2" fontWeight="bold" fontFamily="sans-serif">
                     {item.product}
                   </Heading>
-                  <Heading as="h4" size="sm" fontWeight="normal" fontSize="13px" fontFamily="sans-serif">
+                  <Heading as="h4" size="sm" fontWeight="normal" fontSize="14px" fontFamily="sans-serif">
                     ₦{item.price}
                   </Heading>
                 </Box>
