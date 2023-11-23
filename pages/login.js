@@ -22,15 +22,6 @@ import { useRouter } from 'next/router';
 import { useRecoilState,useSetRecoilState ,useRecoilValue} from 'recoil';
 import { csrfToken, loginStatus, userData,page } from '../components/recoil';
 import Head from "next/head";
-//import Register from "./register";
-//import Reset from "./reset";
-//import Dashboard from "./dashboard";
-//import Data from "../pages/buy_data";
-//import Airtime from "../pages/airtime";
-//import Atc from "../pages/airtime_to_cash";
-//import Hire from "../pages/hire_me";
-//import Fund from "../pages/fundWallet";
-//import Profile from "../pages/profile";
 
 
 export default function Login() {
@@ -79,7 +70,7 @@ export default function Login() {
       draggable: true,
       //progress: undefined,
       theme: 'light',
-      toastId:"login",
+     // toastId:"login",
     });
 
     setBtnLoading(false);
