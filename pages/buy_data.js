@@ -32,14 +32,14 @@ const Data = () => {
         url: url,
         type: 'get',
         dataType: 'json',
-        crossDomain: true,
+        //crossDomain: true,
         success: function (r, status, xhr) {
           const dataBundle = r.data.dataBundle;
           setData({ dataBundle: dataBundle });
           setSpin(false);
         },
         error: function () {
-          showAlert("Server is down", "warning");
+          //showAlert("Server is down", "warning");
         },
       });
     }
