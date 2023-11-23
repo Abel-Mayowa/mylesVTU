@@ -71,7 +71,7 @@ export default function Dashboard() {
         }
       },
       error: function () {
-        showAlert("Server is down", "warning");
+        //showAlert("Server is down", "warning");
       },
     });
   }, [setLogged, setData]);
