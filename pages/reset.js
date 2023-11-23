@@ -37,7 +37,7 @@ export default function ForgotPassword() {
           setCsrf(r.token);
         },
         error: function () {
-          showAlert('Server is down', 'warning');
+          //showAlert('Server is down', 'warning');
           setBtnLoading(false);
         },
       });
@@ -54,7 +54,7 @@ export default function ForgotPassword() {
       draggable: true,
       //progress: undefined,
       theme: 'light',
-      toastId:"reset",
+      //toastId:"reset",
     });
     setBtnLoading(false);
   };
