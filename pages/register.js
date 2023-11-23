@@ -19,7 +19,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import $ from 'jquery';
-//import Login from "./login";
 import Head from "next/head";
 
 import { useRecoilValue, useSetRecoilState } from 'recoil';
@@ -54,7 +53,7 @@ export default function Register() {
           setCsrf(r.token);
         },
         error: function () {
-          showAlert('Server is down', 'warning');
+         // showAlert('Server is down', 'warning');
           setBtnLoading(false);
         },
       });
