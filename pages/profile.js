@@ -42,7 +42,7 @@ export default function Profile() {
       draggable: true,
      // progress: undefined,
       theme: 'light',
-      toastId:"profile",
+     // toastId:"profile",
     });
 
     setBtnLoading(false);
@@ -81,7 +81,7 @@ export default function Profile() {
           }
         },
         error: function () {
-          showAlert('Server is down', 'warning');
+         // showAlert('Server is down', 'warning');
         },
       });
     }
