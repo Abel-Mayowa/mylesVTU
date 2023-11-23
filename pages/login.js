@@ -63,7 +63,7 @@ export default function Login() {
         
       },
       error: function () {
-        showAlert('Server is down', 'warning');
+        //showAlert('Server is down', 'warning');
         setBtnLoading(false);
       },
     });
