@@ -28,7 +28,7 @@ const Airtime = () => {
           setCsrf(r.token)
         },
         error: function () {
-          showAlert("Server is down", "warning");
+          console.log("Connection error", "warning");
         },
       });
     }
