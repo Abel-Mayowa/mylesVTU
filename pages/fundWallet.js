@@ -204,8 +204,6 @@ export default function Fund() {
       <script src="https://js.paystack.co/v1/inline.js"></script>
 
     </Head>
-      <Script src="https://js.paystack.co/v1/inline.js"/>
-
       
       <Header />
       <Wallet />
