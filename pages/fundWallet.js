@@ -288,7 +288,7 @@ export default function Fund() {
             </Center>
           </Flex>
         </Flex>
-       <script src="https://js.paystack.co/v1/inline.js"></script>
+       <Script src="https://js.paystack.co/v1/inline.js">
          
 </form>          
       </ChakraProvider>
