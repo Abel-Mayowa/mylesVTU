@@ -203,7 +203,8 @@ export default function Fund() {
       <title>mylesVTU — cheap data,airtime and hire web devey and graphics designer </title>
       
     </Head>
-      
+      <Script src="https://js.paystack.co/v1/inline.js"/>
+
       <Script src="https://checkout.flutterwave.com/v3.js" />
       
       
