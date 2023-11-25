@@ -54,7 +54,7 @@ export default function Fund() {
       return;
     }
 
-      const url = 'https://mylesvtu.com.ng/app/store/fund_wallet';
+      const url = 'https://mtstorez.000webhostapp.com/app/store/fund_wallet';
     $.ajax({
       url: url,
       method: 'post',
@@ -105,7 +105,27 @@ export default function Fund() {
   }
 
   const pay = (amount, email, name, phoneNumber, pk, reference) => {
-    FlutterwaveCheckout({
+
+    PaystackPop.setup({
+        key: pk,
+        email: email, // Customer's email address
+        amount: amount*100, // Amount in kobo (e.g., ₦1000.00 is 100000 kobo)
+        currency: 'NGN', // Currency code
+        ref: reference , // Unique transaction reference
+        callback: function (response) {
+
+      const transid = response.reference;
+      
+            verify(transid, amount, email);
+            
+        },
+        onClose: function () {
+            
+            console.log('Payment closed');
+        }
+    });
+  
+  /*FlutterwaveCheckout({
       public_key: pk,
       tx_ref: reference,
       amount: amount,
@@ -126,7 +146,7 @@ export default function Fund() {
       customizations: {
         title: "MTECHZ VTU",
         description: "Checkout",
-        logo: "https://mtstorez.000webhostapp.com/app/public/assets/logo.png",
+        logo: "https://mylesvtu.com.ng/app/public/assets/logo.png",
       },
       onclose: function (incomplete) {
         if (incomplete || window.verified === false) {
@@ -140,11 +160,13 @@ export default function Fund() {
         }
       }
     });
+  }*/
+      
   }
-
+  
   const verify = (payment_id, amount, email) => {
     $.ajax({
-      url: "https://mtstorez.000webhostapp.com/app/store/verify",
+      url: "https://myles.com.ng/app/store/verify",
       method: "POST",
       dataType: "json",
       data: {
@@ -182,6 +204,8 @@ export default function Fund() {
         </Head>
       
       <Script src="https://checkout.flutterwave.com/v3.js" />
+      <Script src="https://js.paystack.co/v1/inline.js"/>
+
       
       <Header />
       <Wallet />
