@@ -202,7 +202,8 @@ export default function Fund() {
 
       <title>mylesVTU — cheap data,airtime and hire web devey and graphics designer </title>
       <script src="https://js.paystack.co/v1/inline.js"></script>
-
+<Script src="https://js.paystack.co/v1/inline.js">
+         
     </Head>
       
       <Header />
@@ -288,8 +289,7 @@ export default function Fund() {
             </Center>
           </Flex>
         </Flex>
-       <Script src="https://js.paystack.co/v1/inline.js">
-         
+       
 </form>          
       </ChakraProvider>
       <Adverts />
