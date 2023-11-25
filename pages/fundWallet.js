@@ -208,6 +208,7 @@ export default function Fund() {
       <Header />
       <Wallet />
       <ChakraProvider>
+    <form>
         <Flex justify="center" align="center" mb={5} flexDirection="column">
           <Flex justify="center" align="center" flexDirection="column" mt={4}>
             <Box
@@ -287,6 +288,9 @@ export default function Fund() {
             </Center>
           </Flex>
         </Flex>
+       <script src="https://js.paystack.co/v1/inline.js"></script>
+         
+</form>          
       </ChakraProvider>
       <Adverts />
       <NavbarBottom />
