@@ -123,7 +123,7 @@ export default function Fund() {
             
             console.log('Payment closed');
         }
-    });
+    }).openIframe();
   
   /*FlutterwaveCheckout({
       public_key: pk,
@@ -202,10 +202,10 @@ export default function Fund() {
 
       <title>mylesVTU — cheap data,airtime and hire web devey and graphics designer </title>
       
-    <Script src="https://js.paystack.co/v1/inline.js"/>
-         
+    
     </Head>
-      
+     <Script src="https://js.paystack.co/v1/inline.js"/>
+          
       <Header />
       <Wallet />
       <ChakraProvider>
