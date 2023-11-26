@@ -56,7 +56,7 @@ const NavbarBottom = () => {
     const logout = () => {
 
       $.ajax({
-        url:        'https://mtstorez.000webhostapp.com/app/store/logout',
+        url:        'https://mylesvtu.com.ng/app/store/logout',
         
         method: 'POST', 
       dataType:"json",
