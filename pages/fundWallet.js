@@ -54,7 +54,7 @@ export default function Fund() {
       return;
     }
 
-      const url = 'https://mtstorez.000webhostapp.com/app/store/fund_wallet';
+      const url = 'https://mylesvtu.com.ng/app/store/fund_wallet';
     $.ajax({
       url: url,
       method: 'post',
@@ -166,7 +166,7 @@ export default function Fund() {
   
   const verify = (payment_id, amount, email) => {
     $.ajax({
-      url: "https://myles.com.ng/app/store/verify",
+      url: "https://mylesvtu.com.ng/app/store/verify",
       method: "POST",
       dataType: "json",
       data: {
@@ -199,13 +199,9 @@ export default function Fund() {
   return (
     <>
       <Head>
-
-      <title>mylesVTU — cheap data,airtime and hire web devey and graphics designer </title>
-      
-    
-    </Head>
-     <Script src="https://js.paystack.co/v1/inline.js"/>
-          
+      <title> mylesVTU — cheap data,airtime and hire web devey and graphics designer </title>    
+      </Head>
+      <Script src="https://js.paystack.co/v1/inline.js"/>          
       <Header />
       <Wallet />
       <ChakraProvider>
