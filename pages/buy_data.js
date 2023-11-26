@@ -27,7 +27,7 @@ const Data = () => {
 
   useEffect(() => {
     if (!data.profile) {
-      const url = 'https://mtstorez.000webhostapp.com/app/store/welcome';
+      const url = 'https://mylesvtu.com.ng/app/store/welcome';
       $.ajax({
         url: url,
         type: 'get',
