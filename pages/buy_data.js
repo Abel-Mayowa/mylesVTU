@@ -42,15 +42,15 @@ const Data = () => {
           setData({ dataBundle: dataBundle });
           setSpin(false);
            setCsrf(r.token);
-console.log(data);
-          
+console.log(data.profile.balance);
+          alert(csef);
         },
         error: function () {
           //showAlert("Server is down", "warning");
         },
       });
     }
-  }, []);
+  }, [data.profile,setData]);
 
   const bundle = data.dataBundle || {};
   const airtel = bundle.airtel || [];
@@ -86,13 +86,14 @@ console.log(data);
     }
     setBtnLoading(true);
 
+    const updatedInput = { ...input, ['csrf']: csrf };
     
       const url = "https://mylesvtu.com.ng/app/store/buy_data";
     $.ajax({
       url: url,
       method: 'post',
       dataType: 'json',
-      data: input,
+      data: updatedInput,
       success: function (r) {
         setBtnLoading(false);
         //console.log(r)
