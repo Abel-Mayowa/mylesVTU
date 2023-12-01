@@ -20,7 +20,7 @@ const Data = () => {
   const [btnLoading, setBtnLoading] = useState(false);
   const data = useRecoilValue(userData);
   const setData = useSetRecoilState(userData);
-  const csrf = useRecoilState(csrfToken);
+  const csrf = useRecoilValue(csrfToken);
   const setCsrf = useSetRecoilState(userData); 
   const [spin, setSpin] = useState(true);
   const [selected, setSelected] = useState(null);
