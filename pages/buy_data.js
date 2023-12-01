@@ -50,7 +50,7 @@ console.log(data.profile.balance);
         },
       });
     }
-  }, [data.profile,setData]);
+  }, [data,setData]);
 
   const bundle = data.dataBundle || {};
   const airtel = bundle.airtel || [];
