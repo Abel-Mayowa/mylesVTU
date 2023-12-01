@@ -29,7 +29,7 @@ const Data = () => {
 
   useEffect(() => {
     console.log(data.profile)
-    if (!data.profile) {
+    if (typeof(data.profile) === "undefined") {
       const url = 'https://mylesvtu.com.ng/app/store/welcome';
       $.ajax({
         url: url,
