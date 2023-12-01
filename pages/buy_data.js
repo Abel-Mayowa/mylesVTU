@@ -42,7 +42,8 @@ const Data = () => {
           setData({ dataBundle: dataBundle });
           setSpin(false);
            setCsrf(r.token);
-
+console.log(data);
+          
         },
         error: function () {
           //showAlert("Server is down", "warning");
