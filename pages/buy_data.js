@@ -29,7 +29,7 @@ const Data = () => {
 
   useEffect(() => {
     
-    if (!csrf) {
+   // if (!csrf) {
     //alert(4)
       const url = 'https://mylesvtu.com.ng/app/store/welcome';
       $.ajax({
@@ -42,15 +42,15 @@ const Data = () => {
           setData({ dataBundle: dataBundle });
           setSpin(false);
            setCsrf(r.token);
-console.log(data.profile.balance);
-          alert(csrf);
+console.log(data.profile.phoneNumber);
+          console.log("csrf id ",csrf);
         },
         error: function () {
           //showAlert("Server is down", "warning");
         },
       });
-    }
-  }, [csrf]);
+  //  }
+  }, []);
 
   const bundle = data.dataBundle || {};
   const airtel = bundle.airtel || [];
