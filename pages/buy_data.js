@@ -47,7 +47,7 @@ const Data = () => {
         },
       });
     }
-  }, [data.profile, setData]);
+  }, []);
 
   const bundle = data.dataBundle || {};
   const airtel = bundle.airtel || [];
