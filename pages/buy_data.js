@@ -29,8 +29,8 @@ const Data = () => {
 
   useEffect(() => {
     
-    if (typeof(data.profile) === "undefined") {
-    alert(4)
+    if (!csrf) {
+    //alert(4)
       const url = 'https://mylesvtu.com.ng/app/store/welcome';
       $.ajax({
         url: url,
@@ -50,7 +50,7 @@ console.log(data.profile.balance);
         },
       });
     }
-  }, [data,setData]);
+  }, [csrf]);
 
   const bundle = data.dataBundle || {};
   const airtel = bundle.airtel || [];
