@@ -9,7 +9,7 @@ import { ChakraProvider, Box, Flex, Heading, Input, Select, Button, Center } fro
 import { FaArrowLeft } from 'react-icons/fa';
 import { useRouter } from 'next/router';
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { userData } from "../components/recoil";
+import { userData,csrfToken } from "../components/recoil";
 import { Rings } from "react-loader-spinner";
 import Head from "next/head";
 
@@ -20,6 +20,8 @@ const Data = () => {
   const [btnLoading, setBtnLoading] = useState(false);
   const data = useRecoilValue(userData);
   const setData = useSetRecoilState(userData);
+  const csrf = useRecoilState(csrfToken);
+  const setCsrf = useSetRecoilState(userData); 
   const [spin, setSpin] = useState(true);
   const [selected, setSelected] = useState(null);
   const [network, setNetwork] = useState('mtn');
@@ -37,6 +39,8 @@ const Data = () => {
           const dataBundle = r.data.dataBundle;
           setData({ dataBundle: dataBundle });
           setSpin(false);
+           setCsrf(r.token);
+
         },
         error: function () {
           //showAlert("Server is down", "warning");
