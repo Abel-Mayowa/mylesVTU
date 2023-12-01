@@ -58,6 +58,7 @@ const Data = () => {
 
   const getInput = (name, value) => {
     setInput((prev) => ({ ...prev, [name]: value }));
+    setInput((prev) => ({ ...prev, ['csrf']: csrf }));
   }
 
   const showAlert = (message, type) => {
@@ -81,6 +82,8 @@ const Data = () => {
       return;
     }
     setBtnLoading(true);
+
+    
       const url = "https://mylesvtu.com.ng/app/store/buy_data";
     $.ajax({
       url: url,
