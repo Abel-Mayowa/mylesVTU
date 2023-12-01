@@ -43,7 +43,7 @@ const Data = () => {
           setSpin(false);
            setCsrf(r.token);
 console.log(data.profile.balance);
-          alert(csef);
+          alert(csrf);
         },
         error: function () {
           //showAlert("Server is down", "warning");
