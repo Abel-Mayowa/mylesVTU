@@ -28,6 +28,7 @@ const Data = () => {
 
 
   useEffect(() => {
+    console.log(data.profile)
     if (!data.profile) {
       const url = 'https://mylesvtu.com.ng/app/store/welcome';
       $.ajax({
