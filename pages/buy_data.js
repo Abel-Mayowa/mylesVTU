@@ -85,7 +85,7 @@ const Data = () => {
       return;
     }
     setBtnLoading(true);
-alert(csrf);
+
     const updatedInput = { ...input, ['csrf']: csrf };
     
       const url = "https://mylesvtu.com.ng/app/store/buy_data";
