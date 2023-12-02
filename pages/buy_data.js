@@ -85,7 +85,7 @@ const Data = () => {
       return;
     }
     setBtnLoading(true);
-
+alert(csrf);
     const updatedInput = { ...input, ['csrf']: csrf };
     
       const url = "https://mylesvtu.com.ng/app/store/buy_data";
@@ -97,7 +97,7 @@ const Data = () => {
       success: function (r) {
         setBtnLoading(false);
         //console.log(r)
-        alert(r.token);
+        //alert(r.token);
         setCsrf(r.token);
         if (r.status === 1) {
           showAlert("Thank You... Your order has been processed!!", "success");
