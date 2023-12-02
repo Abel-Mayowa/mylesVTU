@@ -97,6 +97,7 @@ const Data = () => {
       success: function (r) {
         setBtnLoading(false);
         //console.log(r)
+        setCsrf(r.token);
         if (r.status === 1) {
           showAlert("Thank You... Your order has been processed!!", "success");
         } else {
