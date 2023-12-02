@@ -42,8 +42,8 @@ const Data = () => {
           setData({ dataBundle: dataBundle });
           setSpin(false);
            setCsrf(r.token);
-console.log(data.profile.phoneNumber);
-          console.log("csrf id ",csrf);
+//console.log(data.profile.phoneNumber);
+        //  console.log("csrf id ",csrf);
         },
         error: function () {
           //showAlert("Server is down", "warning");
