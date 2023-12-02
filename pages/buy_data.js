@@ -21,7 +21,7 @@ const Data = () => {
   const data = useRecoilValue(userData);
   const setData = useSetRecoilState(userData);
   const csrf = useRecoilValue(csrfToken);
-  const setCsrf = useSetRecoilState(userData); 
+  const setCsrf = useSetRecoilState(csrfToken); 
   const [spin, setSpin] = useState(true);
   const [selected, setSelected] = useState(null);
   const [network, setNetwork] = useState('mtn');
