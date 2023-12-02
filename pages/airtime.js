@@ -74,6 +74,7 @@ const Airtime = () => {
       dataType: 'json',
       data: updatedInput,
       success: function (r) {
+      setCsrf(r.token);
         setBtnLoading(false);
         if (r.status === 1) {
           showAlert("Thank You ..Your order has been completed!!!", "success");
