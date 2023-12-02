@@ -80,12 +80,12 @@ const Airtime = () => {
           showAlert("Thank You ..Your order has been completed!!!", "success");
         } else {
          // console.log(r);
-          showAlert("Your request has failed... "+r.msg+ " If problem persists,contact us.", "info");
+          showAlert("Oops!!! "+r.msg+ " If problem persists,contact us.", "info");
         }
         setBtnLoading(false);
       },
       error: function (a) {
-        showAlert("Your request cannot be processed. Please try again.", "info");
+        showAlert("Your internet connection seems lost or server is not reachable. Please try again.", "info");
         setBtnLoading(false);
       }
     });
