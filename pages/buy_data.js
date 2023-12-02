@@ -102,12 +102,12 @@ alert(csrf);
         if (r.status === 1) {
           showAlert("Thank You... Your order has been processed!!", "success");
         } else {
-          showAlert("Your request failed."  +r.msg+ " If problem persists,do contact us. Thanks...", "info");
+          showAlert("Oop!!! "  +r.msg+ " If problem persists,do contact us. Thanks...", "info");
         }
         setBtnLoading(false);
       },
       error: function () {
-        showAlert("Your request cannot be processed. Please Try again.", "info");
+        showAlert("Internet connection bseems to be los olos or the Server cannot be reached. Please Try again.", "info");
         setBtnLoading(false);
       }
     });
