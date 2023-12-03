@@ -53,7 +53,7 @@ export default function Fund() {
       showAlert("Enter the amount you want to add to the wallet", "info");
       return;
     }
-
+alert(amount);
       const url = 'https://mylesvtu.com.ng/app/store/fund_wallet';
     $.ajax({
       url: url,
