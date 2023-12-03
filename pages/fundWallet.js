@@ -50,7 +50,7 @@ export default function Fund() {
   const fund = () => {
     setBtnLoading(true);
     setInput((prev) => ({ ...prev, ['amount']: Number(amount) }));
-    const updatedInput = {...['amount']:amount}
+    const updatedInput = {...input,['amount']:amount}
     if (Number(amount) < 1) {
       showAlert("Enter the amount you want to add to the wallet", "info");
       return;
