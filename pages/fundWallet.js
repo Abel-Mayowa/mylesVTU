@@ -45,21 +45,22 @@ export default function Fund() {
     }
   };
 
+  
+
   const fund = () => {
     setBtnLoading(true);
     setInput((prev) => ({ ...prev, ['amount']: Number(amount) }));
-
+    const updatedInput = {...['amount']:amount}
     if (Number(amount) < 1) {
       showAlert("Enter the amount you want to add to the wallet", "info");
       return;
     }
-alert(amount);
       const url = 'https://mylesvtu.com.ng/app/store/fund_wallet';
     $.ajax({
       url: url,
       method: 'post',
       dataType: 'json',
-      data: input,
+      data: updatedInput,
       success: function (res) {
         if (res.status === 1) {
           const amount = res.amount;
