@@ -61,6 +61,7 @@ export default function Dashboard() {
           const dataBundle = r.data.dataBundle;
           setData({ profile: profile, dataBundle: dataBundle
                   });
+          console.log(data);
 //router.push("/login");
           
         }
