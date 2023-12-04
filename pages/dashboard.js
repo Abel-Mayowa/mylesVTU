@@ -85,7 +85,7 @@ export default function Dashboard() {
     });
   };
 
-  if (!logged) {
+  if (!logged || !data) {
     return (
       <Transition />
     );
