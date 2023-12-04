@@ -28,13 +28,10 @@ export default function Dashboard() {
   const setLogged = useSetRecoilState(loginStatus);
   const setData = useSetRecoilState(userData);
   const [spin, setSpin] = useState(true);
-  const thisPage = useRecoilValue(page);
-  const setPage = useSetRecoilState(page);
+ // const thisPage = useRecoilValue(page);
+ // const setPage = useSetRecoilState(page);
   const router = useRouter();
 
-  useEffect(()=>{
-    setPage("dashboard");
-  },[]);
   
   useEffect(() => {
 
