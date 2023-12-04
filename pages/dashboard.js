@@ -26,6 +26,7 @@ export default function Dashboard() {
   const logged = useRecoilValue(loginStatus);
 
   const setLogged = useSetRecoilState(loginStatus);
+ const data = useRecoilValue(userData);
   const setData = useSetRecoilState(userData);
   const [spin, setSpin] = useState(true);
  // const thisPage = useRecoilValue(page);
