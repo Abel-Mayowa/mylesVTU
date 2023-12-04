@@ -74,7 +74,7 @@ export default function Dashboard() {
         //showAlert("Server is down", "warning");
       },
     });
-  }, [setLogged, setData]);
+  }, []);
 
   const showAlert = (message, type) => {
     toast[type](`⚡ ${message}`, {
