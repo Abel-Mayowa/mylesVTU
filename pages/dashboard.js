@@ -26,13 +26,15 @@ export default function Dashboard() {
   const logged = useRecoilValue(loginStatus);
 
   const setLogged = useSetRecoilState(loginStatus);
- const data = useRecoilValue(userData);
   const setData = useSetRecoilState(userData);
   const [spin, setSpin] = useState(true);
- // const thisPage = useRecoilValue(page);
- // const setPage = useSetRecoilState(page);
+  const thisPage = useRecoilValue(page);
+  const setPage = useSetRecoilState(page);
   const router = useRouter();
 
+  useEffect(()=>{
+    setPage("dashboard");
+  },[]);
   
   useEffect(() => {
 
@@ -55,14 +57,12 @@ export default function Dashboard() {
       dataType: 'json',
       //crossDomain: true,
       success: function (r, status, xhr) {
-        alert (r);
         if (r.data.isLogged) {
           setLogged(r.data.isLogged);
           const profile = r.data.profile;
           const dataBundle = r.data.dataBundle;
           setData({ profile: profile, dataBundle: dataBundle
                   });
-          console.log(data);
 //router.push("/login");
           
         }
@@ -74,7 +74,7 @@ export default function Dashboard() {
         //showAlert("Server is down", "warning");
       },
     });
-  }, []);
+  }, [setLogged, setData]);
 
   const showAlert = (message, type) => {
     toast[type](`⚡ ${message}`, {
@@ -88,7 +88,7 @@ export default function Dashboard() {
     });
   };
 
-  if (!logged || !data) {
+  if (!logged) {
     return (
       <Transition />
     );
