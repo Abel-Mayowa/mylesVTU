@@ -109,7 +109,7 @@ if(!logged){
               <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
                 <Wallet />
                 <Menu />
-                <Transactions data={data} />
+                <Transactions />
               </div>
             </div>
             <NavbarBottom />
