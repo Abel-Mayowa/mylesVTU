@@ -48,7 +48,8 @@ export default function Dashboard() {
 */
   useEffect(() => {
     const url = 'https://mylesvtu.com.ng/app/store/welcome';
-
+if(!logged){
+  alert(5);
     $.ajax({
       url: url,
       type: 'get',
@@ -72,6 +73,7 @@ export default function Dashboard() {
         //showAlert("Server is down", "warning");
       },
     });
+  }
   }, [setLogged, setData]);
 
   const showAlert = (message, type) => {
