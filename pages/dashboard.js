@@ -28,14 +28,11 @@ export default function Dashboard() {
   const setLogged = useSetRecoilState(loginStatus);
   const setData = useSetRecoilState(userData);
   const [spin, setSpin] = useState(true);
-  const thisPage = useRecoilValue(page);
-  const setPage = useSetRecoilState(page);
+ // const thisPage = useRecoilValue(page);
+ // const setPage = useSetRecoilState(page);
   const router = useRouter();
 
-  useEffect(()=>{
-    setPage("dashboard");
-  },[]);
-  
+  /*
   useEffect(() => {
 
     const spin = setTimeout(() => {
@@ -47,7 +44,7 @@ export default function Dashboard() {
     }
 
   }, [spin, setSpin]);
-
+*/
   useEffect(() => {
     const url = 'https://mylesvtu.com.ng/app/store/welcome';
 
