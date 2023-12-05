@@ -15,7 +15,7 @@ import {
   Text,
   useMediaQuery,
 } from '@chakra-ui/react';
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue,useSetRecoilState } from 'recoil';
 import { userData,csrfToken } from '../components/recoil';
 
 const Transactions = () => {
