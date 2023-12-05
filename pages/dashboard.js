@@ -55,6 +55,7 @@ export default function Dashboard() {
       dataType: 'json',
       //crossDomain: true,
       success: function (r, status, xhr) {
+        alert (r);
         if (r.data.isLogged) {
           setLogged(r.data.isLogged);
           const profile = r.data.profile;
