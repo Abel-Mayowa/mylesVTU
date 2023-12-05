@@ -50,7 +50,7 @@ const Transactions = () => {
   //  }
   }, []);
  // const data = useRecoilValue(userData);
-  const transacs = data.profile.transactions || [];
+  //const transacs = data.profile.transactions || [];
   const requests = data.profile.request || [];
 
   const [isDesktop] = useMediaQuery('(min-width: 768px)');
