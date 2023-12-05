@@ -16,10 +16,38 @@ import {
   useMediaQuery,
 } from '@chakra-ui/react';
 import { useRecoilValue } from 'recoil';
-import { userData } from '../components/recoil';
+import { userData,csrfToken } from '../components/recoil';
 
 const Transactions = () => {
   const data = useRecoilValue(userData);
+  const setData = useSetRecoilState(userData);
+ // const csrf = useRecoilValue(csrfToken);
+ // const setCsrf = useSetRecoilState(csrfToken); 
+  
+  useEffect(() => {  
+   // if (!csrf) {
+    //alert(4)
+      const url = 'https://mylesvtu.com.ng/app/store/welcome';
+      $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        //crossDomain: true,
+        success: function (r, status, xhr) {
+          const dataBundle = r.data.dataBundle;
+          setData({ dataBundle: dataBundle });
+        //  setSpin(false);
+          // setCsrf(r.token);
+//console.log(data.profile.phoneNumber);
+        //  console.log("csrf id ",csrf);
+        },
+        error: function () {
+          //showAlert("Server is down", "warning");
+        },
+      });
+  //  }
+  }, []);
+ // const data = useRecoilValue(userData);
   const transacs = data.profile.transactions || [];
   const requests = data.profile.request || [];
 
