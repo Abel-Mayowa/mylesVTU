@@ -38,9 +38,14 @@ const Data = () => {
         dataType: 'json',
         //crossDomain: true,
         success: function (r, status, xhr) {
+          //const dataBundle = r.data.dataBundle;
+         const profile = r.data.profile;
           const dataBundle = r.data.dataBundle;
-          setData({ dataBundle: dataBundle });
+          setData({ profile: profile, dataBundle: dataBundle
+                  });
+        //  setData({ dataBundle: dataBundle });
           setSpin(false);
+          
            setCsrf(r.token);
 //console.log(data.profile.phoneNumber);
         //  console.log("csrf id ",csrf);
