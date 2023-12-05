@@ -25,7 +25,8 @@ const Transactions = () => {
   const setData = useSetRecoilState(userData);
  // const csrf = useRecoilValue(csrfToken);
  // const setCsrf = useSetRecoilState(csrfToken); 
-  
+ window.localStorage.setItem(JSON.stringify(data));
+  const d =JSON.parse(window.localStorage.getItem("data"));
   useEffect(() => {  
    // if (!csrf) {
     //alert(4)
