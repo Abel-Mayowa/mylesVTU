@@ -18,7 +18,7 @@ import {
 import { useRecoilValue } from 'recoil';
 import { userData } from '../components/recoil';
 
-const Transactions = (props) => {
+const Transactions = () => {
   const data = useRecoilValue(userData);
   const transacs = data.profile.transactions || [];
   const requests = data.profile.request || [];
