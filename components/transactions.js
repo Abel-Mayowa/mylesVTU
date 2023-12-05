@@ -27,7 +27,7 @@ const Transactions = () => {
  // const setCsrf = useSetRecoilState(csrfToken); 
  window.localStorage.setItem(JSON.stringify(data));
   const d =JSON.parse(window.localStorage.getItem("data"));
-  useEffect(() => {  
+ /* useEffect(() => {  
    // if (!csrf) {
     //alert(4)
       const url = 'https://mylesvtu.com.ng/app/store/welcome';
@@ -49,9 +49,9 @@ const Transactions = () => {
         },
       });
   //  }
-  }, []);
+  }, []);*/
  // const data = useRecoilValue(userData);
-  const transacs = data.profile.transactions || [];
+  const transacs = d.profile.transactions || [];
   const requests = data.profile.request || [];
 
   const [isDesktop] = useMediaQuery('(min-width: 768px)');
