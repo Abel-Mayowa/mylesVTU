@@ -12,7 +12,8 @@ import {
   Divider,
   InputGroup,
   InputLeftElement,
-  VStack
+  VStack,
+  Input
 } from '@chakra-ui/react';
 
 import { BiWalletAlt } from 'react-icons/bi';
