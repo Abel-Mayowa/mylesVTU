@@ -207,7 +207,7 @@ export default function Fund() {
       <Wallet />
       <ChakraProvider>
 
-        <Flex justify="center" align="center" mb={5} flexDirection="column">
+          {/* <Flex justify="center" align="center" mb={5} flexDirection="column">
           <Flex justify="center" align="center" flexDirection="column" mt={4}>
             <Box
               bg="white"
@@ -285,7 +285,51 @@ export default function Fund() {
               </Button>
             </Center>
           </Flex>
-        </Flex>     
+        </Flex>    */
+          } 
+
+      <Box
+        maxW="xl"
+        mx="auto"
+        p={6}
+        bg="#657ce0"
+        borderRadius="lg"
+        boxShadow="xl"
+        color="white"
+        textAlign="center"
+      >
+        <Text fontSize="xl" fontWeight="bold" mb={4}>
+          Send the amount you want to deposit to account number 8748589112 - Sterling Bank. After you are debited successfully.
+          Fill the form below with the amount you sent and the email you use to register with us and then click on Fund Me. We will
+          update your account balance in less than 3 minutes.
+        </Text>
+
+        <Text color="red.500" mt={4} mb={6}>
+          Note!!! Your account will be suspended if you make a false request.
+        </Text>
+
+        <VStack spacing={4} align="stretch">
+          <InputGroup>
+            <InputLeftElement pointerEvents="none">
+            
+            </InputLeftElement>
+            <Input type="email" placeholder="Email address" />
+          </InputGroup>
+
+          <InputGroup>
+            <InputLeftElement pointerEvents="none">
+              
+            </InputLeftElement>
+            <Input type="number" placeholder="Amount" />
+          </InputGroup>
+
+          <Button colorScheme="blue" mt={4}>
+            Fund Me
+          </Button>
+        </VStack>
+      </Box>
+    
+    
       </ChakraProvider>
       <Adverts />
       <NavbarBottom />
