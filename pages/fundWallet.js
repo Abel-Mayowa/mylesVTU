@@ -298,12 +298,12 @@ export default function Fund() {
         p={6}
         bg="white"
         borderRadius="lg"
-        boxShadow="xl"
+        boxShadow="sm"
         color="black"
         textAlign="center"
       >
         <Text fontSize="sm" fontWeight="bold" mb={4}>
-          Send the amount you want to deposit to <Flex color="blue">8748589112 - Sterling Bank.</Flex> After you are debited,
+          Send the amount you want to deposit to <Text color="blue">8748589112 - Sterling Bank.</Text> After you are debited,
           Fill the form below with the amount you sent and the email you use to register with us and then click on Fund Me. We will
           update your account balance in less than 3 minutes.
         </Text>
