@@ -212,8 +212,88 @@ export default function Fund() {
       <ChakraProvider>
 
 
+          {/* <Flex justify="center" align="center" mb={5} flexDirection="column">
+          <Flex justify="center" align="center" flexDirection="column" mt={4}>
+            <Box
+              bg="white"
+              border="1px"
+              borderColor="gray.300"
+              borderRadius="lg"
+              p={4}
+              textAlign="center"
+              width={isMobile ? '80vw' : '400px'}
+              height={isMobile ? '47px' : '60px'}
+            >
+              <input
+                type="text"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+                placeholder="Amount"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  fontSize: 'lg',
+                  fontWeight: 'bold',
+                  color: amount ? 'black' : 'gray.400',
+                  textAlign: 'center',
+                  border: 'none',
+                  outline: '2px',
+                  background: 'none',
+                }}
+              />
+            </Box>
+
+            <Divider mt={2} my={4} />
+
+            <Grid templateColumns="repeat(3, 1fr)" gap={2} width={isMobile ? '80vw' : '400px'}>
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((number) => (
+                <GridItem key={number}>
+                  <Button
+                    size="lg"
+                    w="100%"
+                    colorScheme="white"
+                    variant="outline"
+                    onClick={() => handleKeypadClick(number.toString())}
+                  >
+                    {number}
+                  </Button>
+                </GridItem>
+              ))}
+              <GridItem colSpan={2}>
+                <Button
+                  size="lg"
+                  w="100%"
+                  colorScheme="white"
+                  variant="outline"
+                  onClick={() => handleKeypadClick('x')}
+                >
+                  X
+                </Button>
+              </GridItem>
+            </Grid>
+
+            <Center mt={4}>
+              <Button display={`${btnLoading || !profile ? "none" : "block"}`}
+                size="lg"
+                bgColor="#0052D4"
+                color="white"
+                onClick={fund}
+                opacity={1}
+                width={isMobile ? '80vw' : '400px'}
+              >
+                {btnLoading ? <FallingLines
+                  color="white"
+                  width="50"
+                  visible={true}
+                  ariaLabel='falling-lines-loading'
+                /> : "Fund"}
+              </Button>
+            </Center>
+          </Flex>
+        </Flex>    */
+          } 
       <Box
-        maxW="xl"
+        maxW="lg"
         mx="auto"
         p={6}
         bg="white"
@@ -222,8 +302,8 @@ export default function Fund() {
         color="black"
         textAlign="center"
       >
-        <Text fontSize="xl" fontWeight="bold" mb={4}>
-          Send the amount you want to deposit to account number 8748589112 - Sterling Bank. After you are debited successfully.
+        <Text fontSize="sm" fontWeight="bold" mb={4}>
+          Send the amount you want to deposit to <Flex color="blue">8748589112 - Sterling Bank.</Flex> After you are debited,
           Fill the form below with the amount you sent and the email you use to register with us and then click on Fund Me. We will
           update your account balance in less than 3 minutes.
         </Text>
