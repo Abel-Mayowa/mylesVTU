@@ -216,10 +216,10 @@ export default function Fund() {
         maxW="xl"
         mx="auto"
         p={6}
-        bg="#657ce0"
+        bg="white"
         borderRadius="lg"
         boxShadow="xl"
-        color="white"
+        color="black"
         textAlign="center"
       >
         <Text fontSize="xl" fontWeight="bold" mb={4}>
@@ -228,22 +228,18 @@ export default function Fund() {
           update your account balance in less than 3 minutes.
         </Text>
 
-        <Text color="red.500" mt={4} mb={6}>
+        <Text color="red.300" mt={4} mb={6}>
           Note!!! Your account will be suspended if you make a false request.
         </Text>
 
         <VStack spacing={4} align="stretch">
           <InputGroup>
-            <InputLeftElement pointerEvents="none">
             
-            </InputLeftElement>
             <Input type="email" placeholder="Email address" />
           </InputGroup>
 
           <InputGroup>
-            <InputLeftElement pointerEvents="none">
-              
-            </InputLeftElement>
+            
             <Input type="number" placeholder="Amount" />
           </InputGroup>
 
@@ -255,7 +251,7 @@ export default function Fund() {
     
     
       </ChakraProvider>
-      <Adverts />
+        
       <NavbarBottom />
       <ToastContainer />
     </>
