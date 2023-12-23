@@ -205,7 +205,6 @@ const fundMe = () => {
  setBtnLoading(true);
   
 if(Object.keys(fundData).length < 2){
-alert(5);
 showAlert("Fill all fields appropriately and try again","error");
 
   setBtnLoading(false);
