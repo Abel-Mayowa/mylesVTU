@@ -203,7 +203,7 @@ export default function Fund() {
 const fundMe = () => {
   
  setBtnLoading(true);
-  
+  alert(fundData.length);
 if(fundData.length < 2){
 alert(5);
 showAlert("Fill all fields appropriately and try again","error");
