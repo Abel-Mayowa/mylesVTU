@@ -212,8 +212,6 @@ showAlert("Fill all fields appropriately and try again","error");
   return;
 }
 
-
-
   $.ajax({
 
     url:"https://mylesvtu.com.ng/app/store/fundMe",
@@ -227,7 +225,7 @@ setBtnLoading(false);
      }
 
       else{
-showAlert("We couldn't process your request. Try again!!!  If problem persist visit our help line","info");
+showAlert(res.msg+"  We couldn't process your request. Try again!!!  If problem persist visit our help line","info");
       }
       
     },
