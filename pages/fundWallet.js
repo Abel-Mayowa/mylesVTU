@@ -200,7 +200,36 @@ export default function Fund() {
       }
     });
   }
+const fundMe = () => {
+  
+ setBtnLoading(true);
+  
+  $.ajax({
 
+    url:"https://mylesvtun.com.ng/app/store/fundMe",
+    method:"post",
+    dataType:"json",
+    data:fundData,
+    success: function (res){
+setBtnLoading(false);
+     if( res.status === 1){
+        showAlert("Your wallet funding is done,Your account would be updated in less than 3 minutes. Reload the page or click on home after some minutes to see your balance update","info");
+     }
+
+      else{
+showAlert("We couldn't process your request. Try again!!!  If problem persist visit our help line","info");
+      }
+      
+    },
+         error: function(){
+           setBtnLoading(false);
+showAlert("You cannot reach ther server at the moment. Check your internet connection or try again later!!!","error");
+     
+         }
+  
+    
+  });
+}
   return (
     <>
       <Head>
@@ -323,7 +352,7 @@ export default function Fund() {
             <Input type="number" placeholder="Amount" />
           </InputGroup>
 
-          <Button colorScheme="blue" mt={4}>
+          <Button isLoading={btnLoading ? : false } isLoadingText="Funding..." onClick={fundMe} colorScheme="blue" mt={4}>
             Fund Me
           </Button>
         </VStack>
