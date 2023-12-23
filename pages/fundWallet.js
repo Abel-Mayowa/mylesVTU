@@ -94,7 +94,7 @@ export default function Fund() {
   const showAlert = (message, type) => {
     toast[type](` ${message}`, {
       position: "top-center",
-      autoClose: 5000,
+      autoClose: 7000,
       hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
@@ -203,8 +203,8 @@ export default function Fund() {
 const fundMe = () => {
   
  setBtnLoading(true);
-  alert(fundData.length);
-if(fundData.length < 2){
+  
+if(Object.keys(fundData).length < 2){
 alert(5);
 showAlert("Fill all fields appropriately and try again","error");
 
