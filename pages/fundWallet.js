@@ -233,12 +233,12 @@ showAlert("You cannot reach ther server at the moment. Check your internet conne
 
 const setEmail = (e) =>{
 
-setFundData((prev) => {...prev,['email']:e.target.value})
+setFundData((prev) => ({...prev,['email']:e.target.value}))
 }
 
   const setFundAmount = (e) => {
 
-setFundData((prev) => {...prev,['amount']:e.target.value})
+setFundData((prev) => ({...prev,['amount']:e.target.value}))
             
   }
 
