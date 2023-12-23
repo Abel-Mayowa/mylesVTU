@@ -206,7 +206,7 @@ const fundMe = () => {
   
   $.ajax({
 
-    url:"https://mylesvtun.com.ng/app/store/fundMe",
+    url:"https://mylesvtu.com.ng/app/store/fundMe",
     method:"post",
     dataType:"json",
     data:fundData,
@@ -363,7 +363,7 @@ setFundData((prev) => ({...prev,['amount']:e.target.value}))
             <Input onChange={setFundAmount} type="number" placeholder="Amount" />
           </InputGroup>
 
-          <Button isLoading={btnLoading} isLoadingText="Funding..." onClick={fundMe} colorScheme="blue" mt={4}>
+          <Button isLoading={btnLoading} loadingText="Funding..." onClick={fundMe} colorScheme="blue" mt={4}>
             Fund Me
           </Button>
         </VStack>
