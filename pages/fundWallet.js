@@ -205,7 +205,7 @@ const fundMe = () => {
  setBtnLoading(true);
   
 if(fundData.length < 2){
-
+alert(5);
 showAlert("Fill all fields appropriately and try again","error");
 
   setBtnLoading(false);
