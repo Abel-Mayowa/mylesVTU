@@ -40,7 +40,7 @@ export default function Fund() {
   const profile = data.profile;
   const [input, setInput] = useState({ fund: "fund" });
   const router = useRouter();
-
+  const [fundData,setFundData] = useState({});
   const handleKeypadClick = (value) => {
     if (value === 'x') {
       setAmount('');
@@ -229,7 +229,19 @@ showAlert("You cannot reach ther server at the moment. Check your internet conne
   
     
   });
+  }
+
+const setEmail = (e) =>{
+
+setFundData((prev) => {...prev,['email']:e.target.value})
 }
+
+  const setAmount = (e) => {
+
+setFundData((prev) => {...prev,['amount']:e target.value})
+            
+  }
+
   return (
     <>
       <Head>
@@ -332,9 +344,8 @@ showAlert("You cannot reach ther server at the moment. Check your internet conne
         textAlign="center"
       >
         <Text fontSize="sm" fontWeight="bold" mb={4}>
-          Send the amount you want to deposit to <Text color="blue">8748589112 - Sterling Bank.</Text> After you are debited,
-          Fill the form below with the amount you sent and the email you use to register with us and then click on Fund Me. We will
-          update your account balance in less than 3 minutes.
+          Send the amount you want to deposit to <Text color="blue">8748589112 - Sterling Bank.</Text> Use your mylesVTU email as your description. After you are debited,
+          fill the form below with the amount you sent and the email you use to register with us and then click on Fund Me.
         </Text>
 
         <Text color="red.300" mt={4} mb={6}>
@@ -344,15 +355,15 @@ showAlert("You cannot reach ther server at the moment. Check your internet conne
         <VStack spacing={4} align="stretch">
           <InputGroup>
             
-            <Input type="email" placeholder="Email address" />
+            <Input onChange={setEmail} type="email" placeholder="Email address" />
           </InputGroup>
 
           <InputGroup>
             
-            <Input type="number" placeholder="Amount" />
+            <Input onChange={setAmount} type="number" placeholder="Amount" />
           </InputGroup>
 
-          <Button isLoading={btnLoading ? : false } isLoadingText="Funding..." onClick={fundMe} colorScheme="blue" mt={4}>
+          <Button isLoading={btnLoading} isLoadingText="Funding..." onClick={fundMe} colorScheme="blue" mt={4}>
             Fund Me
           </Button>
         </VStack>
