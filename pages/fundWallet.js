@@ -236,7 +236,7 @@ const setEmail = (e) =>{
 setFundData((prev) => {...prev,['email']:e.target.value})
 }
 
-  const setAmount = (e) => {
+  const setFundAmount = (e) => {
 
 setFundData((prev) => {...prev,['amount']:e target.value})
             
@@ -360,7 +360,7 @@ setFundData((prev) => {...prev,['amount']:e target.value})
 
           <InputGroup>
             
-            <Input onChange={setAmount} type="number" placeholder="Amount" />
+            <Input onChange={setFundAmount} type="number" placeholder="Amount" />
           </InputGroup>
 
           <Button isLoading={btnLoading} isLoadingText="Funding..." onClick={fundMe} colorScheme="blue" mt={4}>
