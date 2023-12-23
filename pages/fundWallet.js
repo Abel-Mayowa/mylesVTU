@@ -238,7 +238,7 @@ setFundData((prev) => {...prev,['email']:e.target.value})
 
   const setFundAmount = (e) => {
 
-setFundData((prev) => {...prev,['amount']:e target.value})
+setFundData((prev) => {...prev,['amount']:e.target.value})
             
   }
 
