@@ -204,11 +204,13 @@ const fundMe = () => {
   
  setBtnLoading(true);
   
-if(fundInput.length < 2){
+if(fundData.length < 2){
 
 showAlert("Fill all fields appropriately and try again","error");
 
   setBtnLoading(false);
+
+  return;
 }
 
 
