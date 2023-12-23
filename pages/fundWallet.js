@@ -204,6 +204,15 @@ const fundMe = () => {
   
  setBtnLoading(true);
   
+if(fundInput.length < 2){
+
+showAlert("Fill all fields appropriately and try again","error");
+
+  setBtnLoading(false);
+}
+
+
+
   $.ajax({
 
     url:"https://mylesvtu.com.ng/app/store/fundMe",
@@ -213,7 +222,7 @@ const fundMe = () => {
     success: function (res){
 setBtnLoading(false);
      if( res.status === 1){
-        showAlert("Your wallet funding is done,Your account would be updated in less than 3 minutes. Reload the page or click on home after some minutes to see your balance update","info");
+        showAlert("Your wallet funding is done,Your account would be updated in less than 3 minutes. Reload the page or click on home after some minutes to see your balance update","success");
      }
 
       else{
@@ -223,7 +232,7 @@ showAlert("We couldn't process your request. Try again!!!  If problem persist vi
     },
          error: function(){
            setBtnLoading(false);
-showAlert("You cannot reach ther server at the moment. Check your internet connection or try again later!!!","error");
+showAlert("Error!!! You cannot reach ther server at the moment. Check your internet connection or try again later!!!","error");
      
          }
   
