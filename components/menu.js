@@ -11,13 +11,13 @@ import { useRouter } from "next/router";
 import Data from "../pages/buy_data";
 
 
-export default function Menu() {
+export default function Menu(props) {
   const data = useRecoilValue(userData);
   const thisPage = useRecoilValue(page);
   const setPage = useSetRecoilState(page);
   const [isDesktop] = useMediaQuery('(min-width: 768px)');
   const router = useRouter();
-
+const {switching,setSwitching} = props.data;
   if (!data) {
     return null;
   }
@@ -44,7 +44,8 @@ useEffect(()=>{
       pathname: '/buy_data',
     });
 //setPage("data");
-   //alert(thisPage)
+   //alert(thisPage);
+setSwitching(true);
   };
 
   const openFund = () => {
