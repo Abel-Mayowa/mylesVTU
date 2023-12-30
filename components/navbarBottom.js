@@ -14,10 +14,12 @@ const NavbarBottom = ({switchData}) => {
   const [showSupport, setShowSupport] = useState(false);
   const [color, setColor] = useState();
   const [idleTime, setIdleTime] = useState(5000);
-  const {switching,setSwitching} = switchData;
+ // const {switching,setSwitching} = switchData;
   const isLogged = useRecoilValue(loginStatus);
   //const {switching,setSwitching} = props.data;
-
+const switching = useRecoilState(switchData);
+  const setSwitching = useSetRecoilState(switchData);
+  
  // const isLogged = data.isLogged;
   //alert(isLogged)
   const openSupport = () => {
