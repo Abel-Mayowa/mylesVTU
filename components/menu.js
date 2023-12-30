@@ -17,7 +17,11 @@ export default function Menu(props) {
   const setPage = useSetRecoilState(page);
   const [isDesktop] = useMediaQuery('(min-width: 768px)');
   const router = useRouter();
-const {switching,setSwitching} = props.data;
+//const {switching,setSwitching} = props.data;
+  const switching = useRecoilState(switchData);
+  const setSwitching = useSetRecoilState(switchData);
+  
+  
   if (!data) {
     return null;
   }
