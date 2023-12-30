@@ -23,4 +23,9 @@ export const page = atom({
   default:'', 
 });
 
+export const switchData = atom({
 
+key:'switchData',
+  defaul:false,
+
+});
