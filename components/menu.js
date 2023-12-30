@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react';
-import { Box, Grid, GridItem, Text, ChakraProvider, useMediaQuery, Center } from '@chakra-ui/react';
+import { Box, Grid, GridItem, Text, ChakraProvider, useMediaQuery, Center,Spinner } from '@chakra-ui/react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AiOutlineWifi, AiOutlineMobile, AiOutlineDesktop, AiOutlineThunderbolt, AiOutlineUser, AiOutlineWallet, AiOutlineDollarCircle } from 'react-icons/ai';
