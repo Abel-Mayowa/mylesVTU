@@ -88,10 +88,10 @@ setSwitching(true);
       <Box
         p={4}
         maxW="md"
-        borderWidth="2px"
+        borderWidth=",0px"
   borderColor="#657ce0"
         borderRadius="lg"
-        boxShadow="lg"
+        boxShadow="md"
         textAlign="center"
         
       >
