@@ -9,12 +9,12 @@ import $ from "jquery";
 
 
 
-const NavbarBottom = ({switching,setSwitching}) => {
+const NavbarBottom = ({switchData}) => {
   
   const [showSupport, setShowSupport] = useState(false);
   const [color, setColor] = useState();
   const [idleTime, setIdleTime] = useState(5000);
-  //const {switching,setSwitching} = props.data;
+  const {switching,setSwitching} = switchData;
   const isLogged = useRecoilValue(loginStatus);
   //const {switching,setSwitching} = props.data;
 
