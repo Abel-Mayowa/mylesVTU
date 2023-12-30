@@ -9,7 +9,7 @@ import $ from "jquery";
 
 
 
-const NavbarBottom = (props) => {
+const NavbarBottom = ({switching,setSwitching}) => {
   
   const [showSupport, setShowSupport] = useState(false);
   const [color, setColor] = useState();
