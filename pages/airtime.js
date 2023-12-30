@@ -33,7 +33,6 @@ const Airtime = () => {
       });
     }
   }, [csrf]);
-
   const [input, setInput] = useState({ network: "" });
   const [btnLoading, setBtnLoading] = useState(false);
   const [data, setData] = useState({});
