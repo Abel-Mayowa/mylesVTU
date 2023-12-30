@@ -32,8 +32,8 @@ export default function Dashboard() {
  // const thisPage = useRecoilValue(page);
  // const setPage = useSetRecoilState(page);
   const router = useRouter();
-const switching = useRecoilState(switchData);
-  const setSwitching = useSetRecoilState(switchData);
+const switching = useRecoilValue(switchData);
+  const setSwitching = useSetRecoilValue(switchData);
  // const switchData = {switching,setSwitching}
   
 setSwitching(false);
