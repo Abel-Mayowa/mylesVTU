@@ -51,17 +51,20 @@ setSwitching(true);
   const openFund = () => {
    router.push('/fundWallet');
 //setPage("fund");
-    
+    setSwitching(true);
   };
 
   const openAirtime = () => {
     router.push('/airtime');
     //setPage("airtime");
+    setSwitching(true);
   };
 
   const openHire = () => {
     router.push('/hire_me');
     //setPage("hire");
+setSwitching(true);
+    
   };
 
   const openCable = () => {
@@ -71,6 +74,8 @@ setSwitching(true);
   const openAirtime2Cash = () => {
     router.push("/airtime_to_cash");
     //setPage("a2c");
+
+    setSwitching(true);
   };
 
   return (
@@ -87,8 +92,9 @@ setSwitching(true);
         borderRadius="lg"
         boxShadow="sm"
         textAlign="center"
+          my={4}
       >
-        <Spinner size="xl" />
+        <Spinner color="#657ce0" size="xl" />
         <p>Loading...</p>
       </Box>
     </Center>) : (
