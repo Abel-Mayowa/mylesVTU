@@ -32,7 +32,8 @@ export default function Dashboard() {
  // const thisPage = useRecoilValue(page);
  // const setPage = useSetRecoilState(page);
   const router = useRouter();
-const[switching,setSwitching] = useState(false);
+const switching = useRecoilState(switchData);
+  const setSwitching = useSetRecoilState(switchData);
   const switchData = {switching,setSwitching}
   /*
   useEffect(() => {
@@ -107,11 +108,11 @@ if(!logged){
             <div style={{ flex: 1 }}>
               <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
                 <Wallet />
-                <Menu data={switchData}/>
+                <Menu />
                 <Transactions />
               </div>
             </div>
-            <NavbarBottom data={switchData} />
+            <NavbarBottom />
           </div>
         </Container>
       
