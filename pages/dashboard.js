@@ -111,7 +111,7 @@ if(!logged){
                 <Transactions />
               </div>
             </div>
-            <NavbarBottom data={{switching,setSwitching}}/>
+            <NavbarBottom data={{switching,setSwitching}} />
           </div>
         </Container>
       
