@@ -101,20 +101,20 @@ if(!logged){
 
       <title>mylesVTU — cheap data,airtime and hire web devey and graphics designer </title>
         </Head>
-
-      <Center height="100vh">
+  {switching && (
+      <Center height="">
       <Box
         p={4}
         maxW="md"
-        borderWidth="1px"
+        borderWidth="0px"
         borderRadius="lg"
-        boxShadow="lg"
+        boxShadow="sm"
         textAlign="center"
       >
         <Spinner size="xl" />
         <p>Loading...</p>
       </Box>
-    </Center>
+    </Center>)}
       <Container textAlign="center" h="100vh">
           <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <Header />
