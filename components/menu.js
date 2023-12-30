@@ -77,6 +77,22 @@ setSwitching(true);
     <>  
       
       <ChakraProvider>
+
+     {switching ? (
+      <Center height="">
+      <Box
+        p={4}
+        maxW="md"
+        borderWidth="0px"
+        borderRadius="lg"
+        boxShadow="sm"
+        textAlign="center"
+      >
+        <Spinner size="xl" />
+        <p>Loading...</p>
+      </Box>
+    </Center>) : (
+
         <Box mt={6}>
           <Box maxW="md" mx="auto" p={4}>
             <Grid templateColumns="repeat(3, 1fr)" gap={6}>
@@ -207,7 +223,7 @@ setSwitching(true);
               </GridItem>
             </Grid>
           </Box>
-        </Box>
+        </Box>)}
       </ChakraProvider>
       <ToastContainer />
         
