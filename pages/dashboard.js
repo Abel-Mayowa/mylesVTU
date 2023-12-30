@@ -32,7 +32,8 @@ export default function Dashboard() {
  // const thisPage = useRecoilValue(page);
  // const setPage = useSetRecoilState(page);
   const router = useRouter();
-
+const[switching,setSwitching] = useState(false);
+  
   /*
   useEffect(() => {
 
@@ -101,7 +102,19 @@ if(!logged){
       <title>mylesVTU — cheap data,airtime and hire web devey and graphics designer </title>
         </Head>
 
-      
+      <Center height="100vh">
+      <Box
+        p={4}
+        maxW="md"
+        borderWidth="1px"
+        borderRadius="lg"
+        boxShadow="lg"
+        textAlign="center"
+      >
+        <Spinner size="xl" />
+        <p>Loading...</p>
+      </Box>
+    </Center>
       <Container textAlign="center" h="100vh">
           <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <Header />
