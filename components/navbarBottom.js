@@ -30,32 +30,38 @@ const NavbarBottom = (props) => {
   };
 
   const goHome = () => {
+    setSwitching(true)
     highlights(1);
     router.push('/dashboard');
    // setPage("dashboard");
-    setSwitching(true);
+    ;
   };
 
   const fund = () => {
+setSwitching(true)
+
     highlights(2);
     router.push('/fundWallet');
    // setPage("fund");
-    setSwitching(true);
+    
   };
 
   const login = () => {
+
+    setSwitching(true)
+
     //highlights(2);
     router.push('/login');
    // setPage("fund");
-    setSwitching(true);
+    
   };
 
   const openProfile = () => {
+
+    setSwitching(true)
     highlights(3);
     router.push('/profile');
     //setPage("profile");
-
-    setSwitching(true);
   };
 
     const logout = () => {
