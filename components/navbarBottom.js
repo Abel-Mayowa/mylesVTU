@@ -4,12 +4,12 @@ import { AiOutlineHome, AiOutlineFund, AiOutlineUser, AiOutlineWhatsApp,AiOutlin
 import Support from '../components/support';
 import { useRouter } from 'next/router';
 import {useRecoilValue,useSetRecoilState} from "recoil";
-import {loginStatus} from "./recoil";
+import {loginStatus,switchData} from "./recoil";
 import $ from "jquery";
 
 
 
-const NavbarBottom = ({switchData}) => {
+const NavbarBottom = () => {
   
   const [showSupport, setShowSupport] = useState(false);
   const [color, setColor] = useState();
