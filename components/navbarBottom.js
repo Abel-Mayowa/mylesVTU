@@ -18,7 +18,7 @@ const NavbarBottom = ({switchData}) => {
   const isLogged = useRecoilValue(loginStatus);
   //const {switching,setSwitching} = props.data;
 const switching = useRecoilValue(switchData);
-  const setSwitching = useSetRecoilValue(switchData);
+  const setSwitching = useSetRecoilState(switchData);
   
  // const isLogged = data.isLogged;
   //alert(isLogged)
