@@ -9,12 +9,12 @@ import $ from "jquery";
 
 
 
-const NavbarBottom = () => {
+const NavbarBottom = (props) => {
   
   const [showSupport, setShowSupport] = useState(false);
   const [color, setColor] = useState();
   const [idleTime, setIdleTime] = useState(5000);
-  
+  const {switching,setSwitching} = propds.data;
   const isLogged = useRecoilValue(loginStatus);
   
  // const isLogged = data.isLogged;
@@ -33,28 +33,33 @@ const NavbarBottom = () => {
     highlights(1);
     router.push('/dashboard');
    // setPage("dashboard");
+    setSwitching(true);
   };
 
   const fund = () => {
     highlights(2);
     router.push('/fundWallet');
    // setPage("fund");
+    setSwitching(true);
   };
 
   const login = () => {
     //highlights(2);
     router.push('/login');
    // setPage("fund");
+    setSwitching(true);
   };
 
   const openProfile = () => {
     highlights(3);
     router.push('/profile');
     //setPage("profile");
+
+    setSwitching(true);
   };
 
     const logout = () => {
-
+setSwitching(true);
       $.ajax({
         url:        'https://mylesvtu.com.ng/app/store/logout',
         
