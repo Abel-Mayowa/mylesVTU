@@ -9,7 +9,7 @@ import { FallingLines } from 'react-loader-spinner';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import $ from 'jquery';
-import { Box, Button, Center, ChakraProvider, Text, Container } from '@chakra-ui/react';
+import { Box, Button, Center, ChakraProvider, Text, Container,Spinner } from '@chakra-ui/react';
 import { FiFrown } from "react-icons/fi";
 import Link from "next/link";
 import { useRecoilValue, useSetRecoilState, useRecoilState } from "recoil";
