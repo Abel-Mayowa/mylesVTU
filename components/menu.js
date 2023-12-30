@@ -6,7 +6,7 @@ import { AiOutlineWifi, AiOutlineMobile, AiOutlineDesktop, AiOutlineThunderbolt,
 import { FaExchangeAlt } from 'react-icons/fa';
 
 import { useRecoilValue,useSetRecoilState } from "recoil";
-import { userData,page } from "../components/recoil";
+import { userData,page,switchData } from "../components/recoil";
 import { useRouter } from "next/router";
 import Data from "../pages/buy_data";
 
