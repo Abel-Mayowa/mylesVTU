@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 import Data from "../pages/buy_data";
 
 
-export default function Menu(props) {
+export default function Menu() {
   const data = useRecoilValue(userData);
   const thisPage = useRecoilValue(page);
   const setPage = useSetRecoilState(page);
@@ -44,30 +44,40 @@ useEffect(()=>{
   }
 
   const openBuyData = () => {
+
+    setSwitching(true);
     router.push({
       pathname: '/buy_data',
     });
 //setPage("data");
    //alert(thisPage);
-setSwitching(true);
+
   };
 
   const openFund = () => {
+setSwitching(true);
+    
    router.push('/fundWallet');
 //setPage("fund");
-    setSwitching(true);
+    //setSwitching(true);
   };
 
   const openAirtime = () => {
+
+setSwitching(true);
+
     router.push('/airtime');
     //setPage("airtime");
-    setSwitching(true);
+  //  setSwitching(true);
   };
 
   const openHire = () => {
+
+setSwitching(true);
+
     router.push('/hire_me');
     //setPage("hire");
-setSwitching(true);
+//setSwitching(true);
     
   };
 
@@ -76,10 +86,13 @@ setSwitching(true);
   };
 
   const openAirtime2Cash = () => {
+
+setSwitching(true);
+
     router.push("/airtime_to_cash");
     //setPage("a2c");
 
-    setSwitching(true);
+ //   setSwitching(true);
   };
 
   return (
