@@ -13,7 +13,7 @@ import { Box, Button, Center, ChakraProvider, Text, Container,Spinner } from '@c
 import { FiFrown } from "react-icons/fi";
 import Link from "next/link";
 import { useRecoilValue, useSetRecoilState, useRecoilState } from "recoil";
-import { loginStatus, userData,page } from "../components/recoil";
+import { loginStatus, userData,page,switchData } from "../components/recoil";
 import { useRouter } from "next/router";
 import Transition from '../components/transition';
 import Head from "next/head";
