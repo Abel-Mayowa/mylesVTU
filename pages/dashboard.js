@@ -121,7 +121,7 @@ if(!logged){
             <div style={{ flex: 1 }}>
               <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
                 <Wallet />
-                <Menu />
+                <Menu data={{switching,setSwitching}}/>
                 <Transactions />
               </div>
             </div>
