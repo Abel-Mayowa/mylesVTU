@@ -84,19 +84,19 @@ setSwitching(true);
       <ChakraProvider>
 
      {switching ? (
-      <Center m={1} height="">
+      <Center mt={5} height="">
       <Box
         p={4}
         maxW="md"
         borderWidth=",0px"
   borderColor="#657ce0"
-        borderRadius="lg"
-        boxShadow="md"
+        borderRadius="md"
+        boxShadow="sm"
         textAlign="center"
         
       >
         <Spinner color="#657ce0" size="md" />
-        <p>Loading...</p>
+        <p></p>
       </Box>
     </Center>) : (
 
