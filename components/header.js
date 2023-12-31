@@ -85,7 +85,7 @@ const Header = () => {
         mr={4}
       >
         <Image
-          src="../public/avatar1.jpeg"
+          src="../public/avater1.jpeg"
 
           alt="Profile Picture"
           objectFit="cover"
