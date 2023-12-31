@@ -97,7 +97,9 @@ if(!logged){
       <Transition />
     );
   }
-
+useEffect(()=>{
+setSwitching(false);
+},[]);
   return (
     <>
       <Head>
