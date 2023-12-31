@@ -28,7 +28,7 @@ export default function Dashboard() {
   const setLogged = useSetRecoilState(loginStatus);
   const data = useRecoilValue(userData);
   const setData = useSetRecoilState(userData);
-  const [spin, setSpin] = useState(true);
+  //const [spin, setSpin] = useState(true);
  // const thisPage = useRecoilValue(page);
  // const setPage = useSetRecoilState(page);
   const router = useRouter();
@@ -111,10 +111,10 @@ if(!logged){
               <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
                 <Wallet />
                 <Menu />
-                <Transactions switchData={switchData} />
+                <Transactions switching={switching} setSwitching={setSwitching} />
               </div>
             </div>
-            <NavbarBottom switchData={switchData} />
+            <NavbarBottom switching={switching} setSwitching={setSwitching}  />
           </div>
         </Container>
       
