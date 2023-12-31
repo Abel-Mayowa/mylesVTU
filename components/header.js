@@ -1,8 +1,8 @@
-import { Box, Text} from '@chakra-ui/react';
+import { Box, Text,Image } from '@chakra-ui/react';
 import { AiOutlineBell } from 'react-icons/ai';
 import React, { useState, useEffect } from 'react';
 import Head from "next/head";
-import Image from "next/image";
+//import Image from "next/image";
 const Header = () => {
   const [isFixed, setIsFixed] = useState(false);
 
@@ -85,7 +85,7 @@ const Header = () => {
         mr={4}
       >
         <Image
-          src="/public/avater1.jpeg"
+          src="../public/avater1.jpeg"
 
           alt="Profile Picture"
           objectFit="cover"
