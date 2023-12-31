@@ -91,6 +91,21 @@ setSwitching(true);
 
  //   setSwitching(true);
   };
+const openFund = () => {
+  setSwitching(true);
+  router.push('/fundWallet');
+};
+
+useEffect(() => {
+  if (switching) {
+    // Simulating a delay, adjust the timeout as needed
+    const timeoutId = setTimeout(() => {
+      setSwitching(false);
+    }, 1000); // 1 second delay, adjust as needed
+
+    return () => clearTimeout(timeoutId);
+  }
+}, [switching]);
 
   return (
     <>  
