@@ -15,7 +15,9 @@ const NavbarBottom = (props) => {
   const [idleTime, setIdleTime] = useState(5000);
  // const {switching,setSwitching} = switchData;
   const isLogged = useRecoilValue(loginStatus);
-  const {switching,setSwitching} = props.data;
+  const switching= props.switchinh;
+const setSwitching = props.setSwitching;
+
 //const switching = useRecoilValue(switchData);
   //const setSwitching = useSetRecoilState(switchData);
   
