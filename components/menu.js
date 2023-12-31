@@ -18,10 +18,8 @@ export default function Menu(props) {
   const router = useRouter();
 const switching = props.switching;
 const setSwitching = props.setSwitching;
-
  // const switching = useRecoilValue(switchData);
-// const setSwitching = useSetRecoilState(switchData);
-  
+ // const setSwitching = useSetRecoilState(switchData);
   
   if (!data) {
     return null;
