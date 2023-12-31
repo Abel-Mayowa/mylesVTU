@@ -36,7 +36,7 @@ const switching = useRecoilValue(switchData);
   const setSwitching = useSetRecoilState(switchData);
  // const switchData = {switching,setSwitching}
   
-setSwitching(false);
+//setSwitching(false);
 /*
   useEffect(() => {
 
