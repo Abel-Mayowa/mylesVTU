@@ -94,6 +94,7 @@ setSwitching(true);
 
 
 useEffect(() => {
+  console.log(switching);
   if (switching) {
     // Simulating a delay, adjust the timeout as needed
     const timeoutId = setTimeout(() => {
