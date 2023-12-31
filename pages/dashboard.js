@@ -101,7 +101,7 @@ useEffect(()=>{
   alert(switching);
 const timeoutId = setTimeout(() => {
       setSwitching(false);
-    }, 51000); // Adjust the delay as needed
+    }, 4200); // Adjust the delay as needed
 
     // Clean up the timeout to avoid memory leaks
     return () => clearTimeout(timeoutId);
