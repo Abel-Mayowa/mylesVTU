@@ -85,7 +85,7 @@ const Header = () => {
         mr={4}
       >
         <Image
-          src="../public/avater1.jpeg"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYtuEswkYNUwFO1Z3MXApzRT053TBIcLXRVg&usqp=CAU"
 
           alt="Profile Picture"
           objectFit="cover"
