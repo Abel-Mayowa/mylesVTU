@@ -97,11 +97,15 @@ if(!logged){
       <Transition />
     );
   }
-useEffect(()=>{
-if(data){
-setSwitching(false);
-}
-},[data]);
+useEffect(()=>{ 
+const timeoutId = setTimeout(() => {
+      setSwitching(false);
+    }, 1000); // Adjust the delay as needed
+
+    // Clean up the timeout to avoid memory leaks
+    return () => clearTimeout(timeoutId);
+
+},[]);
   return (
     <>
       <Head>
