@@ -15,8 +15,8 @@ const NavbarBottom = (props) => {
   const [idleTime, setIdleTime] = useState(5000);
  // const {switching,setSwitching} = switchData;
   const isLogged = useRecoilValue(loginStatus);
-  //const switching= props.switching;
-//const setSwitching = props.setSwitching;
+  const switching= props.switching;
+const setSwitching = props.setSwitching;
 
 //const switching = useRecoilValue(switchData);
   //const setSwitching = useSetRecoilState(switchData);
@@ -34,7 +34,7 @@ const NavbarBottom = (props) => {
   };
 
   const goHome = () => {
-  //  setSwitching(true)
+  // setSwitching(true)
     highlights(1);
     router.push('/dashboard');
    // setPage("dashboard");
@@ -52,7 +52,7 @@ const NavbarBottom = (props) => {
 
   const login = () => {
 
-   // setSwitching(true)
+    setSwitching(true)
 
     //highlights(2);
     router.push('/login');
@@ -62,14 +62,14 @@ const NavbarBottom = (props) => {
 
   const openProfile = () => {
 
-   // setSwitching(true)
+   setSwitching(true)
     highlights(3);
     router.push('/profile');
     //setPage("profile");
   };
 
     const logout = () => {
-//setSwitching(true);
+setSwitching(true);
       $.ajax({
         url:        'https://mylesvtu.com.ng/app/store/logout',
         
