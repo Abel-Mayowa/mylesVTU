@@ -103,7 +103,7 @@ useEffect(() => {
 
     return () => clearTimeout(timeoutId);
   }
-}, [switching]);
+}, []);
 
   return (
     <>  
