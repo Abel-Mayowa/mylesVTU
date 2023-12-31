@@ -34,7 +34,7 @@ export default function Dashboard() {
   const router = useRouter();
 const [switching,setSwitching] = useState(false);
   //const setSwitching = useSetRecoilState(switchData);
- const switchData = {switching,setSwitching}
+ //const switchData = {switching,setSwitching}
   
 //setSwitching(false);
 /*
