@@ -91,10 +91,7 @@ setSwitching(true);
 
  //   setSwitching(true);
   };
-const openFund = () => {
-  setSwitching(true);
-  router.push('/fundWallet');
-};
+
 
 useEffect(() => {
   if (switching) {
