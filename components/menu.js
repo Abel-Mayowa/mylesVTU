@@ -1,14 +1,13 @@
-import React,{useEffect} from 'react';
-import { Box, Grid, GridItem, Text, ChakraProvider, useMediaQuery, Center,Spinner } from '@chakra-ui/react';
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { Box, Grid, GridItem, Text, ChakraProvider, useMediaQuery, Center, Spinner } from '@chakra-ui/react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AiOutlineWifi, AiOutlineMobile, AiOutlineDesktop, AiOutlineThunderbolt, AiOutlineUser, AiOutlineWallet, AiOutlineDollarCircle } from 'react-icons/ai';
 import { FaExchangeAlt } from 'react-icons/fa';
-
-import { useRecoilValue,useSetRecoilState } from "recoil";
-import { userData,page,switchData } from "../components/recoil";
-import { useRouter } from "next/router";
-import Data from "../pages/buy_data";
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { userData, page, switchData } from '../components/recoil';
+//import Data from '../pages/buy_data';
 
 
 export default function Menu() {
@@ -46,9 +45,7 @@ useEffect(()=>{
   const openBuyData = () => {
 
     setSwitching(true);
-    router.push({
-      pathname: '/buy_data',
-    });
+    router.push("/buy_data");
 //setPage("data");
    //alert(thisPage);
 
