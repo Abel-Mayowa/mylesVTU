@@ -8,7 +8,6 @@ import {loginStatus,switchData} from "./recoil";
 import $ from "jquery";
 
 
-
 const NavbarBottom = (props) => {
   
   const [showSupport, setShowSupport] = useState(false);
