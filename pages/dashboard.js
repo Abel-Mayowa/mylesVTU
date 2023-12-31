@@ -98,6 +98,7 @@ if(!logged){
     );
   }
 useEffect(()=>{ 
+  alert(switching);
 const timeoutId = setTimeout(() => {
       setSwitching(false);
     }, 51000); // Adjust the delay as needed
