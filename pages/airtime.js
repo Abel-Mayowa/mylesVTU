@@ -127,14 +127,14 @@ const Airtime = () => {
     <meta name="revisit-after" content="7 days">
     <meta name="generator" content="Your CMS or Development Platform">
 
-    <!-- Open Graph meta tags for social sharing -->
+    
     <meta property="og:title" content="Buy Airtime Online - Instant Mobile Top-up | MylesVTU">
     <meta property="og:description" content="Buy airtime instantly with ease. Top up your mobile phone credit and stay connected. Fast and secure airtime purchase at MylesVTU.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mylesvtu.com.ng/airtime">
     <meta property="og:image" content="https://lh3.googleusercontent.com/p/AF1QipMgmurRxYZYbIeskHtFTD_iZ3GCEbxa8nHmEygE=s1348-w720-h1348">
     
-    <!-- Twitter Card meta tags for Twitter sharing -->
+    {/* Twitter Card meta tags for Twitter sharing */}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Buy Airtime Online - Instant Mobile Top-up | MylesVTU">
     <meta name="twitter:description" content="Buy airtime instantly with ease. Top up your mobile phone credit and stay connected. Fast and secure airtime purchase at MylesVTU.">
