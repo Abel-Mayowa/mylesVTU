@@ -98,8 +98,10 @@ if(!logged){
     );
   }
 useEffect(()=>{
+if(data){
 setSwitching(false);
-},[]);
+}
+},[data]);
   return (
     <>
       <Head>
