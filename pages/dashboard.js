@@ -110,8 +110,8 @@ if(!logged){
             <div style={{ flex: 1 }}>
               <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
                 <Wallet />
-                <Menu />
-                <Transactions switching={switching} setSwitching={setSwitching} />
+                <Menu switching={switching} setSwitching={setSwitching} />
+                <Transactions />
               </div>
             </div>
             <NavbarBottom switching={switching} setSwitching={setSwitching}  />
