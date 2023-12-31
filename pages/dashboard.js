@@ -100,7 +100,7 @@ if(!logged){
 useEffect(()=>{ 
 
 const timeoutId = setTimeout(() => {
-    //  setSwitching(false);
+     setSwitching(false);
     }, 4200); // Adjust the delay as needed
 
     // Clean up the timeout to avoid memory leaks
