@@ -111,10 +111,10 @@ if(!logged){
               <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
                 <Wallet />
                 <Menu />
-                <Transactions switchData={} />
+                <Transactions switchData={switchData} />
               </div>
             </div>
-            <NavbarBottom switchData={} />
+            <NavbarBottom switchData={switchData} />
           </div>
         </Container>
       
