@@ -109,7 +109,7 @@ setSwitching(true);
         textAlign="center"
         
       >
-        <Spinner color="#657ce0" size="md" />
+        <Spinner color="#657ce0" size="lg" />
         <p></p>
       </Box>
     </Center>) : (
