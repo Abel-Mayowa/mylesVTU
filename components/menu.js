@@ -90,20 +90,7 @@ setSwitching(true);
     //setPage("a2c");
 
  //   setSwitching(true);
-  };
-
-
-useEffect(() => {
-  console.log(switching);
-  if (switching) {
-    // Simulating a delay, adjust the timeout as needed
-    const timeoutId = setTimeout(() => {
-      setSwitching(false);
-    }, 1000); // 1 second delay, adjust as needed
-
-    return () => clearTimeout(timeoutId);
   }
-}, []);
 
   return (
     <>  
