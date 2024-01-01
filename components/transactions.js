@@ -55,7 +55,7 @@ const Transactions = () => {
   const requests = data.profile.request || [];
 
   const [isDesktop] = useMediaQuery('(min-width: 768px)');
-console.log(data.profile.transactions);
+//console.log(data.profile.transactions);
   return (
     <ChakraProvider>
       <Flex
