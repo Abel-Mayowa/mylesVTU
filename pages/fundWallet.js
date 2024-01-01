@@ -356,7 +356,7 @@ setFundData((prev) => ({...prev,['amount']:e.target.value}))
         </Text>
 
         <Text color="red.300" mt={4} mb={6}>
-          Note!!! Your account would be suspended if you make a false transfer notice.
+        Beware!!! Avoid false transfer notification.
         </Text>
 
         <VStack spacing={4} align="stretch">
