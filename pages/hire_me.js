@@ -91,34 +91,33 @@ const Hire = () => {
 
   return (
     <>
-      <Head>
+     <Head>
+  <meta charSet="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hire Web Developer & Graphics Designer - MylesVTU</title>
+  <meta name="description" content="Hire a skilled web developer and graphics designer at MylesVTU. Our professionals deliver quality work in web development, graphic design, and more. Take your projects to the next level with our expertise." />
+  <meta name="keywords" content="hire web developer, hire graphics designer, web development services, graphic design services, MylesVTU, freelance services" />
+  <meta name="author" content="MylesVTU" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="language" content="English" />
+  <meta name="revisit-after" content="7 days" />
+  <meta name="generator" content="Your CMS or Development Platform" />
 
-          <title>mylesVTU — cheap data,airtime and hire web devey and graphics designer </title>
-        
-          <meta name="title" content="mylesVTU — cheap data,airtime and hire web devey and graphics designer " />
-        
-          <meta name="description" content="Elevate your projects with expertise! Explore our 'Hire Me' page to connect with skilled web developers and graphics designers. Unlock tailored solutions for your digital needs by hiring our professionals. Elevate your online presence with a team dedicated to bringing your vision to life. Your projects, our passion – let's create together." />
+  {/* Open Graph meta tags for social sharing */}
+  <meta property="og:title" content="Hire Web Developer & Graphics Designer - MylesVTU" />
+  <meta property="og:description" content="Hire a skilled web developer and graphics designer at MylesVTU. Our professionals deliver quality work in web development, graphic design, and more. Take your projects to the next level with our expertise." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mylesvtu.com.ng/hire_me" />
+  <meta property="og:image" content="https://lh3.googleusercontent.com/p/AF1QipMgmurRxYZYbIeskHtFTD_iZ3GCEbxa8nHmEygE=s1348-w720-h1348" />
 
-
-          <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://metatags.io/" />
-          <meta property="og:title" content="mylesVTU — cheap data,airtime and hire web devey and graphics designer " />
-        
-          <meta property="og:description" content="Elevate your projects with expertise! Explore our 'Hire Me' page to connect with skilled web developers and graphics designers. Unlock tailored solutions for your digital needs by hiring our professionals. Elevate your online presence with a team dedicated to bringing your vision to life. Your projects, our passion – let's create together." />
-        
-          <meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
-
-
-          <meta property="twitter:card" content="summary_large_image" />
-          <meta property="twitter:url" content="https://metatags.io/" />
-          <meta property="twitter:title" content="mylesVTU — cheap data,airtime and hire web devey and graphics designer " />
-          <meta property="twitter:description" content="Elevate your projects with expertise! Explore our 'Hire Me' page to connect with skilled web developers and graphics designers. Unlock tailored solutions for your digital needs by hiring our professionals. Elevate your online presence with a team dedicated to bringing your vision to life. Your projects, our passion" />
-        
-          <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
-
-
-          </Head>
-      <Header />
+  {/* Twitter Card meta tags for Twitter sharing */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Hire Web Developer & Graphics Designer - MylesVTU" />
+  <meta name="twitter:description" content="Hire a skilled web developer and graphics designer at MylesVTU. Our professionals deliver quality work in web development, graphic design, and more. Take your projects to the next level with our expertise." />
+  <meta name="twitter:image" content="https://lh3.googleusercontent.com/p/AF1QipMgmurRxYZYbIeskHtFTD_iZ3GCEbxa8nHmEygE=s1348-w720-h1348" />
+</Head>
+ <Header />
       <Container>
         <ChakraProvider>
           <Box p={4} maxWidth="500px" mx="auto">
