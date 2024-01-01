@@ -352,8 +352,7 @@ setFundData((prev) => ({...prev,['amount']:e.target.value}))
         textAlign="center"
       >
         <Text fontSize="sm" fontWeight="bold" mb={4}>
-          Send the amount you want to deposit to <Text color="blue">8748589112 - Sterling Bank.</Text> Once debited,
-          fill the form below with your mylesVTU email and amount sent then click on Fund Me.
+        Transfer to <Text color="blue">8748589112 - Sterling Bank.</Text> Once debited,fill the form below with your mylesVTU email and amount sent then click on Fund Me.
         </Text>
 
         <Text color="red.300" mt={4} mb={6}>
