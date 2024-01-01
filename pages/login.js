@@ -129,28 +129,34 @@ router.push("/reset")
   
   return (
     <>
-      <Head>
-      <title>mylesVTU-- Login to buy cheap Data,Hire Web Developer and graphics designer </title>
-      <meta name="title" content="mylesVTU-- Login to buy cheap Data,Hire Web Developer and graphics designer " />
-      <meta name="description" content="Unlock unbeatable savings on data and airtime! Login now for exclusive discounts and access to skilled web developers and graphics designers at affordable rates. Your gateway to seamless connectivity and professional services awaits." />
-
       
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://metatags.io/" />
-      <meta property="og:title" content="mylesVTU-- Login to buy cheap Data,Hire Web Developer and graphics designer " />
-      <meta property="og:description" content="Unlock unbeatable savings on data and airtime! Login now for exclusive discounts and access to skilled web developers and graphics designers at affordable rates. Your gateway to seamless connectivity and professional services awaits." />
-      <meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
+    <Head>
+  <meta charSet="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - MylesVTU</title>
+  <meta name="description" content="Log in to your MylesVTU account. Access a wide range of services including cheap data, airtime top-up, fund wallet, and more. Your gateway to convenient and affordable digital services." />
+  <meta name="keywords" content="login, MylesVTU login, cheap data, airtime top-up, fund wallet, digital services" />
+  <meta name="author" content="MylesVTU" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="language" content="English" />
+  <meta name="revisit-after" content="7 days" />
+  <meta name="generator" content="Your CMS or Development Platform" />
 
-      
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content="https://metatags.io/" />
-      <meta property="twitter:title" content="mylesVTU-- Login to buy cheap Data,Hire Web Developer and graphics designer " />
-      <meta property="twitter:description" content="Unlock unbeatable savings on data and airtime! Login now for exclusive discounts and access to skilled web developers and graphics designers at affordable rates. Your gateway to seamless connectivity and professional services awaits." />
-      <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
+  {/* Open Graph meta tags for social sharing */}
+  <meta property="og:title" content="Login - MylesVTU" />
+  <meta property="og:description" content="Log in to your MylesVTU account. Access a wide range of services including cheap data, airtime top-up, fund wallet, and more. Your gateway to convenient and affordable digital services." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mylesvtu.com.ng/login" />
+  <meta property="og:image" content="https://lh3.googleusercontent.com/p/AF1QipMgmurRxYZYbIeskHtFTD_iZ3GCEbxa8nHmEygE=s1348-w720-h1348" />
 
-      </Head>
-      
-    
+  {/* Twitter Card meta tags for Twitter sharing */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Login - MylesVTU" />
+  <meta name="twitter:description" content="Log in to your MylesVTU account. Access a wide range of services including cheap data, airtime top-up, fund wallet, and more. Your gateway to convenient and affordable digital services." />
+  <meta name="twitter:image" content="https://lh3.googleusercontent.com/p/AF1QipMgmurRxYZYbIeskHtFTD_iZ3GCEbxa8nHmEygE=s1348-w720-h1348" />
+</Head>
+
       <ChakraProvider>
         <Center h="100vh">
           <Box
