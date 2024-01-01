@@ -125,29 +125,32 @@ export default function Register() {
 
   return (
      <>
-       <Head>
-         
-         <title>mylesVTU — buy cheap data,airtime and hire skilled web developer and Graphics designer </title>
-           
-         <meta name="title" content="mylesVTU — buy cheap data,airtime and hire skilled web developer and Graphics designer " />
-         <meta name="description" content="Join now to experience a world of affordability and convenience! Register for exclusive access to discounted data, airtime, and expert web development and graphic design services. Elevate your online presence with us." />
+     <Head>
+  <meta charSet="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register - MylesVTU</title>
+  <meta name="description" content="Create a new account on MylesVTU. Sign up for access to affordable digital services including cheap data, airtime top-up, fund wallet, and more." />
+  <meta name="keywords" content="register, sign up, MylesVTU registration, cheap data, airtime top-up, fund wallet, digital services" />
+  <meta name="author" content="MylesVTU" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="language" content="English" />
+  <meta name="revisit-after" content="7 days" />
+  <meta name="generator" content="Your CMS or Development Platform" />
 
-        
-         <meta property="og:type" content="website" />
-         <meta property="og:url" content="https://metatags.io/" />
-         <meta property="og:title" content="mylesVTU — buy cheap data,airtime and hire skilled web developer and Graphics designer " />
-         <meta property="og:description" content="Join now to experience a world of affordability and convenience! Register for exclusive access to discounted data, airtime, and expert web development and graphic design services. Elevate your online presence with us." />
-         <meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
+  {/* Open Graph meta tags for social sharing */}
+  <meta property="og:title" content="Register - MylesVTU" />
+  <meta property="og:description" content="Create a new account on MylesVTU. Sign up for access to affordable digital services including cheap data, airtime top-up, fund wallet, and more." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mylesvtu.com.ng/register" />
+  <meta property="og:image" content="https://lh3.googleusercontent.com/p/AF1QipMgmurRxYZYbIeskHtFTD_iZ3GCEbxa8nHmEygE=s1348-w720-h1348" />
 
-         
-         <meta property="twitter:card" content="summary_large_image" />
-         <meta property="twitter:url" content="https://metatags.io/" />
-         <meta property="twitter:title" content="mylesVTU — buy cheap data,airtime and hire skilled web developer and Graphics designer " />
-         <meta property="twitter:description" content="Join now to experience a world of affordability and convenience! Register for exclusive access to discounted data, airtime, and expert web development and graphic design services. Elevate your online presence with us." />
-         <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
-
-         
-         </Head>
+  {/* Twitter Card meta tags for Twitter sharing */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Register - MylesVTU" />
+  <meta name="twitter:description" content="Create a new account on MylesVTU. Sign up for access to affordable digital services including cheap data, airtime top-up, fund wallet, and more." />
+  <meta name="twitter:image" content="https://lh3.googleusercontent.com/p/AF1QipMgmurRxYZYbIeskHtFTD_iZ3GCEbxa8nHmEygE=s1348-w720-h1348" />
+</Head>
          
       <ChakraProvider>
       <ToastContainer />
