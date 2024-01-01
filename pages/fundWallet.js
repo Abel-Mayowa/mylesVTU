@@ -347,14 +347,16 @@ setFundData((prev) => ({...prev,['amount']:e.target.value}))
         p={6}
         bg="white"
         borderRadius="lg"
+        boxShadow="sm"
         color="black"
         textAlign="center"
       >
         <Text fontSize="sm" fontWeight="bold" mb={4}>
-          Transfer to <Text color="blue">8748589112 - Sterling Bank.</Text> After you are debited,fill the form below with your mylesVTU email and the amount you sent and then click on Fund Me.
+          Send the amount you want to deposit to <Text color="blue">8748589112 - Sterling Bank.</Text> Once debited,
+          fill the form below with your mylesVTU email and amount sent then click on Fund Me.
         </Text>
 
-        <Text color="red.300" mt={1} mb={4}>
+        <Text color="red.300" mt={4} mb={6}>
           Note!!! Your account would be suspended if you make a false transfer notice.
         </Text>
 
