@@ -105,7 +105,7 @@ setSwitching(true);
         borderWidth=",0px"
   borderColor="#657ce0"
         borderRadius="md"
-        boxShadow="sm"
+        boxShadow="lg"
         textAlign="center"
         
       >
