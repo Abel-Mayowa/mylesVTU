@@ -34,7 +34,7 @@ const setSwitching = props.setSwitching;
   };
 
   const goHome = () => {
-  // setSwitching(true)
+   setSwitching(true);
     highlights(1);
     router.push('/dashboard');
    // setPage("dashboard");
@@ -42,7 +42,7 @@ const setSwitching = props.setSwitching;
   };
 
   const fund = () => {
-//setSwitching(true)
+setSwitching(true);
 
     highlights(2);
     router.push('/fundWallet');
@@ -52,7 +52,7 @@ const setSwitching = props.setSwitching;
 
   const login = () => {
 
-    setSwitching(true)
+    setSwitching(true);
 
     //highlights(2);
     router.push('/login');
@@ -62,14 +62,16 @@ const setSwitching = props.setSwitching;
 
   const openProfile = () => {
 
-   setSwitching(true)
-    highlights(3);
+   setSwitching(true);
+   // highlights(3);
     router.push('/profile');
     //setPage("profile");
   };
 
     const logout = () => {
+      
 setSwitching(true);
+      
       $.ajax({
         url:        'https://mylesvtu.com.ng/app/store/logout',
         
