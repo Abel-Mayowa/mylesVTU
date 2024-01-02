@@ -34,7 +34,7 @@ const setSwitching = props.setSwitching;
   };
 
   const goHome = () => {
- //  setSwitching(true)
+ // setSwitching(true)
     highlights(1);
     router.push('/dashboard');
    // setPage("dashboard");
@@ -62,7 +62,7 @@ setSwitching(true)
 
   const openProfile = () => {
 
-   //setSwitching(true)
+   setSwitching(true)
    // highlights(3);
     router.push('/profile');
     //setPage("profile");
@@ -70,7 +70,7 @@ setSwitching(true)
 
     const logout = () => {
       
-//setSwitching(true)
+setSwitching(true)
       
       $.ajax({
         url:        'https://mylesvtu.com.ng/app/store/logout',
