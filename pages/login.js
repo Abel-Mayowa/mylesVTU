@@ -99,7 +99,7 @@ export default function Login() {
       success: function (r) {
         if (r.status === 1) {
           setLogged(true);
-          const { profile, dataBundle } = r.data;
+         // const { profile, dataBundle } = r.data;
 
           const profile = r.data.profile;
           const dataBundle = r.data.dataBundle;
