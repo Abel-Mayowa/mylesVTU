@@ -214,6 +214,7 @@ const Airtime = () => {
             color="white"
             isLoading={btnLoading}
             onClick={buyAirtime}
+              opacity={1}
           >
             Buy
           </Button>
