@@ -119,7 +119,7 @@ if(!logged){
   if (!logged) {
     return (
       <Center>
-      <Box boxShadow="lg" borderRadius="sm">
+      <Box h="100vh" boxShadow="lg" borderRadius="sm">
       <Spinner  size="lg" color="#657ce0" />
       </Box>
       </Center>
