@@ -119,9 +119,11 @@ if(!logged){
   if (!logged) {
     return (
       <Center>
-      <Box h="100vh" boxShadow="lg" borderRadius="sm">
+      <div height="100vh">
+      <Box boxShadow="lg" borderRadius="sm">
       <Spinner  size="lg" color="#657ce0" />
       </Box>
+      </div>
       </Center>
       );
   }
