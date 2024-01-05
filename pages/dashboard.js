@@ -93,7 +93,8 @@ if(!logged){
   };
 
         const refreshData = ()=>{
- 
+
+       const url =  "https://mylesvtu.com.ng/app/store/welcome/";
     $.ajax({
       url: url,
       type: 'get',
