@@ -12,7 +12,7 @@ export default function Transition() {
   height="80"
   width="80"
   radius="48"
-  color="#4fa94d"
+  color="#657ce0"
   ariaLabel="watch-loading"
   wrapperStyle={{}}
   wrapperClass=""
