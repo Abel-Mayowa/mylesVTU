@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { ChakraProvider, Box, Flex, Heading, Input, Select, Button ,Spinner} from '@chakra-ui/react';
+import { ChakraProvider, Box, Flex, Heading, Input, Select, Button ,Spinner,Center} from '@chakra-ui/react';
 import { FaArrowLeft } from 'react-icons/fa';
 import { useRouter } from 'next/router';
 import NavbarBottom from "../components/navbarBottom";
@@ -219,6 +219,14 @@ const Airtime = () => {
           >
             Buy
           </Button>
+              
+              <Center>
+              <Spinner
+
+              bgColor="#657ce0"
+                size="md"
+              />
+  </Center>
         </Box>
       </ChakraProvider>
       <NavbarBottom />
