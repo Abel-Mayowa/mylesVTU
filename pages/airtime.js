@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { ChakraProvider, Box, Flex, Heading, Input, Select, Button } from '@chakra-ui/react';
+import { ChakraProvider, Box, Flex, Heading, Input, Select, Button ,Spinner} from '@chakra-ui/react';
 import { FaArrowLeft } from 'react-icons/fa';
 import { useRouter } from 'next/router';
 import NavbarBottom from "../components/navbarBottom";
@@ -215,7 +215,7 @@ const Airtime = () => {
             isLoading={btnLoading}
             onClick={buyAirtime}
               opacity={1}
-            isDisabled={btnLoading ? true : false}
+            display={`${btnLoading ? "none": "block"}`}
           >
             Buy
           </Button>
