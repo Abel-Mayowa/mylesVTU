@@ -221,11 +221,15 @@ const Airtime = () => {
           </Button>
               
               <Center>
+              <Box>
               <Spinner
 
               bgColor="#657ce0"
                 size="md"
+                  color="white"
+                    display={`${btnLoading ? "block" : "none"}`}
               />
+                        </Box>
   </Center>
         </Box>
       </ChakraProvider>
