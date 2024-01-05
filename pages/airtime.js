@@ -215,7 +215,7 @@ const Airtime = () => {
             isLoading={btnLoading}
             onClick={buyAirtime}
               opacity={1}
-                display={`${btnLoading ? "none" : "block"}`}
+            disabled={`${btnLoading ? true : false}`}
           >
             Buy
           </Button>
