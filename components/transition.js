@@ -1,4 +1,4 @@
-import { InfinitySpin } from "react-loader-spinner";
+import { HourGlass } from "react-loader-spinner";
 import Header from "../components/header";
 import NavbarBottom from "../components/navbarBottom";
 
@@ -7,10 +7,14 @@ export default function Transition() {
     <>
       <Header />
       <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }} className="">
-        <InfinitySpin
-          width='200'
-          color="#657ce0"
-        />
+      <HourGlass 
+  visible={true}
+  height="80"
+  width="80"
+  ariaLabel="hourglass-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+  colors={['#306cce', '#72a1ed'] />
       </div>
       <NavbarBottom />
     </>
