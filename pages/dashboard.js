@@ -92,10 +92,38 @@ if(!logged){
     });
   };
 
+        const refreshData = ()=>{
+ 
+    $.ajax({
+      url: url,
+      type: 'get',
+      dataType: 'json',
+      //crossDomain: true,
+      success: function (r, status, xhr) {
+  
+          setLogged(r.data.isLogged);
+          const profile = r.data.profile;
+          const dataBundle = r.data.dataBundle;
+          setData({ profile: profile, dataBundle: dataBundle
+                  });
+      },
+      error: function () {
+        //showAlert("Server is down", "warning");
+      },
+    });//ajax end
+
+        }
+
+  setInterval(refreshData,180000);
+  
   if (!logged) {
     return (
-      <Transition />
-    );
+      <Center>
+      <Box boxShadow="lg" borderRadius="sm">
+      <Spinner  size="lg" color="#657ce0" />
+      </Box>
+      </Center>
+      );
   }
 
   return (
