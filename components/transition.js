@@ -1,4 +1,4 @@
-import { HourGlass } from "react-loader-spinner";
+import { Watch } from "react-loader-spinner";
 import Header from "../components/header";
 import NavbarBottom from "../components/navbarBottom";
 
@@ -7,14 +7,16 @@ export default function Transition() {
     <>
       <Header />
       <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }} className="">
-      <HourGlass 
+      <Watch
   visible={true}
   height="80"
   width="80"
-  ariaLabel="hourglass-loading"
+  radius="48"
+  color="#4fa94d"
+  ariaLabel="watch-loading"
   wrapperStyle={{}}
   wrapperClass=""
-  colors={['#306cce', '#72a1ed']} />
+  />
       </div>
       <NavbarBottom />
     </>
