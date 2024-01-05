@@ -120,13 +120,7 @@ if(!logged){
   if (!logged) {
     return (
       
-      <div height="100vh">
-      <Center>
-      <Box boxShadow="lg" borderRadius="sm">
-      <Spinner  size="lg" bgColor="#657ce0" />
-      </Box>
-      <Center/>
-      </div>
+      <Transition/>
   
       );
   }
