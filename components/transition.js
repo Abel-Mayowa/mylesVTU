@@ -14,7 +14,7 @@ export default function Transition() {
   ariaLabel="hourglass-loading"
   wrapperStyle={{}}
   wrapperClass=""
-  colors={['#306cce', '#72a1ed'] />
+  colors={['#306cce', '#72a1ed']} />
       </div>
       <NavbarBottom />
     </>
