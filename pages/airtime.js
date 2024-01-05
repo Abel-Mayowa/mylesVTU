@@ -210,7 +210,7 @@ const Airtime = () => {
           <Button
             w="300px"
             size="md"
-            backgroundColor="#657ce0"
+            bgColor="#657ce0"
             color="white"
             isLoading={btnLoading}
             onClick={buyAirtime}
