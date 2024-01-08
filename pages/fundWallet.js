@@ -261,7 +261,7 @@ setFundData((prev) => ({...prev,['amount']:e.target.value}))
       <ChakraProvider>
 
 
-          {/* <Flex justify="center" align="center" mb={5} flexDirection="column">
+           <Flex justify="center" align="center" mb={5} flexDirection="column">
           <Flex justify="center" align="center" flexDirection="column" mt={4}>
             <Box
               bg="white"
@@ -339,8 +339,10 @@ setFundData((prev) => ({...prev,['amount']:e.target.value}))
               </Button>
             </Center>
           </Flex>
-        </Flex>    */
-          } 
+        </Flex>    
+          
+  {/*
+
       <Box
         maxW="lg"
         mx="auto"
@@ -374,7 +376,7 @@ setFundData((prev) => ({...prev,['amount']:e.target.value}))
             Fund Me
           </Button>
         </VStack>
-      </Box>
+      </Box>*/}
     
     
       </ChakraProvider>
