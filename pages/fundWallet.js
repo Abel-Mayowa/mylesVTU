@@ -41,7 +41,9 @@ export default function Fund() {
   const [input, setInput] = useState({ fund: "fund" });
   const router = useRouter();
   const [fundData,setFundData] = useState({});
+ const [isPicked,setIsPicked] = useState(false);
   const handleKeypadClick = (value) => {
+  
     if (value === 'x') {
       setAmount('');
     } else {
@@ -49,7 +51,10 @@ export default function Fund() {
     }
   };
 
-  
+  const hover = (e) => {
+
+
+  }
 
   const fund = () => {
     setBtnLoading(true);
@@ -292,7 +297,7 @@ setFundData((prev) => ({...prev,['amount']:e.target.value}))
               />
             </Box>
 
-            <Divider mt={2} my={4} />
+            
 
             <Grid templateColumns="repeat(3, 1fr)" gap={2} width={isMobile ? ',70vw' : '400px'}>
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((number) => (
@@ -300,7 +305,10 @@ setFundData((prev) => ({...prev,['amount']:e.target.value}))
                   <Button
                     size="md"
                     w="100%"
-                    colorScheme="#657ce0"
+                    onMouseOver={() => setIsPicked(true)}
+                    onMouseOut={() => setIsPicked(false)}
+                    bgColor={`${isPicked} ? "#657ce0" : "white" `}
+                    colorScheme="white"
                     variant="outline"
                     onClick={() => handleKeypadClick(number.toString())}
                   >
