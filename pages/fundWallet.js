@@ -294,13 +294,13 @@ setFundData((prev) => ({...prev,['amount']:e.target.value}))
 
             <Divider mt={2} my={4} />
 
-            <Grid templateColumns="repeat(3, 1fr)" gap={2} width={isMobile ? ',60vw' : '400px'}>
+            <Grid templateColumns="repeat(3, 1fr)" gap={2} width={isMobile ? ',70vw' : '400px'}>
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((number) => (
                 <GridItem key={number}>
                   <Button
                     size="md"
                     w="100%"
-                    colorScheme="white"
+                    colorScheme="#657ce0"
                     variant="outline"
                     onClick={() => handleKeypadClick(number.toString())}
                   >
@@ -310,7 +310,7 @@ setFundData((prev) => ({...prev,['amount']:e.target.value}))
               ))}
               <GridItem colSpan={2}>
                 <Button
-                  size="lg"
+                  size="md"
                   w="100%"
                   colorScheme="white"
                   variant="outline"
