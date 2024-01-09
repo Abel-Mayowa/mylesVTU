@@ -298,7 +298,7 @@ setFundData((prev) => ({...prev,['amount']:e.target.value}))
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((number) => (
                 <GridItem key={number}>
                   <Button
-                    size="lg"
+                    size="md"
                     w="100%"
                     colorScheme="white"
                     variant="outline"
