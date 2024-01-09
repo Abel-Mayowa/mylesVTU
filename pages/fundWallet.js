@@ -297,7 +297,7 @@ setFundData((prev) => ({...prev,['amount']:e.target.value}))
               />
             </Box>
 
-            
+            <Divider backgroundColor="#657ce0" />
 
             <Grid templateColumns="repeat(3, 1fr)" gap={2} width={isMobile ? ',70vw' : '400px'}>
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((number) => (
@@ -307,7 +307,7 @@ setFundData((prev) => ({...prev,['amount']:e.target.value}))
                     w="100%"
                     onMouseOver={() => setIsPicked(true)}
                     onMouseOut={() => setIsPicked(false)}
-                    bgColor={`${isPicked} ? "#657ce0" : "white" `}
+                    bgColor={isPicked ? "#657ce0" : "white"}
                     colorScheme="white"
                     variant="outline"
                     onClick={() => handleKeypadClick(number.toString())}
