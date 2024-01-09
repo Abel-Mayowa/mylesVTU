@@ -51,10 +51,7 @@ export default function Fund() {
     }
   };
 
-  const hover = (e) => {
-
-
-  }
+  
 
   const fund = () => {
     setBtnLoading(true);
@@ -305,9 +302,7 @@ setFundData((prev) => ({...prev,['amount']:e.target.value}))
                   <Button
                     size="md"
                     w="100%"
-                    onMouseOver={() => setIsPicked(true)}
-                    onMouseOut={() => setIsPicked(false)}
-                    bgColor={isPicked ? "#657ce0" : "white"}
+                    
                     colorScheme="white"
                     variant="outline"
                     onClick={() => handleKeypadClick(number.toString())}
