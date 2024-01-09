@@ -294,7 +294,7 @@ setFundData((prev) => ({...prev,['amount']:e.target.value}))
               />
             </Box>
 
-            <Divider backgroundColor="#657ce0" />
+            <Divider backgroundColor="#657ce0" m={3} />
 
             <Grid templateColumns="repeat(3, 1fr)" gap={2} width={isMobile ? ',70vw' : '400px'}>
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((number) => (
